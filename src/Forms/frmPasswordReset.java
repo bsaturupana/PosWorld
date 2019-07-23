@@ -92,7 +92,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         txtSecurityQuestion1.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtSecurityQuestion1.setText("vbdgnfhmg,jh,mhvmhg");
         txtSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityQuestion1ActionPerformed(evt);
@@ -129,7 +128,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         txtSecurityQuestion2.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtSecurityQuestion2.setText("bfdbdfbdgbd");
         txtSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityQuestion2ActionPerformed(evt);
