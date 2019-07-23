@@ -1,0 +1,8 @@
+Project Name	: POS World
+Purpes		: AIMS Collage (Aldergate Univercity) Java II Final Project
+Project Type	: Group
+Members		: Sheshan Athurupana
+	 	  Sajeewana Deshapriya
+	 	  Chathurika Perera
+	 	  Buddika Kumari Marasinghe
+	 	  Sandamali Marasinghe
