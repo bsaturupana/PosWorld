@@ -1,5 +1,6 @@
 package Forms;
 
+import java.awt.Toolkit;
 import java.text.DecimalFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -99,6 +100,11 @@ public class frmAccount extends javax.swing.JFrame {
         txtOpeningBalance.setBackground(new java.awt.Color(255, 255, 150));
         txtOpeningBalance.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtOpeningBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtOpeningBalance.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtOpeningBalanceKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtOpeningBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 240, 30));
 
         lblCategory.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -115,6 +121,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtAccountCode.setBackground(new java.awt.Color(255, 255, 150));
         txtAccountCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAccountCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAccountCodeKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtAccountCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 250, 30));
 
         lblSign.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -176,6 +187,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtAccountName.setBackground(new java.awt.Color(255, 255, 150));
         txtAccountName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAccountName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAccountNameKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtAccountName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 240, 30));
 
         tabbedAccounts.addTab("GENERAL", jPanel4);
@@ -189,6 +205,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtContact.setBackground(new java.awt.Color(255, 255, 150));
         txtContact.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactKeyTyped(evt);
+            }
+        });
         panel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 240, 30));
 
         lblEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -206,6 +227,11 @@ public class frmAccount extends javax.swing.JFrame {
                 txtVATNoActionPerformed(evt);
             }
         });
+        txtVATNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVATNoKeyTyped(evt);
+            }
+        });
         panel1.add(txtVATNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 240, 30));
 
         lblAddress.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -214,6 +240,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtAddress.setBackground(new java.awt.Color(255, 255, 150));
         txtAddress.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
         panel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 650, 30));
 
         lblAccountType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -222,6 +253,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtPhoneNo1.setBackground(new java.awt.Color(255, 255, 150));
         txtPhoneNo1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPhoneNo1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneNo1KeyTyped(evt);
+            }
+        });
         panel1.add(txtPhoneNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 250, 30));
 
         lblBranch.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -239,10 +275,21 @@ public class frmAccount extends javax.swing.JFrame {
                 txtRemarksActionPerformed(evt);
             }
         });
+        txtRemarks.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRemarksKeyTyped(evt);
+            }
+        });
         panel1.add(txtRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 250, 30));
 
         comboAccountType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Account Type -", "Current Account", "Savings Account" }));
         panel1.add(comboAccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 250, 30));
+
+        txtAccNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAccNoKeyTyped(evt);
+            }
+        });
         panel1.add(txtAccNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 240, 30));
 
         lblContact.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -263,10 +310,20 @@ public class frmAccount extends javax.swing.JFrame {
 
         txtPhoneNo2.setBackground(new java.awt.Color(255, 255, 150));
         txtPhoneNo2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPhoneNo2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneNo2KeyTyped(evt);
+            }
+        });
         panel1.add(txtPhoneNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 250, 30));
 
         txtEmail.setBackground(new java.awt.Color(255, 255, 150));
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailKeyTyped(evt);
+            }
+        });
         panel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 240, 30));
 
         comboBank.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Bank -", "Sampath Bank", "Commercial Bank", "Nation Trust Bank", "NDB Bank", "Hatton National Bank", "Bank Of Ceylon", "Peoples Bank", "NSB Bank", "Union Bank", "Seylan Bank", "HSBC Bank", "PABC Bank", "Standerd Charted Bank", "RDB Bank", "CDB Bank", "DFCC Bank", "Lanka Puthra Bank" }));
@@ -286,6 +343,11 @@ public class frmAccount extends javax.swing.JFrame {
         scroll_Remarks_Cash.setBackground(new java.awt.Color(255, 255, 150));
 
         txtRemarks_Cash.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarks_Cash.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRemarks_CashKeyTyped(evt);
+            }
+        });
         scroll_Remarks_Cash.setViewportView(txtRemarks_Cash);
 
         panel1.add(scroll_Remarks_Cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 650, 210));
@@ -293,6 +355,11 @@ public class frmAccount extends javax.swing.JFrame {
         scroll_Remarks_Bank.setBackground(new java.awt.Color(255, 255, 150));
 
         txtRemarks_Bank.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarks_Bank.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRemarks_BankKeyTyped(evt);
+            }
+        });
         scroll_Remarks_Bank.setViewportView(txtRemarks_Bank);
 
         panel1.add(scroll_Remarks_Bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 650, 90));
@@ -409,6 +476,97 @@ public class frmAccount extends javax.swing.JFrame {
     private void rbChildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbChildActionPerformed
         rb_Child_Visibility();
     }//GEN-LAST:event_rbChildActionPerformed
+
+    private void txtAccountCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAccountCodeKeyTyped
+        if (txtAccountCode.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAccountCodeKeyTyped
+
+    private void txtAccountNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAccountNameKeyTyped
+        if (txtAccountName.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAccountNameKeyTyped
+
+    private void txtOpeningBalanceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOpeningBalanceKeyTyped
+        if (txtOpeningBalance.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtOpeningBalanceKeyTyped
+
+    private void txtAccNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAccNoKeyTyped
+        if (txtAccNo.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAccNoKeyTyped
+
+    private void txtContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyTyped
+        if (txtContact.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtContactKeyTyped
+
+    private void txtPhoneNo1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNo1KeyTyped
+        if (txtPhoneNo1.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPhoneNo1KeyTyped
+
+    private void txtPhoneNo2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNo2KeyTyped
+        if (txtPhoneNo2.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPhoneNo2KeyTyped
+
+    private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
+        if (txtEmail.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtEmailKeyTyped
+
+    private void txtVATNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVATNoKeyTyped
+        if (txtVATNo.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtVATNoKeyTyped
+
+    private void txtRemarksKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarksKeyTyped
+        if (txtRemarks.getText().length() >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtRemarksKeyTyped
+
+    private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
+        if (txtAddress.getText().length() >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAddressKeyTyped
+
+    private void txtRemarks_BankKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarks_BankKeyTyped
+        if (txtRemarks_Bank.getText().length() >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtRemarks_BankKeyTyped
+
+    private void txtRemarks_CashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarks_CashKeyTyped
+        if (txtRemarks_Cash.getText().length() >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtRemarks_CashKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

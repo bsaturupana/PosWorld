@@ -57,9 +57,14 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         lblConfirmPassword.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblConfirmPassword.setText("CONFIRM PASSWORD");
-        panelBodyArea.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
+        panelBodyArea.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         txtNewPassword.setBackground(new java.awt.Color(255, 255, 150));
+        txtNewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNewPasswordActionPerformed(evt);
+            }
+        });
         txtNewPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewPasswordKeyReleased(evt);
@@ -68,7 +73,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtNewPasswordKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 240, 30));
+        panelBodyArea.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 270, 30));
 
         txtConfirmPassword.setBackground(new java.awt.Color(255, 255, 150));
         txtConfirmPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -79,7 +84,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtConfirmPasswordKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 240, 30));
+        panelBodyArea.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 270, 30));
 
         lblSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblSecurityQuestion1.setText("SECURITY QUESTION 1");
@@ -87,6 +92,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         txtSecurityQuestion1.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSecurityQuestion1.setText("vbdgnfhmg,jh,mhvmhg");
         txtSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityQuestion1ActionPerformed(evt);
@@ -97,11 +103,11 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityQuestion1KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 240, 30));
+        panelBodyArea.add(txtSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 270, 30));
 
         lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblSecurityAnswer2.setText("SECURITY ANSWER 1");
-        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         txtSecurityAnswer1.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -115,7 +121,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityAnswer1KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 240, 30));
+        panelBodyArea.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 270, 30));
 
         lblSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblSecurityQuestion2.setText("SECURITY QUESTION 2");
@@ -123,6 +129,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         txtSecurityQuestion2.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSecurityQuestion2.setText("bfdbdfbdgbd");
         txtSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityQuestion2ActionPerformed(evt);
@@ -133,11 +140,11 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityQuestion2KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 240, 30));
+        panelBodyArea.add(txtSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 270, 30));
 
         lblSecurityAnswer3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblSecurityAnswer3.setText("SECURITY ANSWER 2");
-        panelBodyArea.add(lblSecurityAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+        panelBodyArea.add(lblSecurityAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         txtSecurityAnswer2.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -151,7 +158,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityAnswer2KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 240, 30));
+        panelBodyArea.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 270, 30));
 
         lblEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblEmail.setText("E-MAIL");
@@ -169,11 +176,11 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtEmailKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 240, 30));
+        panelBodyArea.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 270, 30));
 
         lblPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblPhoneNumber.setText("PHONE NUMBER");
-        panelBodyArea.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
+        panelBodyArea.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         txtPhoneNumber.setBackground(new java.awt.Color(255, 255, 150));
         txtPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -187,7 +194,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtPhoneNumberKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 240, 30));
+        panelBodyArea.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 270, 30));
 
         btnSave1.setBackground(new java.awt.Color(155, 194, 230));
         btnSave1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -252,7 +259,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelBodyArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBodyArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,7 +308,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
     private void txtConfirmPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyTyped
 //        int len = txtNewPassword.getText().length();
 
-       if (txtConfirmPassword.getText().length() >= maxPwdLength) {
+        if (txtConfirmPassword.getText().length() >= maxPwdLength) {
             lblMsgAreaPwdMaxLength.setVisible(true);
             lblMsgAreaPwdMaxLength.setForeground(Color.RED);
             lblMsgAreaPwdMaxLength.setText("Password Max Length " + maxPwdLength + " Characters Is Reached.");
@@ -328,7 +335,10 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSecurityAnswer1ActionPerformed
 
     private void txtSecurityAnswer1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1KeyTyped
-        // TODO add your handling code here:
+        if (txtSecurityAnswer1.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtSecurityAnswer1KeyTyped
 
     private void txtSecurityQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityQuestion2ActionPerformed
@@ -344,7 +354,10 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSecurityAnswer2ActionPerformed
 
     private void txtSecurityAnswer2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2KeyTyped
-        // TODO add your handling code here:
+        if (txtSecurityAnswer2.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtSecurityAnswer2KeyTyped
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -352,7 +365,10 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
-        // TODO add your handling code here:
+        if (txtEmail.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtEmailKeyTyped
 
     private void txtPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumberActionPerformed
@@ -360,7 +376,10 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPhoneNumberActionPerformed
 
     private void txtPhoneNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNumberKeyTyped
-        // TODO add your handling code here:
+        if (txtPhoneNumber.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtPhoneNumberKeyTyped
 
     private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
@@ -394,6 +413,10 @@ public class frmPasswordReset extends javax.swing.JFrame {
 
         ViewMessage(len);
     }//GEN-LAST:event_txtConfirmPasswordKeyReleased
+
+    private void txtNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNewPasswordActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -494,8 +517,9 @@ public class frmPasswordReset extends javax.swing.JFrame {
         lblMsgAreaPwdStrength.setVisible(false);
         lblMsgAreaPwdStrength.setForeground(Color.BLACK);
         lblMsgAreaPwdStrength.setText("");
-        
-        
+
+        txtSecurityQuestion1.setEditable(false);
+        txtSecurityQuestion2.setEditable(false);
 
         this.setLocationRelativeTo(null);
     }
