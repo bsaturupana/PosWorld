@@ -48,20 +48,30 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuSetup_Accounts">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Accounts"/>
+                <Property name="text" type="java.lang.String" value="Accounts Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSetup_AccountsActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="mnuSetup_Separator">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="mnuSetup_Separator_1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuSetup_Product">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Product"/>
+                <Property name="text" type="java.lang.String" value="Product Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSetup_ProductActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="mnuSetup_Separator_2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuSetup_UserManager">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="User Manager"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSetup_UserManagerActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -73,7 +83,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Purchase_Order">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Purchase Order"/>
+                <Property name="text" type="java.lang.String" value="Purchase Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Purchase_OrderActionPerformed"/>
@@ -81,7 +91,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Purchase_Return">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Purchase Return"/>
+                <Property name="text" type="java.lang.String" value="Purchase Return Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Purchase_ReturnActionPerformed"/>
@@ -89,17 +99,17 @@
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="mnuTransaction_Separator_1">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Goods_Received_Note">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Goods_Issue_Note">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Goods Received Note"/>
+                <Property name="text" type="java.lang.String" value="Goods Issue Master"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Goods_Received_NoteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Goods_Issue_NoteActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Goods_Return_Note">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Goods Return Note"/>
+                <Property name="text" type="java.lang.String" value="Goods Return Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Goods_Return_NoteActionPerformed"/>
@@ -109,7 +119,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Sales_Invoice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sales Invoice"/>
+                <Property name="text" type="java.lang.String" value="Sales Invoice Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Sales_InvoiceActionPerformed"/>
@@ -117,7 +127,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTransaction_Sales_Return">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sales Return"/>
+                <Property name="text" type="java.lang.String" value="Sales Return Master"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTransaction_Sales_ReturnActionPerformed"/>

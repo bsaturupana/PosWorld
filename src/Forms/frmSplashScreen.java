@@ -17,14 +17,17 @@ public class frmSplashScreen extends javax.swing.JFrame {
         lblPercentage = new javax.swing.JLabel();
         pbProgressBar = new javax.swing.JProgressBar();
         lblMsgWelcome = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblMsgWelcome1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 244, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblVersion.setFont(new java.awt.Font("Rockwell", 3, 14)); // NOI18N
+        lblVersion.setForeground(new java.awt.Color(255, 255, 255));
         lblVersion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblVersion.setText("Version: 1.0");
         lblVersion.setVerifyInputWhenFocusTarget(false);
@@ -34,16 +37,27 @@ public class frmSplashScreen extends javax.swing.JFrame {
         lblPercentage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPercentage.setText("0 %");
         lblPercentage.setVerifyInputWhenFocusTarget(false);
-        jPanel1.add(lblPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 680, 20));
+        jPanel1.add(lblPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 680, 20));
 
         pbProgressBar.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel1.add(pbProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 250, 390, 40));
+        jPanel1.add(pbProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 390, 40));
 
-        lblMsgWelcome.setFont(new java.awt.Font("Trebuchet MS", 0, 80)); // NOI18N
+        lblMsgWelcome.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        lblMsgWelcome.setForeground(new java.awt.Color(255, 255, 102));
         lblMsgWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMsgWelcome.setText("POS WORLD");
+        lblMsgWelcome.setText("POS WORLD GROUP OF COMPANY");
         lblMsgWelcome.setVerifyInputWhenFocusTarget(false);
-        jPanel1.add(lblMsgWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 680, 60));
+        jPanel1.add(lblMsgWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 680, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Point of sale system.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 340, 230));
+
+        lblMsgWelcome1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        lblMsgWelcome1.setForeground(new java.awt.Color(255, 255, 255));
+        lblMsgWelcome1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMsgWelcome1.setText("Point of Sale System");
+        lblMsgWelcome1.setVerifyInputWhenFocusTarget(false);
+        jPanel1.add(lblMsgWelcome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,16 +107,19 @@ public class frmSplashScreen extends javax.swing.JFrame {
 
         frmMainForm n = new frmMainForm();
 
+        frmLogin l = new frmLogin();
+
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(40);
+                Thread.sleep(10);
+//                Thread.sleep(40);
                 sc.pbProgressBar.setValue(i);
 
                 if (i <= 35) {
                     sc.lblPercentage.setForeground(Color.RED);
-                } else if (i <= 70){
+                } else if (i <= 70) {
                     sc.lblPercentage.setForeground(Color.GREEN);
-                } else if (i <= 100){
+                } else if (i <= 100) {
                     sc.lblPercentage.setForeground(Color.YELLOW);
                 }
                 sc.lblPercentage.setText(Integer.toString(i) + "%");
@@ -112,12 +129,15 @@ public class frmSplashScreen extends javax.swing.JFrame {
 
         new frmSplashScreen().setVisible(false);
         n.setVisible(true);
+        l.setVisible(true);
         sc.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMsgWelcome;
+    private javax.swing.JLabel lblMsgWelcome1;
     private javax.swing.JLabel lblPercentage;
     private javax.swing.JLabel lblVersion;
     private javax.swing.JProgressBar pbProgressBar;

@@ -477,6 +477,8 @@ public class frmPasswordReset extends javax.swing.JFrame {
         txtSecurityAnswer2.setText("");
         txtEmail.setText("");
         txtPhoneNumber.setText("");
+        lblMsgAreaPwdMaxLength.setText("");
+        lblMsgAreaPwdStrength.setText("");
     }
 
     private void ViewMessage(int len) {

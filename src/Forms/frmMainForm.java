@@ -24,13 +24,15 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuEdit = new javax.swing.JMenu();
         mnuSetup = new javax.swing.JMenu();
         mnuSetup_Accounts = new javax.swing.JMenuItem();
-        mnuSetup_Separator = new javax.swing.JPopupMenu.Separator();
+        mnuSetup_Separator_1 = new javax.swing.JPopupMenu.Separator();
         mnuSetup_Product = new javax.swing.JMenuItem();
+        mnuSetup_Separator_2 = new javax.swing.JPopupMenu.Separator();
+        mnuSetup_UserManager = new javax.swing.JMenuItem();
         mnuTransaction = new javax.swing.JMenu();
         mnuTransaction_Purchase_Order = new javax.swing.JMenuItem();
         mnuTransaction_Purchase_Return = new javax.swing.JMenuItem();
         mnuTransaction_Separator_1 = new javax.swing.JPopupMenu.Separator();
-        mnuTransaction_Goods_Received_Note = new javax.swing.JMenuItem();
+        mnuTransaction_Goods_Issue_Note = new javax.swing.JMenuItem();
         mnuTransaction_Goods_Return_Note = new javax.swing.JMenuItem();
         mnuTransaction_Separator_2 = new javax.swing.JPopupMenu.Separator();
         mnuTransaction_Sales_Invoice = new javax.swing.JMenuItem();
@@ -75,28 +77,37 @@ public class frmMainForm extends javax.swing.JFrame {
 
         mnuSetup.setText("Setup");
 
-        mnuSetup_Accounts.setText("Accounts");
+        mnuSetup_Accounts.setText("Accounts Master");
         mnuSetup_Accounts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSetup_AccountsActionPerformed(evt);
             }
         });
         mnuSetup.add(mnuSetup_Accounts);
-        mnuSetup.add(mnuSetup_Separator);
+        mnuSetup.add(mnuSetup_Separator_1);
 
-        mnuSetup_Product.setText("Product");
+        mnuSetup_Product.setText("Product Master");
         mnuSetup_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSetup_ProductActionPerformed(evt);
             }
         });
         mnuSetup.add(mnuSetup_Product);
+        mnuSetup.add(mnuSetup_Separator_2);
+
+        mnuSetup_UserManager.setText("User Manager");
+        mnuSetup_UserManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSetup_UserManagerActionPerformed(evt);
+            }
+        });
+        mnuSetup.add(mnuSetup_UserManager);
 
         mnuMenuBar.add(mnuSetup);
 
         mnuTransaction.setText("Transaction");
 
-        mnuTransaction_Purchase_Order.setText("Purchase Order");
+        mnuTransaction_Purchase_Order.setText("Purchase Master");
         mnuTransaction_Purchase_Order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuTransaction_Purchase_OrderActionPerformed(evt);
@@ -104,7 +115,7 @@ public class frmMainForm extends javax.swing.JFrame {
         });
         mnuTransaction.add(mnuTransaction_Purchase_Order);
 
-        mnuTransaction_Purchase_Return.setText("Purchase Return");
+        mnuTransaction_Purchase_Return.setText("Purchase Return Master");
         mnuTransaction_Purchase_Return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuTransaction_Purchase_ReturnActionPerformed(evt);
@@ -113,15 +124,15 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuTransaction.add(mnuTransaction_Purchase_Return);
         mnuTransaction.add(mnuTransaction_Separator_1);
 
-        mnuTransaction_Goods_Received_Note.setText("Goods Received Note");
-        mnuTransaction_Goods_Received_Note.addActionListener(new java.awt.event.ActionListener() {
+        mnuTransaction_Goods_Issue_Note.setText("Goods Issue Master");
+        mnuTransaction_Goods_Issue_Note.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuTransaction_Goods_Received_NoteActionPerformed(evt);
+                mnuTransaction_Goods_Issue_NoteActionPerformed(evt);
             }
         });
-        mnuTransaction.add(mnuTransaction_Goods_Received_Note);
+        mnuTransaction.add(mnuTransaction_Goods_Issue_Note);
 
-        mnuTransaction_Goods_Return_Note.setText("Goods Return Note");
+        mnuTransaction_Goods_Return_Note.setText("Goods Return Master");
         mnuTransaction_Goods_Return_Note.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuTransaction_Goods_Return_NoteActionPerformed(evt);
@@ -130,7 +141,7 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuTransaction.add(mnuTransaction_Goods_Return_Note);
         mnuTransaction.add(mnuTransaction_Separator_2);
 
-        mnuTransaction_Sales_Invoice.setText("Sales Invoice");
+        mnuTransaction_Sales_Invoice.setText("Sales Invoice Master");
         mnuTransaction_Sales_Invoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuTransaction_Sales_InvoiceActionPerformed(evt);
@@ -138,7 +149,7 @@ public class frmMainForm extends javax.swing.JFrame {
         });
         mnuTransaction.add(mnuTransaction_Sales_Invoice);
 
-        mnuTransaction_Sales_Return.setText("Sales Return");
+        mnuTransaction_Sales_Return.setText("Sales Return Master");
         mnuTransaction_Sales_Return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuTransaction_Sales_ReturnActionPerformed(evt);
@@ -195,9 +206,9 @@ public class frmMainForm extends javax.swing.JFrame {
     private void mnuTransaction_Purchase_ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Purchase_ReturnActionPerformed
     }//GEN-LAST:event_mnuTransaction_Purchase_ReturnActionPerformed
 
-    private void mnuTransaction_Goods_Received_NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Goods_Received_NoteActionPerformed
-        new frmGoodsReceivedMaster().setVisible(true);
-    }//GEN-LAST:event_mnuTransaction_Goods_Received_NoteActionPerformed
+    private void mnuTransaction_Goods_Issue_NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Goods_Issue_NoteActionPerformed
+        new frmGoodsIssueMaster().setVisible(true);
+    }//GEN-LAST:event_mnuTransaction_Goods_Issue_NoteActionPerformed
 
     private void mnuTransaction_Goods_Return_NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Goods_Return_NoteActionPerformed
         new frmGoodsReturnMaster().setVisible(true);
@@ -206,6 +217,10 @@ public class frmMainForm extends javax.swing.JFrame {
     private void mnuTransaction_Sales_InvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Sales_InvoiceActionPerformed
         new frmSalesMaster().setVisible(true);
     }//GEN-LAST:event_mnuTransaction_Sales_InvoiceActionPerformed
+
+    private void mnuSetup_UserManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSetup_UserManagerActionPerformed
+        new frmUserMaster().setVisible(true);
+    }//GEN-LAST:event_mnuSetup_UserManagerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,9 +269,11 @@ public class frmMainForm extends javax.swing.JFrame {
     private javax.swing.JMenu mnuSetup;
     private javax.swing.JMenuItem mnuSetup_Accounts;
     private javax.swing.JMenuItem mnuSetup_Product;
-    private javax.swing.JPopupMenu.Separator mnuSetup_Separator;
+    private javax.swing.JPopupMenu.Separator mnuSetup_Separator_1;
+    private javax.swing.JPopupMenu.Separator mnuSetup_Separator_2;
+    private javax.swing.JMenuItem mnuSetup_UserManager;
     private javax.swing.JMenu mnuTransaction;
-    private javax.swing.JMenuItem mnuTransaction_Goods_Received_Note;
+    private javax.swing.JMenuItem mnuTransaction_Goods_Issue_Note;
     private javax.swing.JMenuItem mnuTransaction_Goods_Return_Note;
     private javax.swing.JMenuItem mnuTransaction_Purchase_Order;
     private javax.swing.JMenuItem mnuTransaction_Purchase_Return;
