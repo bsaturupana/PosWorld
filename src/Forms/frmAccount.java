@@ -67,12 +67,12 @@ public class frmAccount extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         comboBank = new javax.swing.JComboBox();
         comboBranch = new javax.swing.JComboBox();
-        lblRemarks_Bank = new javax.swing.JLabel();
-        lblRemarks_Cash = new javax.swing.JLabel();
+        lblRemarksBank = new javax.swing.JLabel();
+        lblRemarksCash = new javax.swing.JLabel();
         scroll_Remarks_Cash = new javax.swing.JScrollPane();
-        txtRemarks_Cash = new javax.swing.JEditorPane();
+        txtRemarksCash = new javax.swing.JEditorPane();
         scroll_Remarks_Bank = new javax.swing.JScrollPane();
-        txtRemarks_Bank = new javax.swing.JEditorPane();
+        txtRemarksBank = new javax.swing.JEditorPane();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
@@ -94,7 +94,7 @@ public class frmAccount extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAccountCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblAccountCode.setText("CODE");
+        lblAccountCode.setText("ACCOUNT CODE");
         jPanel4.add(lblAccountCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txtOpeningBalance.setBackground(new java.awt.Color(255, 255, 150));
@@ -285,6 +285,7 @@ public class frmAccount extends javax.swing.JFrame {
         comboAccountType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Account Type -", "Current Account", "Savings Account" }));
         panel1.add(comboAccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 250, 30));
 
+        txtAccNo.setBackground(new java.awt.Color(255, 255, 150));
         txtAccNo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAccNoKeyTyped(evt);
@@ -332,41 +333,41 @@ public class frmAccount extends javax.swing.JFrame {
         comboBranch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Branch -", "Colombo", "Kadawatha", "Moratuwa", "Kandy", "Katunayake", "Galle" }));
         panel1.add(comboBranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 250, 30));
 
-        lblRemarks_Bank.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblRemarks_Bank.setText("REMARKS");
-        panel1.add(lblRemarks_Bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        lblRemarksBank.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarksBank.setText("REMARKS");
+        panel1.add(lblRemarksBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        lblRemarks_Cash.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblRemarks_Cash.setText("REMARKS");
-        panel1.add(lblRemarks_Cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        lblRemarksCash.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarksCash.setText("REMARKS");
+        panel1.add(lblRemarksCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         scroll_Remarks_Cash.setBackground(new java.awt.Color(255, 255, 150));
 
-        txtRemarks_Cash.setBackground(new java.awt.Color(255, 255, 150));
-        txtRemarks_Cash.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtRemarksCash.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarksCash.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRemarks_CashKeyTyped(evt);
+                txtRemarksCashKeyTyped(evt);
             }
         });
-        scroll_Remarks_Cash.setViewportView(txtRemarks_Cash);
+        scroll_Remarks_Cash.setViewportView(txtRemarksCash);
 
         panel1.add(scroll_Remarks_Cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 650, 210));
 
         scroll_Remarks_Bank.setBackground(new java.awt.Color(255, 255, 150));
 
-        txtRemarks_Bank.setBackground(new java.awt.Color(255, 255, 150));
-        txtRemarks_Bank.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtRemarksBank.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarksBank.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRemarks_BankKeyTyped(evt);
+                txtRemarksBankKeyTyped(evt);
             }
         });
-        scroll_Remarks_Bank.setViewportView(txtRemarks_Bank);
+        scroll_Remarks_Bank.setViewportView(txtRemarksBank);
 
         panel1.add(scroll_Remarks_Bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 650, 90));
 
         tabbedAccounts.addTab("DETAILS", panel1);
 
-        jPanel1.add(tabbedAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 800, 290));
+        jPanel1.add(tabbedAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 790, 270));
 
         btnSave.setBackground(new java.awt.Color(155, 194, 230));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -419,7 +420,7 @@ public class frmAccount extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -428,13 +429,11 @@ public class frmAccount extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -554,19 +553,19 @@ public class frmAccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtAddressKeyTyped
 
-    private void txtRemarks_BankKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarks_BankKeyTyped
-        if (txtRemarks_Bank.getText().length() >= 250) {
+    private void txtRemarksBankKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarksBankKeyTyped
+        if (txtRemarksBank.getText().length() >= 250) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }//GEN-LAST:event_txtRemarks_BankKeyTyped
+    }//GEN-LAST:event_txtRemarksBankKeyTyped
 
-    private void txtRemarks_CashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarks_CashKeyTyped
-        if (txtRemarks_Cash.getText().length() >= 250) {
+    private void txtRemarksCashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemarksCashKeyTyped
+        if (txtRemarksCash.getText().length() >= 250) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }//GEN-LAST:event_txtRemarks_CashKeyTyped
+    }//GEN-LAST:event_txtRemarksCashKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -629,8 +628,8 @@ public class frmAccount extends javax.swing.JFrame {
     private javax.swing.JLabel lblPhoneNo1;
     private javax.swing.JLabel lblPhoneNo2;
     private javax.swing.JLabel lblRemarks;
-    private javax.swing.JLabel lblRemarks_Bank;
-    private javax.swing.JLabel lblRemarks_Cash;
+    private javax.swing.JLabel lblRemarksBank;
+    private javax.swing.JLabel lblRemarksCash;
     private javax.swing.JLabel lblSign;
     private javax.swing.JLabel lblType;
     private javax.swing.JLabel lblVATNo;
@@ -650,8 +649,8 @@ public class frmAccount extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhoneNo1;
     private javax.swing.JTextField txtPhoneNo2;
     private javax.swing.JTextField txtRemarks;
-    private javax.swing.JEditorPane txtRemarks_Bank;
-    private javax.swing.JEditorPane txtRemarks_Cash;
+    private javax.swing.JEditorPane txtRemarksBank;
+    private javax.swing.JEditorPane txtRemarksCash;
     private javax.swing.JTextField txtVATNo;
     // End of variables declaration//GEN-END:variables
 
@@ -681,10 +680,10 @@ public class frmAccount extends javax.swing.JFrame {
         comboAccountType.setSelectedIndex(0);
         comboBank.setSelectedIndex(0);
         comboBranch.setSelectedIndex(0);
-        txtRemarks_Bank.setText(null);
+        txtRemarksBank.setText(null);
 
         // DETAILS 3
-        txtRemarks_Cash.setText(null);
+        txtRemarksCash.setText(null);
 
         rb_Parent_Visibility();
     }
@@ -733,19 +732,19 @@ public class frmAccount extends javax.swing.JFrame {
             lblAccountType.setVisible(true);
             lblBank.setVisible(true);
             lblBranch.setVisible(true);
-            lblRemarks_Bank.setVisible(true);
+            lblRemarksBank.setVisible(true);
             txtAccNo.setVisible(true);
             comboAccountType.setVisible(true);
             comboBank.setVisible(true);
             comboBranch.setVisible(true);
             scroll_Remarks_Bank.setVisible(true);
-            txtRemarks_Bank.setVisible(true);
+            txtRemarksBank.setVisible(true);
         } else if ("Cash".equals(comboType.getSelectedItem())) {
             tab_Detail_Visibility_False();
 
-            lblRemarks_Cash.setVisible(true);
+            lblRemarksCash.setVisible(true);
             scroll_Remarks_Cash.setVisible(true);
-            txtRemarks_Cash.setVisible(true);
+            txtRemarksCash.setVisible(true);
         } else if ("Customer".equals(comboType.getSelectedItem())) {
             tab_Detail_Visibility_False();
 
@@ -776,17 +775,17 @@ public class frmAccount extends javax.swing.JFrame {
         lblAccountType.setVisible(false);
         lblBank.setVisible(false);
         lblBranch.setVisible(false);
-        lblRemarks_Bank.setVisible(false);
+        lblRemarksBank.setVisible(false);
         txtAccNo.setVisible(false);
         comboAccountType.setVisible(false);
         comboBank.setVisible(false);
         comboBranch.setVisible(false);
         scroll_Remarks_Bank.setVisible(false);
-        txtRemarks_Bank.setVisible(false);
+        txtRemarksBank.setVisible(false);
 
-        lblRemarks_Cash.setVisible(false);
+        lblRemarksCash.setVisible(false);
         scroll_Remarks_Cash.setVisible(false);
-        txtRemarks_Cash.setVisible(false);
+        txtRemarksCash.setVisible(false);
 
         lblContact.setVisible(false);
         lblPhoneNo1.setVisible(false);

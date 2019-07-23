@@ -1,9 +1,13 @@
 package Forms;
 
+import javax.swing.JFrame;
+
 public class frmMainForm extends javax.swing.JFrame {
 
     public frmMainForm() {
         initComponents();
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -261,4 +265,8 @@ public class frmMainForm extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator mnuTransaction_Separator_1;
     private javax.swing.JPopupMenu.Separator mnuTransaction_Separator_2;
     // End of variables declaration//GEN-END:variables
+
+    private void formFormat() {
+        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+    }
 }

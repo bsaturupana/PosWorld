@@ -25,11 +25,11 @@ public class frmPasswordReset extends javax.swing.JFrame {
         txtConfirmPassword = new javax.swing.JPasswordField();
         lblSecurityQuestion1 = new javax.swing.JLabel();
         txtSecurityQuestion1 = new javax.swing.JTextField();
-        lblSecurityAnswer2 = new javax.swing.JLabel();
+        lblSecurityAnswer1 = new javax.swing.JLabel();
         txtSecurityAnswer1 = new javax.swing.JTextField();
         lblSecurityQuestion2 = new javax.swing.JLabel();
         txtSecurityQuestion2 = new javax.swing.JTextField();
-        lblSecurityAnswer3 = new javax.swing.JLabel();
+        lblSecurityAnswer2 = new javax.swing.JLabel();
         txtSecurityAnswer2 = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -104,9 +104,9 @@ public class frmPasswordReset extends javax.swing.JFrame {
         });
         panelBodyArea.add(txtSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 270, 30));
 
-        lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblSecurityAnswer2.setText("SECURITY ANSWER 1");
-        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
+        lblSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSecurityAnswer1.setText("SECURITY ANSWER 1");
+        panelBodyArea.add(lblSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         txtSecurityAnswer1.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -140,9 +140,9 @@ public class frmPasswordReset extends javax.swing.JFrame {
         });
         panelBodyArea.add(txtSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 270, 30));
 
-        lblSecurityAnswer3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblSecurityAnswer3.setText("SECURITY ANSWER 2");
-        panelBodyArea.add(lblSecurityAnswer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSecurityAnswer2.setText("SECURITY ANSWER 2");
+        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         txtSecurityAnswer2.setBackground(new java.awt.Color(255, 255, 150));
         txtSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -287,8 +287,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNewPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNewPasswordKeyTyped
-//        int len = txtNewPassword.getText().length();
-
         if (txtNewPassword.getText().length() >= maxPwdLength) {
             lblMsgAreaPwdMaxLength.setVisible(true);
             lblMsgAreaPwdMaxLength.setForeground(Color.RED);
@@ -304,8 +302,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNewPasswordKeyTyped
 
     private void txtConfirmPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyTyped
-//        int len = txtNewPassword.getText().length();
-
         if (txtConfirmPassword.getText().length() >= maxPwdLength) {
             lblMsgAreaPwdMaxLength.setVisible(true);
             lblMsgAreaPwdMaxLength.setForeground(Color.RED);
@@ -456,8 +452,8 @@ public class frmPasswordReset extends javax.swing.JFrame {
     private javax.swing.JLabel lblMsgAreaPwdStrength;
     private javax.swing.JLabel lblNewPassword;
     private javax.swing.JLabel lblPhoneNumber;
+    private javax.swing.JLabel lblSecurityAnswer1;
     private javax.swing.JLabel lblSecurityAnswer2;
-    private javax.swing.JLabel lblSecurityAnswer3;
     private javax.swing.JLabel lblSecurityQuestion1;
     private javax.swing.JLabel lblSecurityQuestion2;
     private javax.swing.JPanel panelBodyArea;

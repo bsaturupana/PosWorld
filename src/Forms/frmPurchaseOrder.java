@@ -1,5 +1,8 @@
 package Forms;
 
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 public class frmPurchaseOrder extends javax.swing.JFrame {
 
     public frmPurchaseOrder() {
@@ -14,24 +17,23 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
-        lblOrderNumber = new javax.swing.JLabel();
-        lblOrderDate = new javax.swing.JLabel();
-        lblSupplier = new javax.swing.JLabel();
-        lblExpectedDiliveryDate = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablePurchaseOrder = new javax.swing.JTable();
-        txtCode = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtDiscription = new javax.swing.JTextField();
-        txtQuantity = new javax.swing.JTextField();
-        ComboSupplier = new javax.swing.JComboBox();
-        dccExpectedDeliveryDate = new com.toedter.calendar.JDateChooser();
-        dccOrderDate = new com.toedter.calendar.JDateChooser();
-        txtOrderNumber = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        panelButtons = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
+        panelPurchaseOrderItemDetail = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePurchaseOrder = new javax.swing.JTable();
+        panelPurchaseOrderItemHeader = new javax.swing.JPanel();
+        lblPurchaseOrderNumber = new javax.swing.JLabel();
+        txtPurchaseOrderNumber = new javax.swing.JTextField();
+        lblSupplierName = new javax.swing.JLabel();
+        comboSupplierName = new javax.swing.JComboBox();
+        lblPurchaseOrderDate = new javax.swing.JLabel();
+        dccPurchaseOrderDate = new com.toedter.calendar.JDateChooser();
+        dccPurchaseOrderExpectedDeliveryDate = new com.toedter.calendar.JDateChooser();
+        lblPurchaseOrderExpectedDiliveryDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PURCHASE ORDER");
@@ -39,93 +41,17 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1015, -1));
 
-        lblOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblOrderNumber.setText("ORDER NUMBER");
-        jPanel1.add(lblOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        lblOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblOrderDate.setText("ORDER DATE");
-        jPanel1.add(lblOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
-
-        lblSupplier.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblSupplier.setText("SUPPLIER");
-        jPanel1.add(lblSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        lblExpectedDiliveryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblExpectedDiliveryDate.setText("EXPECTED DELIVERY DATE");
-        jPanel1.add(lblExpectedDiliveryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, -1, -1));
-
-        tablePurchaseOrder.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tablePurchaseOrder.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "CODE", "NAME", "DISCRIPTION", "QUANTITY"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tablePurchaseOrder.setRowHeight(30);
-        jScrollPane1.setViewportView(tablePurchaseOrder);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1000, 360));
-
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
-        txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 250, 30));
-
-        txtName.setBackground(new java.awt.Color(255, 255, 150));
-        txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 250, 30));
-
-        txtDiscription.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 250, 30));
-
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
-        txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 120, 250, 30));
-
-        ComboSupplier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier -" }));
-        jPanel1.add(ComboSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 310, 30));
-        jPanel1.add(dccExpectedDeliveryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 250, 30));
-        jPanel1.add(dccOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 250, 30));
-
-        txtOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
-        txtOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtOrderNumber.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrderNumberActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 310, 30));
-
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -147,50 +73,175 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 23, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+        btnPrint.setBackground(new java.awt.Color(155, 194, 230));
+        btnPrint.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnPrint.setText("PRINT");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelButtonsLayout = new javax.swing.GroupLayout(panelButtons);
+        panelButtons.setLayout(panelButtonsLayout);
+        panelButtonsLayout.setHorizontalGroup(
+            panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panelButtonsLayout.setVerticalGroup(
+            panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        getContentPane().add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, 80));
+
+        tablePurchaseOrder.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tablePurchaseOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ITEM CODE", "ITEM NAME", "ITEM DISCRIPTION", "QUANTITY"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablePurchaseOrder.setRowHeight(30);
+        jScrollPane1.setViewportView(tablePurchaseOrder);
+
+        javax.swing.GroupLayout panelPurchaseOrderItemDetailLayout = new javax.swing.GroupLayout(panelPurchaseOrderItemDetail);
+        panelPurchaseOrderItemDetail.setLayout(panelPurchaseOrderItemDetailLayout);
+        panelPurchaseOrderItemDetailLayout.setHorizontalGroup(
+            panelPurchaseOrderItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPurchaseOrderItemDetailLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPurchaseOrderItemDetailLayout.setVerticalGroup(
+            panelPurchaseOrderItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPurchaseOrderItemDetailLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        getContentPane().add(panelPurchaseOrderItemDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1020, 380));
+
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderNumber.setText("PURCHASE ORDER NUMBER");
+
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurchaseOrderNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPurchaseOrderNumberActionPerformed(evt);
+            }
+        });
+        txtPurchaseOrderNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPurchaseOrderNumberKeyTyped(evt);
+            }
+        });
+
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSupplierName.setText("SUPPLIER NAME");
+
+        comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
+
+        lblPurchaseOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderDate.setText("PURCHASE ORDER DATE");
+
+        lblPurchaseOrderExpectedDiliveryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderExpectedDiliveryDate.setText("EXPECTED DELIVERY DATE");
+
+        javax.swing.GroupLayout panelPurchaseOrderItemHeaderLayout = new javax.swing.GroupLayout(panelPurchaseOrderItemHeader);
+        panelPurchaseOrderItemHeader.setLayout(panelPurchaseOrderItemHeaderLayout);
+        panelPurchaseOrderItemHeaderLayout.setHorizontalGroup(
+            panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPurchaseOrderNumber)
+                    .addComponent(lblSupplierName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPurchaseOrderNumber)
+                    .addComponent(comboSupplierName, 0, 287, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPurchaseOrderDate)
+                    .addComponent(lblPurchaseOrderExpectedDiliveryDate))
+                .addGap(21, 21, 21)
+                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dccPurchaseOrderExpectedDeliveryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+        panelPurchaseOrderItemHeaderLayout.setVerticalGroup(
+            panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lblPurchaseOrderDate))
+                            .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(lblPurchaseOrderExpectedDiliveryDate))
+                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(dccPurchaseOrderExpectedDeliveryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPurchaseOrderNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPurchaseOrderNumber))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lblSupplierName))
+                            .addComponent(comboSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
+
+        getContentPane().add(panelPurchaseOrderItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,13 +254,26 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         clearfields();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Saved.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
         clearfields();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrderNumberActionPerformed
+    private void txtPurchaseOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrderNumberActionPerformed
+    }//GEN-LAST:event_txtPurchaseOrderNumberActionPerformed
+
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        JOptionPane.showMessageDialog(this, "Print Successfully.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
+        clearfields();
+    }//GEN-LAST:event_btnPrintActionPerformed
+
+    private void txtPurchaseOrderNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberKeyTyped
+        if (txtPurchaseOrderNumber.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPurchaseOrderNumberKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -242,36 +306,32 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox ComboSupplier;
     private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
-    private com.toedter.calendar.JDateChooser dccExpectedDeliveryDate;
-    private com.toedter.calendar.JDateChooser dccOrderDate;
+    private javax.swing.JComboBox comboSupplierName;
+    private com.toedter.calendar.JDateChooser dccPurchaseOrderDate;
+    private com.toedter.calendar.JDateChooser dccPurchaseOrderExpectedDeliveryDate;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblExpectedDiliveryDate;
-    private javax.swing.JLabel lblOrderDate;
-    private javax.swing.JLabel lblOrderNumber;
-    private javax.swing.JLabel lblSupplier;
+    private javax.swing.JLabel lblPurchaseOrderDate;
+    private javax.swing.JLabel lblPurchaseOrderExpectedDiliveryDate;
+    private javax.swing.JLabel lblPurchaseOrderNumber;
+    private javax.swing.JLabel lblSupplierName;
+    private javax.swing.JPanel panelButtons;
+    private javax.swing.JPanel panelPurchaseOrderItemDetail;
+    private javax.swing.JPanel panelPurchaseOrderItemHeader;
     private javax.swing.JTable tablePurchaseOrder;
-    private javax.swing.JTextField txtCode;
-    private javax.swing.JTextField txtDiscription;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtOrderNumber;
-    private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtPurchaseOrderNumber;
     // End of variables declaration//GEN-END:variables
 
     private void clearfields() {
-      txtOrderNumber.setText(null);
-      
-      dccOrderDate.setDate(null);
-      dccExpectedDeliveryDate.setDate(null);
-      
-      ComboSupplier.setSelectedIndex(0);
-      
+        txtPurchaseOrderNumber.setText(null);
+        dccPurchaseOrderDate.setDate(null);
+        comboSupplierName.setSelectedIndex(0);
+        dccPurchaseOrderExpectedDeliveryDate.setDate(null);
     }
 }
