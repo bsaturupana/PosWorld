@@ -301,7 +301,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtQuantity.setText(null);
         txtRemarks.setText(null);
         txtUnitPrice.setText(null);
-
+        
         txtCode.requestFocus();
     }
 
@@ -314,6 +314,9 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtManDate.setEditable(false);
         txtPackedDate.setEditable(false);
         txtExpiaryDate.setEditable(false);
+        txtCode.setEditable(false);
+        
+         clearfields();
 
         this.setLocationRelativeTo(null);
     }

@@ -204,6 +204,7 @@ public class frmMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuTransaction_Purchase_OrderActionPerformed
 
     private void mnuTransaction_Purchase_ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Purchase_ReturnActionPerformed
+        new frmPurchaseReturnMaster().setVisible(true);
     }//GEN-LAST:event_mnuTransaction_Purchase_ReturnActionPerformed
 
     private void mnuTransaction_Goods_Issue_NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Goods_Issue_NoteActionPerformed

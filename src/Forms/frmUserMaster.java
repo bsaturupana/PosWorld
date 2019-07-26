@@ -312,5 +312,7 @@ public class frmUserMaster extends javax.swing.JFrame {
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearField();
     }
 }

@@ -7,7 +7,7 @@ public class frmProductMaster extends javax.swing.JFrame {
 
     public frmProductMaster() {
         initComponents();
-        
+
         formFormat();
     }
 
@@ -44,8 +44,6 @@ public class frmProductMaster extends javax.swing.JFrame {
         txtProductName = new javax.swing.JTextField();
         txtCode = new javax.swing.JTextField();
         comboStatus = new javax.swing.JComboBox();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PRODUCT MASTOR");
@@ -145,7 +143,7 @@ public class frmProductMaster extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -155,7 +153,7 @@ public class frmProductMaster extends javax.swing.JFrame {
         tableProductMaster1.setRowHeight(30);
         jScrollPane2.setViewportView(tableProductMaster1);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 100));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 340));
 
         btnEdit1.setBackground(new java.awt.Color(155, 194, 230));
         btnEdit1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -278,18 +276,6 @@ public class frmProductMaster extends javax.swing.JFrame {
         comboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALL", "ACTIVE", "INACTIVE" }));
         jPanel4.add(comboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, 150, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(jTable1);
-
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 1440, 130));
-
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -315,7 +301,7 @@ public class frmProductMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        showData();
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit1ActionPerformed
@@ -390,8 +376,6 @@ public class frmProductMaster extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBatchNO;
     private javax.swing.JLabel lblBatchNO1;
     private javax.swing.JLabel lblCode;
@@ -411,39 +395,15 @@ public class frmProductMaster extends javax.swing.JFrame {
         txtBatchNO.setText(null);
         txtProductName.setText(null);
         comboStatus.setSelectedIndex(0);
-        
-        clearTable();
-    }
 
-    public void clearTable() {
-        jTable1.setModel(new DefaultTableModel(null,new String[] {"CODE", "BATCH NO", "PRODUCT NAME", "DISCRIPTION", "SUPPLIER NAME", "STATUS	Double", "RUNNING STOCK", "REORDER LEVEL", "MANUFACTURE DATE", "PACKED DATE", "EXPIRY DATE", "PURCHACE PRICE", "SALES PRICE"}));
-    }
-    
-    public void showData() {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        
-        String [] cols = {"CODE", "BATCH NO", "PRODUCT NAME", "DISCRIPTION", "SUPPLIER NAME", "STATUS", "RUNNING STOCK", "REORDER LEVEL", "MANUFACTURE DATE", "PACKED DATE", "EXPIRY DATE", "PURCHACE PRICE", "SALES PRICE"};
-        
-        String [] [] data = {
-                                {"1", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},                                
-                                {"2", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"3", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"4", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"5", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"6", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"7", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"8", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"},
-                                {"9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"}
-        };
-        
-        model.setDataVector(data, cols);
+        txtCode.requestFocus();
     }
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
-        
+
         clearFields();
-        
+
 //        String = "{"CODE", "BATCH NO", "PRODUCT NAME", "DISCRIPTION", "SUPPLIER NAME", "STATUS	Double", "RUNNING STOCK", "REORDER LEVEL", "MANUFACTURE DATE", "PACKED DATE", "EXPIRY DATE", "PURCHACE PRICE", "SALES PRICE"}";
     }
 }

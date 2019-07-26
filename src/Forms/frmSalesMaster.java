@@ -201,7 +201,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
 
         lblPrivilageCardNO.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 330, 70));
 
-        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -" }));
+        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Credit Card", "Debit Card" }));
         lblPrivilageCardNO.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 180, 30));
         lblPrivilageCardNO.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 180, 30));
 
@@ -326,5 +326,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearField();
     }
 }

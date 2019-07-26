@@ -316,6 +316,8 @@ public class frmGoodsReceivedPOP extends javax.swing.JFrame {
         txtPackedDate.setEditable(false);
         txtExpiaryDate.setEditable(false);
         
+        clearFields();
+        
         this.setLocationRelativeTo(null);
     }
 }

@@ -465,6 +465,7 @@ public class frmAccount extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Account", JOptionPane.INFORMATION_MESSAGE);
+        
         clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 

@@ -1,13 +1,15 @@
 package Forms;
 
+import javax.swing.JOptionPane;
+
 public class frmGoodsReturnNote extends javax.swing.JFrame {
-    
+
     public frmGoodsReturnNote() {
         initComponents();
-        
+
         formFormat();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -22,19 +24,6 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         lblPurchaseOrderNumber = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableGRN = new javax.swing.JTable();
-        txtCode = new javax.swing.JTextField();
-        txtBatchNO = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtDiscription = new javax.swing.JTextField();
-        txtQuantity = new javax.swing.JTextField();
-        txtUnitPrice = new javax.swing.JTextField();
-        txtDiscount = new javax.swing.JTextField();
-        txtPurPrice = new javax.swing.JTextField();
-        txtManDate = new javax.swing.JTextField();
-        txtPackedDate = new javax.swing.JTextField();
-        txtExpiaryDate = new javax.swing.JTextField();
-        txtRemarks = new javax.swing.JTextField();
-        txtRTNPurpose = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
@@ -101,59 +90,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         tableGRN.setRowHeight(30);
         jScrollPane1.setViewportView(tableGRN);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 340));
-
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
-        txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 112, 30));
-
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
-        txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 112, 30));
-
-        txtName.setBackground(new java.awt.Color(255, 255, 150));
-        txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 113, 30));
-
-        txtDiscription.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 113, 30));
-
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
-        txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 113, 30));
-
-        txtUnitPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 114, 30));
-
-        txtDiscount.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 112, 30));
-
-        txtPurPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtPurPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtPurPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 112, 30));
-
-        txtManDate.setBackground(new java.awt.Color(255, 255, 150));
-        txtManDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtManDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 60, 113, 30));
-
-        txtPackedDate.setBackground(new java.awt.Color(255, 255, 150));
-        txtPackedDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtPackedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 60, 113, 30));
-
-        txtExpiaryDate.setBackground(new java.awt.Color(255, 255, 150));
-        txtExpiaryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtExpiaryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 60, 113, 30));
-
-        txtRemarks.setBackground(new java.awt.Color(255, 255, 150));
-        txtRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 60, 120, 30));
-
-        txtRTNPurpose.setBackground(new java.awt.Color(255, 255, 150));
-        txtRTNPurpose.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtRTNPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 60, 114, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1440, 380));
 
         btnSave.setBackground(new java.awt.Color(155, 194, 230));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -241,14 +178,15 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfields();
-
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        clearfields();
+        JOptionPane.showMessageDialog(this, "Successfully Saved.", "Goods Return Note", JOptionPane.INFORMATION_MESSAGE);
+
+        clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
-    
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -294,35 +232,24 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
     private javax.swing.JLabel lblPurchaseOrderNumber;
     private javax.swing.JLabel lblSupplierName;
     private javax.swing.JTable tableGRN;
-    private javax.swing.JTextField txtBatchNO;
-    private javax.swing.JTextField txtCode;
-    private javax.swing.JTextField txtDiscount;
-    private javax.swing.JTextField txtDiscription;
-    private javax.swing.JTextField txtExpiaryDate;
     private javax.swing.JTextField txtGENNumber;
-    private javax.swing.JTextField txtManDate;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPackedDate;
-    private javax.swing.JTextField txtPurPrice;
     private javax.swing.JTextField txtPurchaseOrderNumber;
-    private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtRTNPurpose;
-    private javax.swing.JTextField txtRemarks;
     private javax.swing.JTextField txtSupplierName;
-    private javax.swing.JTextField txtUnitPrice;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfields() {
+    private void clearFields() {
         txtGENNumber.setText(null);
         txtPurchaseOrderNumber.setText(null);
         txtSupplierName.setText(null);
-        
+
         dccGRNDate.setDate(null);
-        
+
         txtGENNumber.requestFocus();
     }
-    
+
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }

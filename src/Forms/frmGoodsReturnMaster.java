@@ -327,5 +327,7 @@ public class frmGoodsReturnMaster extends javax.swing.JFrame {
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        ClearFields();
     }
 }

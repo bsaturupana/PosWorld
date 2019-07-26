@@ -4,7 +4,7 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
 
     public frmGoodsIssueMaster() {
         initComponents();
-        
+
         formFormat();
     }
 
@@ -247,11 +247,11 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-          new frmGoodsIssueNote().setVisible(true);
+        new frmGoodsIssueNote().setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
- clearFields();
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -259,7 +259,7 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
-  new frmGoodsIssueNote().setVisible(true);        // TODO add your handling code here:
+        new frmGoodsIssueNote().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewActionPerformed
 
     private void txtPrivilageCardNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrivilageCardNOActionPerformed
@@ -326,15 +326,17 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
         txtGRNNO.setText(null);
         txtCustomerName.setText(null);
         txtPrivilageCardNO.setText(null);
-        
+
         dccGRNDate.setCalendar(null);
-        
+
         comboPaymentType.setSelectedIndex(0);
-        
+
         txtGRNNO.requestFocus();
     }
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }

@@ -246,7 +246,7 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        new frmsalesReturnNote().setVisible(true);
+        new frmSalesReturnNote().setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -258,7 +258,7 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
-        new frmsalesReturnNote().setVisible(true);
+        new frmSalesReturnNote().setVisible(true);
     }//GEN-LAST:event_btnAddNewActionPerformed
 
     public static void main(String args[]) {
@@ -331,5 +331,7 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearfields();
     }
 }

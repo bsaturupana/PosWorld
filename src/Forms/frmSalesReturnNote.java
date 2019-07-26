@@ -1,10 +1,15 @@
 package Forms;
 
-public class frmsalesReturnNote extends javax.swing.JFrame {
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
-    public frmsalesReturnNote() {
+public class frmSalesReturnNote extends javax.swing.JFrame {
+
+    DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
+
+    public frmSalesReturnNote() {
         initComponents();
-        
+
         formFormat();
     }
 
@@ -23,14 +28,6 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         lblInvoiceNumber = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSalesInvoice = new javax.swing.JTable();
-        txtBatchNO = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtReturnPurpose = new javax.swing.JTextField();
-        txtUnitPrice = new javax.swing.JTextField();
-        txtQuantity = new javax.swing.JTextField();
-        txtsalesPrice = new javax.swing.JTextField();
-        txtCode = new javax.swing.JTextField();
-        txtDiscription1 = new javax.swing.JTextField();
         dccInvoiceDate = new com.toedter.calendar.JDateChooser();
         txtInvoiceNumber = new javax.swing.JTextField();
         txtPrivilageCard = new javax.swing.JTextField();
@@ -43,7 +40,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         lbltotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         lblPaymentType = new javax.swing.JLabel();
-        txtPaymentType = new javax.swing.JTextField();
+        comboPaymentType = new javax.swing.JComboBox();
 
         jTextField1.setText("jTextField1");
 
@@ -105,39 +102,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         tableSalesInvoice.setRowHeight(30);
         jScrollPane1.setViewportView(tableSalesInvoice);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1230, 330));
-
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
-        txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 150, 30));
-
-        txtName.setBackground(new java.awt.Color(255, 255, 150));
-        txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, 30));
-
-        txtReturnPurpose.setBackground(new java.awt.Color(255, 255, 150));
-        txtReturnPurpose.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtReturnPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 160, 30));
-
-        txtUnitPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 140, 30));
-
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
-        txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 60, 160, 30));
-
-        txtsalesPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtsalesPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtsalesPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 60, 170, 30));
-
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
-        txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 30));
-
-        txtDiscription1.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscription1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtDiscription1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 150, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1230, 320));
         jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 160, 30));
 
         txtInvoiceNumber.setBackground(new java.awt.Color(255, 255, 150));
@@ -192,7 +157,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(669, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,6 +181,14 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         txtTotal.setBackground(new java.awt.Color(255, 255, 150));
         txtTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTotalFocusLost(evt);
+            }
+        });
         txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalActionPerformed(evt);
@@ -225,14 +198,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         lblPaymentType.setText("PAYMENT TYPE");
         lblPaymentType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtPaymentType.setBackground(new java.awt.Color(255, 255, 150));
-        txtPaymentType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtPaymentType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtPaymentType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPaymentTypeActionPerformed(evt);
-            }
-        });
+        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Credit Card", "Debit Card" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -245,8 +211,8 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
                     .addComponent(lblPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPaymentType, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(txtTotal))
+                    .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(comboPaymentType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -256,8 +222,8 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
                 .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -276,7 +242,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,14 +255,14 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-          this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -304,16 +270,14 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Saved.", "Sales Return Note", JOptionPane.INFORMATION_MESSAGE);
+        
         clearfields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalActionPerformed
-
-    private void txtPaymentTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaymentTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPaymentTypeActionPerformed
 
     private void txtInvoiceNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInvoiceNumberActionPerformed
         // TODO add your handling code here:
@@ -322,6 +286,25 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
     private void txtPrivilageCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrivilageCardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrivilageCardActionPerformed
+
+    private void txtTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtTotal.getText())) {
+            txtTotal.setText("");
+        }
+
+        
+//        if (String.valueOf(convertDecimal(0)).equals(comboPaymentType.setSelectedIndex(0))) {
+//            txtTotal.setText("");
+//        }
+    }//GEN-LAST:event_txtTotalFocusGained
+
+    private void txtTotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalFocusLost
+        if (txtTotal.getText().equals("")) {
+            txtTotal.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtTotal.getText().equals("0")) {
+            txtTotal.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtTotalFocusLost
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -336,19 +319,19 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmsalesReturnNote().setVisible(true);
+                new frmSalesReturnNote().setVisible(true);
             }
         });
     }
@@ -358,6 +341,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox comboPaymentType;
     private com.toedter.calendar.JDateChooser dccInvoiceDate;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JPanel jPanel1;
@@ -373,34 +357,32 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrivilageCard;
     private javax.swing.JLabel lbltotal;
     private javax.swing.JTable tableSalesInvoice;
-    private javax.swing.JTextField txtBatchNO;
-    private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCustomerName;
-    private javax.swing.JTextField txtDiscription1;
     private javax.swing.JTextField txtInvoiceNumber;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPaymentType;
     private javax.swing.JTextField txtPrivilageCard;
-    private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtReturnPurpose;
     private javax.swing.JTextField txtTotal;
-    private javax.swing.JTextField txtUnitPrice;
-    private javax.swing.JTextField txtsalesPrice;
     // End of variables declaration//GEN-END:variables
 
     private void clearfields() {
         txtPrivilageCard.setText(null);
-        txtName.setText(null);
+        txtCustomerName.setText(null);
         txtInvoiceNumber.setText(null);
         txtTotal.setText(null);
-        txtPaymentType.setText(null);
-       
-        dccInvoiceDate.setDate(null);
         
+        comboPaymentType.setSelectedIndex(0);
+
+        dccInvoiceDate.setDate(null);
+
         txtPrivilageCard.requestFocus();
+    }
+
+    private String convertDecimal(double getValue) {
+        return currencyFormat.format(getValue);
     }
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearfields();
     }
 }

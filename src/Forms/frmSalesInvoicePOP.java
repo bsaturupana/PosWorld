@@ -280,5 +280,7 @@ public class frmSalesInvoicePOP extends javax.swing.JFrame {
         txtSalesPrice.setEditable(false);
 
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }

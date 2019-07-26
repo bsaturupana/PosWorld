@@ -392,6 +392,8 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
     }
 
     private void formFormat() {
+        clearfields();
+        
         this.setLocationRelativeTo(null);
     }
 }

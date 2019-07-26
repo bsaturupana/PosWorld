@@ -370,6 +370,8 @@ public class frmPurchaseReturnMaster extends javax.swing.JFrame {
     }
 
     private void formFormat() {
+        clearfields();
+        
         this.setLocationRelativeTo(null);
     }
 }

@@ -347,6 +347,8 @@ public class frmGoodsReturnNotePOP extends javax.swing.JFrame {
         txtPurPrice.setEditable(false);
         txtManDate.setEditable(false);
         txtPackedDate.setEditable(false);
+        
+        clearFields();
 
         this.setLocationRelativeTo(null);
     }

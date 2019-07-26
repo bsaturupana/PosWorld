@@ -339,6 +339,8 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
     }
 
     private void formFormat() {
+        clearFields();
+        
         this.setLocationRelativeTo(null);
     }
 }

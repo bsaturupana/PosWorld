@@ -14,6 +14,7 @@ public class frmUser extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -63,14 +64,17 @@ public class frmUser extends javax.swing.JFrame {
         lblConfirmPassword = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ACCOUNT");
+        setTitle("USER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(242, 242, 242));
@@ -168,6 +172,7 @@ public class frmUser extends javax.swing.JFrame {
         lblStatus.setText("STATUS");
         jPanel4.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
 
+        buttonGroup1.add(radioActive);
         radioActive.setText("ACTIVE");
         radioActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,6 +181,7 @@ public class frmUser extends javax.swing.JFrame {
         });
         jPanel4.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 80, -1));
 
+        buttonGroup1.add(radioInactive);
         radioInactive.setText("INACTIVE");
         jPanel4.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
 
@@ -275,9 +281,48 @@ public class frmUser extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("DETAILS", panel1);
 
-        jTabbedPane2.setBackground(new java.awt.Color(204, 204, 204));
-        jTabbedPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTabbedPane1.addTab("OTHER", jTabbedPane2);
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jButton1.setBackground(new java.awt.Color(155, 194, 230));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton1.setText("BROWS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("USER IMAGE");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(292, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("OTHER", jPanel2);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 830, 520));
 
@@ -356,15 +401,15 @@ public class frmUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
+        clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswer2ActionPerformed
@@ -378,6 +423,10 @@ public class frmUser extends javax.swing.JFrame {
     private void radioActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioActiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioActiveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -415,6 +464,7 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JComboBox comboGender1;
     private javax.swing.JComboBox comboNationality;
     private javax.swing.JComboBox comboRace;
@@ -422,11 +472,14 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JComboBox comboSQ1;
     private javax.swing.JComboBox comboSQ2;
     private javax.swing.JComboBox comboUserRole;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblAddress1;
     private javax.swing.JLabel lblAnswer1;
     private javax.swing.JLabel lblAnswer2;
@@ -468,7 +521,37 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
+    private void clearFields() {
+        txtAddress1.setText(null);
+        txtAnswer1.setText(null);
+        txtAnswer2.setText(null);
+        txtConfirmPassword.setText(null);
+        txtEmail.setText(null);
+        txtEmployeeID.setText(null);
+        txtFullName.setText(null);
+        txtMobileNO.setText(null);
+        txtNICNumber.setText(null);
+        txtPassportNO.setText(null);
+        txtPassword.setText(null);
+        txtRemark.setText(null);
+        txtResidentNO.setText(null);
+        txtUsername.setText(null);
+
+        comboGender1.setSelectedIndex(0);
+        comboNationality.setSelectedIndex(0);
+        comboRace.setSelectedIndex(0);
+        comboRelegon.setSelectedIndex(0);
+        comboSQ1.setSelectedIndex(0);
+        comboSQ2.setSelectedIndex(0);
+        comboUserRole.setSelectedIndex(0);
+
+        radioActive.setSelected(true);
+        radioInactive.setSelected(false);
+    }
+
     private void formFormat() {
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }

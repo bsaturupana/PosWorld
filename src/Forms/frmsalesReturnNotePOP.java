@@ -1,8 +1,11 @@
 package Forms;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class frmsalesReturnNotePOP extends javax.swing.JFrame {
+
+    DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
 
     public frmsalesReturnNotePOP() {
         initComponents();
@@ -279,5 +282,7 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         txtSRPPrice.setEditable(false);
 
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }

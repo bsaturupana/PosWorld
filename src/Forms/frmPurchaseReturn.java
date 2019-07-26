@@ -354,6 +354,8 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
     }
 
     private void formFormat() {
+        clearFields();
+        
         this.setLocationRelativeTo(null);
     }
 }

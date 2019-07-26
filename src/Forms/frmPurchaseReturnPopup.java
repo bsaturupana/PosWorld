@@ -247,5 +247,7 @@ public class frmPurchaseReturnPopup extends javax.swing.JFrame {
         txtItemName.setEditable(false);
 
         this.setLocationRelativeTo(null);
+        
+        clearFields();
     }
 }
