@@ -4,7 +4,8 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
 
     public frmsalesReturnNote() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -34,7 +35,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         txtInvoiceNumber = new javax.swing.JTextField();
         txtPrivilageCard = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -159,12 +160,12 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         });
         jPanel1.add(txtPrivilageCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 120, 29));
 
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -192,7 +193,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(669, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -204,7 +205,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -302,9 +303,9 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         clearfields();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         clearfields();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
         // TODO add your handling code here:
@@ -355,7 +356,7 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser dccInvoiceDate;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -395,5 +396,11 @@ public class frmsalesReturnNote extends javax.swing.JFrame {
         txtPaymentType.setText(null);
        
         dccInvoiceDate.setDate(null);
+        
+        txtPrivilageCard.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

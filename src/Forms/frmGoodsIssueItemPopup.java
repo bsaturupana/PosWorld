@@ -1,10 +1,13 @@
 package Forms;
 
+import javax.swing.JOptionPane;
+
 public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
 
     public frmGoodsIssueItemPopup() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -27,7 +30,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtExpiaryDate = new javax.swing.JTextField();
         txtRemarks = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
@@ -60,11 +63,11 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 260, 30));
 
-        txtName.setBackground(new java.awt.Color(255, 255, 150));
+        txtName.setBackground(new java.awt.Color(255, 102, 255));
         txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 250, 30));
 
-        txtDiscription.setBackground(new java.awt.Color(255, 255, 150));
+        txtDiscription.setBackground(new java.awt.Color(255, 102, 255));
         txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 260, 30));
 
@@ -72,27 +75,27 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 250, 30));
 
-        txtUnitPrice.setBackground(new java.awt.Color(255, 255, 150));
+        txtUnitPrice.setBackground(new java.awt.Color(255, 102, 255));
         txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 260, 30));
 
-        txtDiscount.setBackground(new java.awt.Color(255, 255, 150));
+        txtDiscount.setBackground(new java.awt.Color(255, 102, 255));
         txtDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 250, 30));
 
-        txtPurPrice.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurPrice.setBackground(new java.awt.Color(255, 102, 255));
         txtPurPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtPurPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 260, 30));
 
-        txtManDate.setBackground(new java.awt.Color(255, 255, 150));
+        txtManDate.setBackground(new java.awt.Color(255, 102, 255));
         txtManDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtManDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 250, 30));
 
-        txtPackedDate.setBackground(new java.awt.Color(255, 255, 150));
+        txtPackedDate.setBackground(new java.awt.Color(255, 102, 255));
         txtPackedDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtPackedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 260, 30));
 
-        txtExpiaryDate.setBackground(new java.awt.Color(255, 255, 150));
+        txtExpiaryDate.setBackground(new java.awt.Color(255, 102, 255));
         txtExpiaryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtExpiaryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 250, 30));
 
@@ -100,12 +103,12 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 260, 30));
 
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -133,7 +136,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -147,7 +150,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -213,12 +216,13 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-     
+        clearfields();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-    
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Saved.", "Goods Issue Item", JOptionPane.INFORMATION_MESSAGE);
+        clearfields();
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -253,7 +257,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JPanel jPanel1;
@@ -284,5 +288,33 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
     private javax.swing.JTextField txtUnitPrice;
     // End of variables declaration//GEN-END:variables
 
-    
+    private void clearfields() {
+        txtBatchNO.setText(null);
+        txtCode.setText(null);
+        txtDiscount.setText(null);
+        txtDiscription.setText(null);
+        txtExpiaryDate.setText(null);
+        txtManDate.setText(null);
+        txtName.setText(null);
+        txtPackedDate.setText(null);
+        txtPurPrice.setText(null);
+        txtQuantity.setText(null);
+        txtRemarks.setText(null);
+        txtUnitPrice.setText(null);
+
+        txtCode.requestFocus();
+    }
+
+    private void formFormat() {
+        txtName.setEditable(false);
+        txtDiscription.setEditable(false);
+        txtUnitPrice.setEditable(false);
+        txtDiscount.setEditable(false);
+        txtPurPrice.setEditable(false);
+        txtManDate.setEditable(false);
+        txtPackedDate.setEditable(false);
+        txtExpiaryDate.setEditable(false);
+
+        this.setLocationRelativeTo(null);
+    }
 }

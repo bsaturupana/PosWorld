@@ -4,7 +4,8 @@ public class frmUserMaster extends javax.swing.JFrame {
 
     public frmUserMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -222,7 +223,7 @@ public class frmUserMaster extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-          this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -234,7 +235,7 @@ public class frmUserMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfield();
+        clearField();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -301,9 +302,15 @@ public class frmUserMaster extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfield() {
+    private void clearField() {
         txtUserName.setText(null);
         txtRole.setText(null);
         txtGender.setText(null);
+        
+        txtUserName.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

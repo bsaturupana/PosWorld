@@ -1,12 +1,13 @@
 package Forms;
 
 public class frmGoodsReturnNote extends javax.swing.JFrame {
-
+    
     public frmGoodsReturnNote() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        formFormat();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,7 +36,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         txtRemarks = new javax.swing.JTextField();
         txtRTNPurpose = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         dccGRNDate = new com.toedter.calendar.JDateChooser();
@@ -154,12 +155,12 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         txtRTNPurpose.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtRTNPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 60, 114, 30));
 
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -187,7 +188,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(705, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -201,7 +202,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -236,18 +237,18 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-  this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         clearfields();
-                
+
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         clearfields();
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
+    }//GEN-LAST:event_btnSaveActionPerformed
+    
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -281,7 +282,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser dccGRNDate;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -318,5 +319,10 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         
         dccGRNDate.setDate(null);
         
+        txtGENNumber.requestFocus();
+    }
+    
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

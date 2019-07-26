@@ -7,7 +7,8 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
 
     public frmPurchaseOrder() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -251,12 +252,12 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfields();
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
-        clearfields();
+        clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtPurchaseOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberActionPerformed
@@ -265,7 +266,7 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         JOptionPane.showMessageDialog(this, "Print Successfully.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
-        clearfields();
+        clearFields();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void txtPurchaseOrderNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberKeyTyped
@@ -328,10 +329,16 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
     private javax.swing.JTextField txtPurchaseOrderNumber;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfields() {
+    private void clearFields() {
         txtPurchaseOrderNumber.setText(null);
         dccPurchaseOrderDate.setDate(null);
         comboSupplierName.setSelectedIndex(0);
         dccPurchaseOrderExpectedDeliveryDate.setDate(null);
+        
+        txtPurchaseOrderNumber.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

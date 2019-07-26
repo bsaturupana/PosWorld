@@ -4,7 +4,8 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
 
     public frmGoodsIssueMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -250,7 +251,7 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
- ClearFields();
+ clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -321,7 +322,7 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrivilageCardNO;
     // End of variables declaration//GEN-END:variables
 
-    private void ClearFields() {
+    private void clearFields() {
         txtGRNNO.setText(null);
         txtCustomerName.setText(null);
         txtPrivilageCardNO.setText(null);
@@ -330,5 +331,10 @@ public class frmGoodsIssueMaster extends javax.swing.JFrame {
         
         comboPaymentType.setSelectedIndex(0);
         
+        txtGRNNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

@@ -6,7 +6,8 @@ public class frmPurchaseReturnMaster extends javax.swing.JFrame {
 
     public frmPurchaseReturnMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -364,5 +365,11 @@ public class frmPurchaseReturnMaster extends javax.swing.JFrame {
         txtPurchaseReturnNO.setText(null);
         dccPurchaseReturnDate.setDate(null);
         comboSupplierName.setSelectedIndex(0);
+
+        txtPurchaseReturnNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

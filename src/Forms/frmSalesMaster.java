@@ -4,7 +4,8 @@ public class frmSalesMaster extends javax.swing.JFrame {
 
     public frmSalesMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -233,7 +234,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-  this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -245,7 +246,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfield();
+        clearField();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -253,7 +254,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
-                new frmSalesInvoice().setVisible(true);
+        new frmSalesInvoice().setVisible(true);
     }//GEN-LAST:event_btnAddNewActionPerformed
 
     public static void main(String args[]) {
@@ -312,13 +313,18 @@ public class frmSalesMaster extends javax.swing.JFrame {
     private javax.swing.JTextField txtPurchaseOrderNumber;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfield() {
-       txtInvoiceNO.setText(null);
-       txtPurchaseOrderNumber.setText(null);
-       txtCustomerName.setText(null);
-       
-       dccInvoiceDate.setDate(null);
-       
-       comboPaymentType.setSelectedIndex(0);
+    private void clearField() {
+        txtInvoiceNO.setText(null);
+        txtPurchaseOrderNumber.setText(null);
+        txtCustomerName.setText(null);
+
+        dccInvoiceDate.setDate(null);
+
+        comboPaymentType.setSelectedIndex(0);
+        txtInvoiceNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

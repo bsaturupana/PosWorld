@@ -16,7 +16,7 @@ public class frmAccount extends javax.swing.JFrame {
     public frmAccount() {
         initComponents();
 
-        form_Format();
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -460,12 +460,12 @@ public class frmAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        ClearFields();
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Account", JOptionPane.INFORMATION_MESSAGE);
-        ClearFields();
+        clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
@@ -676,7 +676,7 @@ public class frmAccount extends javax.swing.JFrame {
     private javax.swing.JTextField txtVATNo;
     // End of variables declaration//GEN-END:variables
 
-    private void ClearFields() {
+    private void clearFields() {
         // GENARAL
         txtAccountCode.setText(null);
         txtAccountName.setText(null);
@@ -708,6 +708,8 @@ public class frmAccount extends javax.swing.JFrame {
         txtRemarksCash.setText(null);
 
         rb_Parent_Visibility();
+        
+        txtAccountCode.requestFocus();
     }
 
     private void fill_Parent_Dropdown() {
@@ -732,10 +734,10 @@ public class frmAccount extends javax.swing.JFrame {
         }
     }
 
-    private void form_Format() {
+    private void formFormat() {
         this.setLocationRelativeTo(null);
 
-        ClearFields();
+        clearFields();
 
         fill_Parent_Dropdown();
 

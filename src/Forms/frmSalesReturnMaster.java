@@ -4,7 +4,8 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
 
     public frmSalesReturnMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -237,7 +238,7 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-    this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -320,9 +321,15 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
         txtInvoiceNO.setText(null);
         txtPrivilageCardNO.setText(null);
         txtCustomerName.setText(null);
-        
+
         dccInvoiceDate.setDate(null);
-        
+
         comboPaymentType.setSelectedIndex(0);
+
+        txtInvoiceNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

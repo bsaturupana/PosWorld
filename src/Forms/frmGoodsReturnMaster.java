@@ -4,7 +4,8 @@ public class frmGoodsReturnMaster extends javax.swing.JFrame {
 
     public frmGoodsReturnMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -233,7 +234,7 @@ public class frmGoodsReturnMaster extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-          this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -245,7 +246,7 @@ public class frmGoodsReturnMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-ClearFields();
+        ClearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -316,9 +317,15 @@ ClearFields();
         txtGRNNO.setText(null);
         txtPrivilageCardNO.setText(null);
         txtCustomerName.setText(null);
-        
+
         dccGRNDate.setCalendar(null);
-        
+
         comboPaymentType.setSelectedIndex(0);
+
+        txtGRNNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

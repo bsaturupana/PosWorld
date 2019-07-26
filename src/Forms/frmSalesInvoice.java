@@ -1,10 +1,17 @@
 package Forms;
 
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class frmSalesInvoice extends javax.swing.JFrame {
+
+    DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
 
     public frmSalesInvoice() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -20,22 +27,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         txtCustomerName = new javax.swing.JTextField();
         lblInvoiceNumber = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableSalesInvoice = new javax.swing.JTable();
-        txtBatchNO = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtDiscription = new javax.swing.JTextField();
-        txtUnitPrice = new javax.swing.JTextField();
-        txtDiscount = new javax.swing.JTextField();
-        txtQuantity = new javax.swing.JTextField();
-        txtsalesPrice = new javax.swing.JTextField();
-        txtCode = new javax.swing.JTextField();
+        javax.swing.JTable tableSalesInvoice = new javax.swing.JTable();
         dccInvoiceDate = new com.toedter.calendar.JDateChooser();
         txtInvoiceNumber = new javax.swing.JTextField();
         txtPrivilageCard = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lblcardType = new javax.swing.JLabel();
@@ -48,7 +50,7 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         txtCardType = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         lblspecialDiscount = new javax.swing.JLabel();
-        txtspecialDiscount = new javax.swing.JTextField();
+        txtSpecialDiscount = new javax.swing.JTextField();
         lblTotalDiscount = new javax.swing.JLabel();
         lblNetTotal = new javax.swing.JLabel();
         lblPaymentType = new javax.swing.JLabel();
@@ -82,20 +84,21 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         lblCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblCustomerName.setText("CUSTOMER NAME");
-        jPanel1.add(lblCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel1.add(lblCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
         lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblInvoiceDate.setText("INVOICE DATE");
-        jPanel1.add(lblInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, -1, -1));
+        jPanel1.add(lblInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
 
         txtCustomerName.setBackground(new java.awt.Color(255, 255, 150));
         txtCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 320, 30));
+        jPanel1.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 440, 30));
 
         lblInvoiceNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblInvoiceNumber.setText("INVOICE NUMBER");
-        jPanel1.add(lblInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
+        jPanel1.add(lblInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
+        tableSalesInvoice.setBackground(new java.awt.Color(102, 255, 204));
         tableSalesInvoice.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableSalesInvoice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,62 +127,32 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         });
         tableSalesInvoice.setRowHeight(30);
         jScrollPane1.setViewportView(tableSalesInvoice);
-        if (tableSalesInvoice.getColumnModel().getColumnCount() > 0) {
-            tableSalesInvoice.getColumnModel().getColumn(5).setHeaderValue("DISCOUNT");
-        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1230, 330));
-
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
-        txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 150, 30));
-
-        txtName.setBackground(new java.awt.Color(255, 255, 150));
-        txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, 30));
-
-        txtDiscription.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 160, 30));
-
-        txtUnitPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 30));
-
-        txtDiscount.setBackground(new java.awt.Color(255, 255, 150));
-        txtDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDiscountActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 160, 30));
-
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
-        txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 60, 150, 30));
-
-        txtsalesPrice.setBackground(new java.awt.Color(255, 255, 150));
-        txtsalesPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtsalesPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 60, 170, 30));
-
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
-        txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 30));
-        jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 160, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1230, 320));
+        jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 160, 30));
 
         txtInvoiceNumber.setBackground(new java.awt.Color(255, 255, 150));
-        jPanel1.add(txtInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 120, 30));
+        jPanel1.add(txtInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 180, 30));
 
         txtPrivilageCard.setBackground(new java.awt.Color(255, 255, 150));
-        jPanel1.add(txtPrivilageCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 120, 30));
+        jPanel1.add(txtPrivilageCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 30));
 
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 140, 60));
+
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -201,16 +174,38 @@ public class frmSalesInvoice extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnPrint.setBackground(new java.awt.Color(155, 194, 230));
+        btnPrint.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnPrint.setText("PRINT");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(673, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -218,10 +213,14 @@ public class frmSalesInvoice extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -291,15 +290,25 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         lblspecialDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel5.add(lblspecialDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, 152, 30));
 
-        txtspecialDiscount.setBackground(new java.awt.Color(255, 255, 150));
-        txtspecialDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtspecialDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtspecialDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtspecialDiscountActionPerformed(evt);
+        txtSpecialDiscount.setBackground(new java.awt.Color(255, 255, 150));
+        txtSpecialDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSpecialDiscount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtSpecialDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtSpecialDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtSpecialDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSpecialDiscountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSpecialDiscountFocusLost(evt);
             }
         });
-        jPanel5.add(txtspecialDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 0, 160, 29));
+        txtSpecialDiscount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSpecialDiscountActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtSpecialDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 0, 160, 29));
 
         lblTotalDiscount.setText("TOTAL DISCOUNT");
         lblTotalDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -323,7 +332,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtTotalDiscount.setBackground(new java.awt.Color(255, 255, 150));
         txtTotalDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtTotalDiscount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotalDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTotalDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTotalDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTotalDiscountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTotalDiscountFocusLost(evt);
+            }
+        });
         txtTotalDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalDiscountActionPerformed(evt);
@@ -333,7 +352,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtNetTotal.setBackground(new java.awt.Color(255, 255, 150));
         txtNetTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNetTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNetTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNetTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNetTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNetTotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNetTotalFocusLost(evt);
+            }
+        });
         txtNetTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNetTotalActionPerformed(evt);
@@ -343,7 +372,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtCashReceived.setBackground(new java.awt.Color(255, 255, 150));
         txtCashReceived.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCashReceived.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCashReceived.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCashReceived.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCashReceived.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCashReceivedFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCashReceivedFocusLost(evt);
+            }
+        });
         txtCashReceived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCashReceivedActionPerformed(evt);
@@ -353,7 +392,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtCreditReceived.setBackground(new java.awt.Color(255, 255, 150));
         txtCreditReceived.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCreditReceived.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCreditReceived.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCreditReceived.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCreditReceived.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCreditReceivedFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCreditReceivedFocusLost(evt);
+            }
+        });
         txtCreditReceived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCreditReceivedActionPerformed(evt);
@@ -367,7 +416,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtCashBalance.setBackground(new java.awt.Color(255, 255, 150));
         txtCashBalance.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCashBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCashBalance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCashBalance.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCashBalance.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCashBalanceFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCashBalanceFocusLost(evt);
+            }
+        });
         txtCashBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCashBalanceActionPerformed(evt);
@@ -375,7 +434,7 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         });
         jPanel5.add(txtCashBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 229, 160, 29));
 
-        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -" }));
+        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Bank" }));
         jPanel5.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 112, 160, 30));
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -390,7 +449,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtTotalItemDiscount.setBackground(new java.awt.Color(255, 255, 150));
         txtTotalItemDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtTotalItemDiscount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotalItemDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTotalItemDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTotalItemDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTotalItemDiscountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTotalItemDiscountFocusLost(evt);
+            }
+        });
         txtTotalItemDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalItemDiscountActionPerformed(evt);
@@ -400,7 +469,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         txtGrossTotal.setBackground(new java.awt.Color(255, 255, 150));
         txtGrossTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtGrossTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtGrossTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtGrossTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtGrossTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtGrossTotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtGrossTotalFocusLost(evt);
+            }
+        });
         txtGrossTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGrossTotalActionPerformed(evt);
@@ -420,11 +499,12 @@ public class frmSalesInvoice extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1246, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,23 +522,24 @@ public class frmSalesInvoice extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-  this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfields();
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-       clearfields();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Saved.", "Sales Invoice", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCardNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardNameActionPerformed
         // TODO add your handling code here:
@@ -476,9 +557,9 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCardTypeActionPerformed
 
-    private void txtspecialDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtspecialDiscountActionPerformed
+    private void txtSpecialDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSpecialDiscountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtspecialDiscountActionPerformed
+    }//GEN-LAST:event_txtSpecialDiscountActionPerformed
 
     private void txtTotalDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalDiscountActionPerformed
         // TODO add your handling code here:
@@ -508,9 +589,129 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCashBalanceActionPerformed
 
-    private void txtDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiscountActionPerformed
+    private void txtGrossTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGrossTotalFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtGrossTotal.getText())) {
+            txtGrossTotal.setText("");
+        }
+    }//GEN-LAST:event_txtGrossTotalFocusGained
+
+    private void txtTotalItemDiscountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalItemDiscountFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtTotalItemDiscount.getText())) {
+            txtTotalItemDiscount.setText("");
+        }
+    }//GEN-LAST:event_txtTotalItemDiscountFocusGained
+
+    private void txtSpecialDiscountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpecialDiscountFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtSpecialDiscount.getText())) {
+            txtSpecialDiscount.setText("");
+        }
+    }//GEN-LAST:event_txtSpecialDiscountFocusGained
+
+    private void txtTotalDiscountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalDiscountFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtTotalDiscount.getText())) {
+            txtTotalDiscount.setText("");
+        }
+    }//GEN-LAST:event_txtTotalDiscountFocusGained
+
+    private void txtNetTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNetTotalFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtNetTotal.getText())) {
+            txtNetTotal.setText("");
+        }
+    }//GEN-LAST:event_txtNetTotalFocusGained
+
+    private void txtCashReceivedFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashReceivedFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtCashReceived.getText())) {
+            txtCashReceived.setText("");
+        }
+    }//GEN-LAST:event_txtCashReceivedFocusGained
+
+    private void txtCreditReceivedFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCreditReceivedFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtCreditReceived.getText())) {
+            txtCreditReceived.setText("");
+        }
+    }//GEN-LAST:event_txtCreditReceivedFocusGained
+
+    private void txtCashBalanceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashBalanceFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtCashBalance.getText())) {
+            txtCashBalance.setText("");
+        }
+    }//GEN-LAST:event_txtCashBalanceFocusGained
+
+    private void txtGrossTotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGrossTotalFocusLost
+        if (txtGrossTotal.getText().equals("")) {
+            txtGrossTotal.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtGrossTotal.getText().equals("0")) {
+            txtGrossTotal.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtGrossTotalFocusLost
+
+    private void txtTotalItemDiscountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalItemDiscountFocusLost
+        if (txtTotalItemDiscount.getText().equals("")) {
+            txtTotalItemDiscount.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtTotalItemDiscount.getText().equals("0")) {
+            txtTotalItemDiscount.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtTotalItemDiscountFocusLost
+
+    private void txtSpecialDiscountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpecialDiscountFocusLost
+        if (txtSpecialDiscount.getText().equals("")) {
+            txtSpecialDiscount.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtSpecialDiscount.getText().equals("0")) {
+            txtSpecialDiscount.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtSpecialDiscountFocusLost
+
+    private void txtTotalDiscountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalDiscountFocusLost
+        if (txtTotalDiscount.getText().equals("")) {
+            txtTotalDiscount.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtTotalDiscount.getText().equals("0")) {
+            txtTotalDiscount.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtTotalDiscountFocusLost
+
+    private void txtNetTotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNetTotalFocusLost
+        if (txtNetTotal.getText().equals("")) {
+            txtNetTotal.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtNetTotal.getText().equals("0")) {
+            txtNetTotal.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtNetTotalFocusLost
+
+    private void txtCashReceivedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashReceivedFocusLost
+        if (txtCashReceived.getText().equals("")) {
+            txtCashReceived.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtCashReceived.getText().equals("0")) {
+            txtCashReceived.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtCashReceivedFocusLost
+
+    private void txtCreditReceivedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCreditReceivedFocusLost
+        if (txtCreditReceived.getText().equals("")) {
+            txtCreditReceived.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtCreditReceived.getText().equals("0")) {
+            txtCreditReceived.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtCreditReceivedFocusLost
+
+    private void txtCashBalanceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashBalanceFocusLost
+        if (txtCashBalance.getText().equals("")) {
+            txtCashBalance.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtCashBalance.getText().equals("0")) {
+            txtCashBalance.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtCashBalanceFocusLost
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Deleted.", "Sales Invoice", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        JOptionPane.showMessageDialog(this, "Successfully Printed.", "Sales Invoice", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnPrintActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDiscountActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -544,8 +745,11 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboPaymentType;
     private com.toedter.calendar.JDateChooser dccInvoiceDate;
@@ -574,51 +778,55 @@ public class frmSalesInvoice extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalItemDiscount;
     private javax.swing.JLabel lblcardType;
     private javax.swing.JLabel lblspecialDiscount;
-    private javax.swing.JTable tableSalesInvoice;
     private javax.swing.JTextField txtBankName;
-    private javax.swing.JTextField txtBatchNO;
     private javax.swing.JTextField txtCardName;
     private javax.swing.JTextField txtCardNumber;
     private javax.swing.JTextField txtCardType;
     private javax.swing.JTextField txtCashBalance;
     private javax.swing.JTextField txtCashReceived;
-    private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCreditReceived;
     private javax.swing.JTextField txtCustomerName;
-    private javax.swing.JTextField txtDiscount;
-    private javax.swing.JTextField txtDiscription;
     private javax.swing.JTextField txtGrossTotal;
     private javax.swing.JTextField txtInvoiceNumber;
-    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNetTotal;
     private javax.swing.JTextField txtPrivilageCard;
-    private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtSpecialDiscount;
     private javax.swing.JTextField txtTotalDiscount;
     private javax.swing.JTextField txtTotalItemDiscount;
-    private javax.swing.JTextField txtUnitPrice;
-    private javax.swing.JTextField txtsalesPrice;
-    private javax.swing.JTextField txtspecialDiscount;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfields() {
-     txtPrivilageCard.setText(null);
-     txtCustomerName.setText(null);
-     txtInvoiceNumber.setText(null);
-     txtBankName.setText(null);
-     txtCardName.setText(null);
-     txtCardType.setText(null);
-     txtCardNumber.setText(null);
-     txtGrossTotal.setText(null);
-     txtTotalItemDiscount.setText(null);
-     txtspecialDiscount.setText(null);
-     txtTotalDiscount.setText(null);
-     txtNetTotal.setText(null);
-     txtCashReceived.setText(null);
-     txtCreditReceived.setText(null);
-     txtCashBalance.setText(null);
-     
-     dccInvoiceDate.setDate(null);
-     
-     comboPaymentType.setSelectedIndex(0);
+    private void clearFields() {
+        txtPrivilageCard.setText(null);
+        txtCustomerName.setText(null);
+        txtInvoiceNumber.setText(null);
+        txtBankName.setText(null);
+        txtCardName.setText(null);
+        txtCardType.setText(null);
+        txtCardNumber.setText(null);
+        txtGrossTotal.setText(String.valueOf(convertDecimal(0)));
+        txtTotalItemDiscount.setText(String.valueOf(convertDecimal(0)));
+        txtSpecialDiscount.setText(String.valueOf(convertDecimal(0)));
+        txtTotalDiscount.setText(String.valueOf(convertDecimal(0)));
+        txtNetTotal.setText(String.valueOf(convertDecimal(0)));
+        txtCashReceived.setText(String.valueOf(convertDecimal(0)));
+        txtCreditReceived.setText(String.valueOf(convertDecimal(0)));
+        txtCashBalance.setText(String.valueOf(convertDecimal(0)));
+
+        dccInvoiceDate.setDate(null);
+
+        comboPaymentType.setSelectedIndex(0);
+
+        txtPrivilageCard.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
+
+        clearFields();
+    }
+
+    private String convertDecimal(double getValue) {
+//        DecimalFormat currencyFormat = new DecimalFormat("#, ###.00");
+        return currencyFormat.format(getValue);
     }
 }

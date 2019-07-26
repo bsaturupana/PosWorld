@@ -11,7 +11,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
     public frmPasswordReset() {
         initComponents();
 
-        form_Format();
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -90,7 +90,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
         lblSecurityQuestion1.setText("SECURITY QUESTION 1");
         panelBodyArea.add(lblSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, -1));
 
-        txtSecurityQuestion1.setBackground(new java.awt.Color(255, 255, 150));
+        txtSecurityQuestion1.setBackground(new java.awt.Color(255, 153, 153));
         txtSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
         lblSecurityQuestion2.setText("SECURITY QUESTION 2");
         panelBodyArea.add(lblSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, -1));
 
-        txtSecurityQuestion2.setBackground(new java.awt.Color(255, 255, 150));
+        txtSecurityQuestion2.setBackground(new java.awt.Color(255, 153, 153));
         txtSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,13 +509,28 @@ public class frmPasswordReset extends javax.swing.JFrame {
         }
     }
 
-    private void form_Format() {
+    private void clearFields() {
+        txtNewPassword.setText("");
+        txtConfirmPassword.setText("");
+        txtSecurityQuestion1.setText("");
+        txtSecurityAnswer1.setText("");
+        txtSecurityQuestion2.setText("");
+        txtSecurityAnswer2.setText("");
+        txtEmail.setText("");
+        txtPhoneNumber.setText("");
+
+        txtNewPassword.requestFocus();
+    }
+
+    private void formFormat() {
         lblMsgAreaPwdStrength.setVisible(false);
         lblMsgAreaPwdStrength.setForeground(Color.BLACK);
         lblMsgAreaPwdStrength.setText("");
 
         txtSecurityQuestion1.setEditable(false);
         txtSecurityQuestion2.setEditable(false);
+
+        clearFields();
 
         this.setLocationRelativeTo(null);
     }

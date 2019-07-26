@@ -7,7 +7,8 @@ public class frmLogin extends javax.swing.JFrame {
 
     public frmLogin() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -232,4 +233,8 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
+    }
 }

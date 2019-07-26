@@ -6,7 +6,8 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
 
     public frmPurchaseOrderMaster() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -386,5 +387,11 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         dccPurchaseOrderDate.setDate(null);
         comboSupplierName.setSelectedIndex(0);
         comboPaymentType.setSelectedIndex(0);
+        
+        txtPurchaseOrderNO.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
     }
 }

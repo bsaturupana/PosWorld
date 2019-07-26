@@ -4,7 +4,8 @@ public class frmProduct extends javax.swing.JFrame {
 
     public frmProduct() {
         initComponents();
-        this.setLocationRelativeTo(null);
+
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +40,7 @@ public class frmProduct extends javax.swing.JFrame {
         txtProductName = new javax.swing.JTextField();
         txtDiscription = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
@@ -152,15 +153,15 @@ public class frmProduct extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnUpdate.setBackground(new java.awt.Color(155, 194, 230));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 13, 140, 60));
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 13, 140, 60));
 
         btnReset.setBackground(new java.awt.Color(155, 194, 230));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -188,16 +189,16 @@ public class frmProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-          this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearfields();
+        clearFields();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        clearfields();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        clearFields();
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void radioActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioActiveActionPerformed
         // TODO add your handling code here:
@@ -236,7 +237,7 @@ public class frmProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboSupplier;
     private com.toedter.calendar.JDateChooser dccExpirydate;
@@ -267,23 +268,30 @@ public class frmProduct extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalePrice;
     // End of variables declaration//GEN-END:variables
 
-    private void clearfields() {
-       txtProductCode.setText(null);
-       txtBatchNo.setText(null);
-       txtDiscription.setText(null);
-       txtProductName.setText(null);
-       txtPurchasePrice.setText(null);
-       txtSalePrice.setText(null);
-       txtRemarks.setText(null);
-      
-       
-       dccManufactureDate.setCalendar(null);
-       dccPackedDate.setCalendar(null);
-       dccExpirydate.setCalendar(null);
-       
-       comboSupplier.setSelectedIndex(0);
-       
-       radioActive.setSelected(true);
-       radioInactive.setSelected(false);
+    private void clearFields() {
+        txtProductCode.setText(null);
+        txtBatchNo.setText(null);
+        txtProductName.setText(null);
+        txtDiscription.setText(null);
+        txtPurchasePrice.setText(null);
+        txtSalePrice.setText(null);
+        txtRemarks.setText(null);
+
+        dccManufactureDate.setCalendar(null);
+        dccPackedDate.setCalendar(null);
+        dccExpirydate.setCalendar(null);
+
+        comboSupplier.setSelectedIndex(0);
+
+        radioActive.setSelected(true);
+        radioInactive.setSelected(false);
+
+        txtProductCode.requestFocus();
+    }
+
+    private void formFormat() {
+        this.setLocationRelativeTo(null);
+
+        clearFields();
     }
 }

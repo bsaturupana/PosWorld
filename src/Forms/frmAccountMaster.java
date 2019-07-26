@@ -7,7 +7,7 @@ public class frmAccountMaster extends javax.swing.JFrame {
     public frmAccountMaster() {
         initComponents();
 
-        form_Format();
+        formFormat();
     }
 
     @SuppressWarnings("unchecked")
@@ -239,7 +239,7 @@ public class frmAccountMaster extends javax.swing.JFrame {
     private javax.swing.JTree tvAccountsTree;
     // End of variables declaration//GEN-END:variables
 
-    private void form_Format() {
+    private void formFormat() {
         this.setLocationRelativeTo(null);
     }
 }
