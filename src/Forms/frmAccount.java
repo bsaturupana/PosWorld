@@ -100,6 +100,14 @@ public class frmAccount extends javax.swing.JFrame {
         txtOpeningBalance.setBackground(new java.awt.Color(255, 255, 150));
         txtOpeningBalance.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtOpeningBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtOpeningBalance.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtOpeningBalanceFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtOpeningBalanceFocusLost(evt);
+            }
+        });
         txtOpeningBalance.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtOpeningBalanceKeyTyped(evt);
@@ -566,6 +574,20 @@ public class frmAccount extends javax.swing.JFrame {
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtRemarksCashKeyTyped
+
+    private void txtOpeningBalanceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOpeningBalanceFocusGained
+        if (String.valueOf(convertDecimal(0)).equals(txtOpeningBalance.getText())) {
+            txtOpeningBalance.setText("");
+        }
+    }//GEN-LAST:event_txtOpeningBalanceFocusGained
+
+    private void txtOpeningBalanceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOpeningBalanceFocusLost
+        if (txtOpeningBalance.getText().equals("")) {
+            txtOpeningBalance.setText(String.valueOf(convertDecimal(0)));
+        } else if (txtOpeningBalance.getText().equals("0")) {
+            txtOpeningBalance.setText(String.valueOf(convertDecimal(0)));
+        }
+    }//GEN-LAST:event_txtOpeningBalanceFocusLost
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

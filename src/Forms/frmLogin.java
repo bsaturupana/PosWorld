@@ -186,7 +186,7 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "USERNAME and PASSWORD can not be equal.", "Login", JOptionPane.ERROR_MESSAGE);
             txtUsername.requestFocus();
         } else {
-            JOptionPane.showMessageDialog(this, "Login Successfully.", "Password Reset", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Login Successfully.", "Login", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
