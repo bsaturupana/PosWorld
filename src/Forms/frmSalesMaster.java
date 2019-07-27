@@ -43,20 +43,26 @@ public class frmSalesMaster extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        lblPrivilageCardNO.setBackground(new java.awt.Color(45, 62, 80));
+        lblPrivilageCardNO.setToolTipText("");
         lblPrivilageCardNO.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblInvoiceNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceNO.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceNO.setText("INVOICE NO.");
         lblPrivilageCardNO.add(lblInvoiceNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceDate.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceDate.setText("INVOICE DATE");
         lblPrivilageCardNO.add(lblInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
-        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchaseOrderNumber.setText("PRIVILAGE CARD NO.");
         lblPrivilageCardNO.add(lblPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, -1, -1));
 
+        tableGRN.setBackground(new java.awt.Color(110, 122, 136));
         tableGRN.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableGRN.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,13 +89,18 @@ public class frmSalesMaster extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tableGRN.setToolTipText("");
         tableGRN.setRowHeight(30);
         jScrollPane1.setViewportView(tableGRN);
 
-        lblPrivilageCardNO.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 340));
+        lblPrivilageCardNO.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1440, 340));
 
-        btnEdit.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel2.setToolTipText("");
+
+        btnEdit.setBackground(new java.awt.Color(53, 189, 252));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +108,9 @@ public class frmSalesMaster extends javax.swing.JFrame {
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete.setBackground(new java.awt.Color(53, 189, 252));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,8 +118,9 @@ public class frmSalesMaster extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +128,9 @@ public class frmSalesMaster extends javax.swing.JFrame {
             }
         });
 
-        btnAddNew.setBackground(new java.awt.Color(155, 194, 230));
+        btnAddNew.setBackground(new java.awt.Color(53, 189, 252));
         btnAddNew.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew.setText("ADD NEW");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +143,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(542, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(btnAddNew)
                 .addGap(18, 18, 18)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,18 +165,24 @@ public class frmSalesMaster extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblPrivilageCardNO.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 80));
+        lblPrivilageCardNO.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 690, 80));
 
-        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPaymentType.setForeground(new java.awt.Color(255, 255, 255));
         lblPaymentType.setText("PAYMENT TYPE");
         lblPrivilageCardNO.add(lblPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
-        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCustomerName.setForeground(new java.awt.Color(255, 255, 255));
         lblCustomerName.setText("CUSTOMER NAME");
         lblPrivilageCardNO.add(lblCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel3.setToolTipText("");
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +190,9 @@ public class frmSalesMaster extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setBackground(new java.awt.Color(53, 189, 252));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +205,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,35 +220,41 @@ public class frmSalesMaster extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        lblPrivilageCardNO.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 330, 70));
+        lblPrivilageCardNO.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 340, 70));
 
         comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Credit Card", "Debit Card" }));
         lblPrivilageCardNO.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 180, 30));
         lblPrivilageCardNO.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 180, 30));
 
-        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(110, 122, 136));
+        txtPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtPurchaseOrderNumber.setToolTipText("");
         lblPrivilageCardNO.add(txtPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 200, 30));
 
-        txtInvoiceNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtInvoiceNO.setBackground(new java.awt.Color(110, 122, 136));
+        txtInvoiceNO.setForeground(new java.awt.Color(255, 255, 255));
+        txtInvoiceNO.setToolTipText("");
         lblPrivilageCardNO.add(txtInvoiceNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 250, 30));
 
-        txtCustomerName.setBackground(new java.awt.Color(255, 255, 150));
+        txtCustomerName.setBackground(new java.awt.Color(110, 122, 136));
+        txtCustomerName.setForeground(new java.awt.Color(255, 255, 255));
+        txtCustomerName.setToolTipText("");
         lblPrivilageCardNO.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 250, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPrivilageCardNO, javax.swing.GroupLayout.DEFAULT_SIZE, 1450, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblPrivilageCardNO, javax.swing.GroupLayout.PREFERRED_SIZE, 1462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblPrivilageCardNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblPrivilageCardNO, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();

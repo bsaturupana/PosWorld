@@ -43,17 +43,22 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblInvoiceNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceNO.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceNO.setText("INVOICE NO.");
         jPanel1.add(lblInvoiceNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceDate.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceDate.setText("INVOICE DATE");
         jPanel1.add(lblInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
-        lblPrivilageCardNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPrivilageCardNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPrivilageCardNO.setForeground(new java.awt.Color(255, 255, 255));
         lblPrivilageCardNO.setText("PRIVILAGE CARD NO.");
         jPanel1.add(lblPrivilageCardNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
 
@@ -86,21 +91,27 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
         tableGRN.setRowHeight(30);
         jScrollPane1.setViewportView(tableGRN);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 890, 340));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 890, 340));
 
-        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPaymentType.setForeground(new java.awt.Color(255, 255, 255));
         lblPaymentType.setText("PAYMENT TYPE");
         jPanel1.add(lblPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        txtCustomerName.setBackground(new java.awt.Color(255, 255, 150));
+        txtCustomerName.setBackground(new java.awt.Color(110, 122, 136));
+        txtCustomerName.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 250, 30));
 
-        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCustomerName.setForeground(new java.awt.Color(255, 255, 255));
         lblCustomerName.setText("CUSTOMER NAME");
         jPanel1.add(lblCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +119,9 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setBackground(new java.awt.Color(53, 189, 252));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,80 +149,68 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 310, 70));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 310, 70));
 
         comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -" }));
         jPanel1.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 250, 30));
-        jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 200, 30));
+        jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 210, 30));
 
-        txtPrivilageCardNO.setBackground(new java.awt.Color(255, 255, 150));
-        jPanel1.add(txtPrivilageCardNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 200, 30));
+        txtPrivilageCardNO.setBackground(new java.awt.Color(110, 122, 136));
+        txtPrivilageCardNO.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtPrivilageCardNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 210, 30));
 
-        txtInvoiceNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtInvoiceNO.setBackground(new java.awt.Color(110, 122, 136));
+        txtInvoiceNO.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtInvoiceNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 250, 30));
 
-        btnEdit.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEdit.setBackground(new java.awt.Color(53, 189, 252));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 13, 140, 60));
 
-        btnDelete.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete.setBackground(new java.awt.Color(53, 189, 252));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 13, 140, 60));
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
             }
         });
+        jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(491, 13, 140, 60));
 
-        btnAddNew.setBackground(new java.awt.Color(155, 194, 230));
+        btnAddNew.setBackground(new java.awt.Color(53, 189, 252));
         btnAddNew.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew.setText("ADD NEW");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAddNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, 60));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddNew)
-                .addGap(18, 18, 18)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 640, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,19 +218,14 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(7, 7, 7)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

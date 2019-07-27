@@ -1,5 +1,7 @@
 package Forms;
 
+import javax.swing.JOptionPane;
+
 public class frmUserMaster extends javax.swing.JFrame {
 
     public frmUserMaster() {
@@ -28,9 +30,9 @@ public class frmUserMaster extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnReset = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
-        txtGender = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
         txtRole = new javax.swing.JTextField();
+        comboGender = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("USER MASTOR");
@@ -39,20 +41,25 @@ public class frmUserMaster extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblUserName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblUserName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setText("USER NAME");
         jPanel1.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        lblRole.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("ROLE");
         jPanel1.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, -1, -1));
 
-        lblGender.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGender.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setText("GENDER");
         jPanel1.add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, -1, -1));
 
+        tableProductMaster.setBackground(new java.awt.Color(110, 122, 136));
         tableProductMaster.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableProductMaster.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,28 +89,35 @@ public class frmUserMaster extends javax.swing.JFrame {
         tableProductMaster.setRowHeight(30);
         jScrollPane1.setViewportView(tableProductMaster);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 340));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1430, 340));
 
-        btnEdit.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnEdit.setBackground(new java.awt.Color(53, 189, 252));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
+        btnEdit.setToolTipText("");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete.setBackground(new java.awt.Color(53, 189, 252));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
+        btnDelete.setToolTipText("");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,9 +125,11 @@ public class frmUserMaster extends javax.swing.JFrame {
             }
         });
 
-        btnAddNew.setBackground(new java.awt.Color(155, 194, 230));
+        btnAddNew.setBackground(new java.awt.Color(53, 189, 252));
         btnAddNew.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew.setText("ADD NEW");
+        btnAddNew.setToolTipText("");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewActionPerformed(evt);
@@ -149,18 +165,25 @@ public class frmUserMaster extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 80));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel3.setToolTipText("");
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
+        btnReset.setToolTipText("");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setBackground(new java.awt.Color(53, 189, 252));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
+        btnSearch.setToolTipText("");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -189,19 +212,18 @@ public class frmUserMaster extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 330, 70));
 
-        txtGender.setBackground(new java.awt.Color(255, 255, 150));
-        txtGender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGenderActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 150, 30));
-
-        txtUserName.setBackground(new java.awt.Color(255, 255, 150));
+        txtUserName.setBackground(new java.awt.Color(110, 122, 136));
+        txtUserName.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 280, 30));
 
-        txtRole.setBackground(new java.awt.Color(255, 255, 150));
+        txtRole.setBackground(new java.awt.Color(110, 122, 136));
+        txtRole.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 140, 30));
+
+        comboGender.setBackground(new java.awt.Color(110, 122, 136));
+        comboGender.setForeground(new java.awt.Color(255, 255, 255));
+        comboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Gender -", "Male", "Female", "Other" }));
+        jPanel1.add(comboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,6 +237,7 @@ public class frmUserMaster extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -227,7 +250,7 @@ public class frmUserMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Successfully Deleted.", "User Master", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -245,10 +268,6 @@ public class frmUserMaster extends javax.swing.JFrame {
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
         new frmUser().setVisible(true);
     }//GEN-LAST:event_btnAddNewActionPerformed
-
-    private void txtGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGenderActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -288,6 +307,7 @@ public class frmUserMaster extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox comboGender;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -297,7 +317,6 @@ public class frmUserMaster extends javax.swing.JFrame {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tableProductMaster;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
@@ -305,7 +324,7 @@ public class frmUserMaster extends javax.swing.JFrame {
     private void clearField() {
         txtUserName.setText(null);
         txtRole.setText(null);
-        txtGender.setText(null);
+        comboGender.setSelectedIndex(0);
         
         txtUserName.requestFocus();
     }

@@ -85,20 +85,25 @@ public class frmAccount extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tabbedAccounts.setBackground(new java.awt.Color(45, 62, 80));
         tabbedAccounts.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jPanel4.setBackground(new java.awt.Color(45, 62, 80));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAccountCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAccountCode.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAccountCode.setForeground(new java.awt.Color(255, 255, 255));
         lblAccountCode.setText("ACCOUNT CODE");
         jPanel4.add(lblAccountCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        txtOpeningBalance.setBackground(new java.awt.Color(255, 255, 150));
+        txtOpeningBalance.setBackground(new java.awt.Color(110, 122, 136));
         txtOpeningBalance.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtOpeningBalance.setForeground(new java.awt.Color(255, 255, 255));
         txtOpeningBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtOpeningBalance.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -115,19 +120,22 @@ public class frmAccount extends javax.swing.JFrame {
         });
         jPanel4.add(txtOpeningBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 240, 30));
 
-        lblCategory.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblCategory.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(255, 255, 255));
         lblCategory.setText("CATEGORY");
         jPanel4.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        lblParent.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblParent.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblParent.setForeground(new java.awt.Color(255, 255, 255));
         lblParent.setText("PARENT");
         jPanel4.add(lblParent, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
-        lblAccountName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAccountName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAccountName.setForeground(new java.awt.Color(255, 255, 255));
         lblAccountName.setText("ACCOUNT NAME");
         jPanel4.add(lblAccountName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
-        txtAccountCode.setBackground(new java.awt.Color(255, 255, 150));
+        txtAccountCode.setBackground(new java.awt.Color(110, 122, 136));
         txtAccountCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtAccountCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -136,23 +144,29 @@ public class frmAccount extends javax.swing.JFrame {
         });
         jPanel4.add(txtAccountCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 250, 30));
 
-        lblSign.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSign.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSign.setForeground(new java.awt.Color(255, 255, 255));
         lblSign.setText("SIGN");
         jPanel4.add(lblSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
-        lblGroup.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGroup.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGroup.setForeground(new java.awt.Color(255, 255, 255));
         lblGroup.setText("GROUP");
         jPanel4.add(lblGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        lblOpeningBalance.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblOpeningBalance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblOpeningBalance.setForeground(new java.awt.Color(255, 255, 255));
         lblOpeningBalance.setText("OPENING BALANCE");
         jPanel4.add(lblOpeningBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, -1, -1));
 
-        lblType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblType.setForeground(new java.awt.Color(255, 255, 255));
         lblType.setText("TYPE");
         jPanel4.add(lblType, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
 
         buttonGroup1.add(rbChild);
+        rbChild.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbChild.setForeground(new java.awt.Color(255, 255, 255));
         rbChild.setText("CHILD");
         rbChild.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +176,8 @@ public class frmAccount extends javax.swing.JFrame {
         jPanel4.add(rbChild, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
         buttonGroup1.add(rbParent);
+        rbParent.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbParent.setForeground(new java.awt.Color(255, 255, 255));
         rbParent.setSelected(true);
         rbParent.setText("PARENT");
         rbParent.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +187,7 @@ public class frmAccount extends javax.swing.JFrame {
         });
         jPanel4.add(rbParent, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
 
+        comboCategory.setBackground(new java.awt.Color(110, 122, 136));
         comboCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Category -", "Asset", "Liability", "Income", "Expenses" }));
         comboCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +196,7 @@ public class frmAccount extends javax.swing.JFrame {
         });
         jPanel4.add(comboCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 250, 30));
 
+        comboType.setBackground(new java.awt.Color(110, 122, 136));
         comboType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Type -", "Bank", "Cash", "Customer", "Customer Supplier", "Supplier" }));
         comboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,13 +205,15 @@ public class frmAccount extends javax.swing.JFrame {
         });
         jPanel4.add(comboType, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 240, 30));
 
+        comboParent.setBackground(new java.awt.Color(110, 122, 136));
         comboParent.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Parent Name -" }));
         jPanel4.add(comboParent, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 240, 30));
 
+        comboSign.setBackground(new java.awt.Color(110, 122, 136));
         comboSign.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Sign -", "Credit", "Debit" }));
         jPanel4.add(comboSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, 30));
 
-        txtAccountName.setBackground(new java.awt.Color(255, 255, 150));
+        txtAccountName.setBackground(new java.awt.Color(110, 122, 136));
         txtAccountName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtAccountName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -204,15 +224,18 @@ public class frmAccount extends javax.swing.JFrame {
 
         tabbedAccounts.addTab("GENERAL", jPanel4);
 
+        panel1.setBackground(new java.awt.Color(45, 62, 80));
         panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblBank.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblBank.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblBank.setForeground(java.awt.Color.white);
         lblBank.setText("BANK");
         panel1.add(lblBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        txtContact.setBackground(new java.awt.Color(255, 255, 150));
+        txtContact.setBackground(new java.awt.Color(110, 122, 136));
         txtContact.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtContact.setForeground(new java.awt.Color(255, 255, 255));
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtContactKeyTyped(evt);
@@ -220,16 +243,19 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 240, 30));
 
-        lblEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblEmail.setForeground(java.awt.Color.white);
         lblEmail.setText("E-MAIL");
-        panel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 80, -1, -1));
+        panel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        lblVATNo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblVATNo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblVATNo.setForeground(java.awt.Color.white);
         lblVATNo.setText("VAT NO");
         panel1.add(lblVATNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        txtVATNo.setBackground(new java.awt.Color(255, 255, 150));
+        txtVATNo.setBackground(new java.awt.Color(110, 122, 136));
         txtVATNo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtVATNo.setForeground(new java.awt.Color(255, 255, 255));
         txtVATNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVATNoActionPerformed(evt);
@@ -242,12 +268,14 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtVATNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 240, 30));
 
-        lblAddress.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAddress.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAddress.setForeground(java.awt.Color.white);
         lblAddress.setText("ADDRESS");
         panel1.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
-        txtAddress.setBackground(new java.awt.Color(255, 255, 150));
+        txtAddress.setBackground(new java.awt.Color(110, 122, 136));
         txtAddress.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAddressKeyTyped(evt);
@@ -255,12 +283,14 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 650, 30));
 
-        lblAccountType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAccountType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAccountType.setForeground(java.awt.Color.white);
         lblAccountType.setText("ACCOUNT TYPE");
         panel1.add(lblAccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
-        txtPhoneNo1.setBackground(new java.awt.Color(255, 255, 150));
+        txtPhoneNo1.setBackground(new java.awt.Color(110, 122, 136));
         txtPhoneNo1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPhoneNo1.setForeground(new java.awt.Color(255, 255, 255));
         txtPhoneNo1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPhoneNo1KeyTyped(evt);
@@ -268,16 +298,19 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtPhoneNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 250, 30));
 
-        lblBranch.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblBranch.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblBranch.setForeground(java.awt.Color.white);
         lblBranch.setText("BRANCH");
         panel1.add(lblBranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
-        lblRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarks.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRemarks.setForeground(java.awt.Color.white);
         lblRemarks.setText("REMARKS");
         panel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
 
-        txtRemarks.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarks.setBackground(new java.awt.Color(110, 122, 136));
         txtRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtRemarks.setForeground(new java.awt.Color(255, 255, 255));
         txtRemarks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRemarksActionPerformed(evt);
@@ -293,7 +326,7 @@ public class frmAccount extends javax.swing.JFrame {
         comboAccountType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Account Type -", "Current Account", "Savings Account" }));
         panel1.add(comboAccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 250, 30));
 
-        txtAccNo.setBackground(new java.awt.Color(255, 255, 150));
+        txtAccNo.setBackground(new java.awt.Color(110, 122, 136));
         txtAccNo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAccNoKeyTyped(evt);
@@ -301,24 +334,29 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtAccNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 240, 30));
 
-        lblContact.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblContact.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblContact.setForeground(java.awt.Color.white);
         lblContact.setText("CONTACT");
         panel1.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblAccNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAccNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAccNO.setForeground(java.awt.Color.white);
         lblAccNO.setText("ACC.NO");
         panel1.add(lblAccNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblPhoneNo1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPhoneNo1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPhoneNo1.setForeground(java.awt.Color.white);
         lblPhoneNo1.setText("PHONE NO - 1");
         panel1.add(lblPhoneNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
-        lblPhoneNo2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPhoneNo2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPhoneNo2.setForeground(java.awt.Color.white);
         lblPhoneNo2.setText("PHONE NO - 2");
         panel1.add(lblPhoneNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
-        txtPhoneNo2.setBackground(new java.awt.Color(255, 255, 150));
+        txtPhoneNo2.setBackground(new java.awt.Color(110, 122, 136));
         txtPhoneNo2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPhoneNo2.setForeground(new java.awt.Color(255, 255, 255));
         txtPhoneNo2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPhoneNo2KeyTyped(evt);
@@ -326,8 +364,9 @@ public class frmAccount extends javax.swing.JFrame {
         });
         panel1.add(txtPhoneNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 250, 30));
 
-        txtEmail.setBackground(new java.awt.Color(255, 255, 150));
+        txtEmail.setBackground(new java.awt.Color(110, 122, 136));
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtEmailKeyTyped(evt);
@@ -341,17 +380,20 @@ public class frmAccount extends javax.swing.JFrame {
         comboBranch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Branch -", "Colombo", "Kadawatha", "Moratuwa", "Kandy", "Katunayake", "Galle" }));
         panel1.add(comboBranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 250, 30));
 
-        lblRemarksBank.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarksBank.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRemarksBank.setForeground(java.awt.Color.white);
         lblRemarksBank.setText("REMARKS");
         panel1.add(lblRemarksBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        lblRemarksCash.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarksCash.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRemarksCash.setForeground(java.awt.Color.white);
         lblRemarksCash.setText("REMARKS");
         panel1.add(lblRemarksCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         scroll_Remarks_Cash.setBackground(new java.awt.Color(255, 255, 150));
 
-        txtRemarksCash.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarksCash.setBackground(new java.awt.Color(110, 122, 136));
+        txtRemarksCash.setForeground(new java.awt.Color(255, 255, 255));
         txtRemarksCash.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtRemarksCashKeyTyped(evt);
@@ -363,7 +405,8 @@ public class frmAccount extends javax.swing.JFrame {
 
         scroll_Remarks_Bank.setBackground(new java.awt.Color(255, 255, 150));
 
-        txtRemarksBank.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarksBank.setBackground(new java.awt.Color(110, 122, 136));
+        txtRemarksBank.setForeground(new java.awt.Color(255, 255, 255));
         txtRemarksBank.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtRemarksBankKeyTyped(evt);
@@ -377,8 +420,11 @@ public class frmAccount extends javax.swing.JFrame {
 
         jPanel1.add(tabbedAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 790, 270));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,8 +432,9 @@ public class frmAccount extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,8 +442,9 @@ public class frmAccount extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

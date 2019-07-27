@@ -31,16 +31,16 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
         dccInvoiceDate = new com.toedter.calendar.JDateChooser();
         txtInvoiceNumber = new javax.swing.JTextField();
         txtPrivilageCard = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lbltotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         lblPaymentType = new javax.swing.JLabel();
         comboPaymentType = new javax.swing.JComboBox();
+        jPanel2 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         jTextField1.setText("jTextField1");
 
@@ -50,29 +50,38 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblPrivilageCard.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPrivilageCard.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPrivilageCard.setForeground(new java.awt.Color(255, 255, 255));
         lblPrivilageCard.setText("PRIVILAGE CARD");
         jPanel1.add(lblPrivilageCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblCustomerName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCustomerName.setForeground(new java.awt.Color(255, 255, 255));
         lblCustomerName.setText("CUSTOMER NAME");
         jPanel1.add(lblCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
-        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceDate.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceDate.setText("INVOICE DATE");
         jPanel1.add(lblInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, -1, -1));
 
-        txtCustomerName.setBackground(new java.awt.Color(255, 255, 150));
+        txtCustomerName.setBackground(new java.awt.Color(110, 122, 136));
         txtCustomerName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCustomerName.setForeground(new java.awt.Color(255, 255, 255));
+        txtCustomerName.setToolTipText("");
         jPanel1.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 320, 30));
 
-        lblInvoiceNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblInvoiceNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblInvoiceNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblInvoiceNumber.setText("INVOICE NUMBER");
         jPanel1.add(lblInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
 
+        tableSalesInvoice.setBackground(new java.awt.Color(110, 122, 136));
         tableSalesInvoice.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableSalesInvoice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,14 +108,17 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tableSalesInvoice.setToolTipText("");
         tableSalesInvoice.setRowHeight(30);
         jScrollPane1.setViewportView(tableSalesInvoice);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1230, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1220, 300));
         jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 160, 30));
 
-        txtInvoiceNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtInvoiceNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtInvoiceNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtInvoiceNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtInvoiceNumber.setToolTipText("");
         txtInvoiceNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtInvoiceNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +127,10 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
         });
         jPanel1.add(txtInvoiceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 120, 29));
 
-        txtPrivilageCard.setBackground(new java.awt.Color(255, 255, 150));
+        txtPrivilageCard.setBackground(new java.awt.Color(110, 122, 136));
         txtPrivilageCard.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPrivilageCard.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrivilageCard.setToolTipText("");
         txtPrivilageCard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtPrivilageCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +139,51 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
         });
         jPanel1.add(txtPrivilageCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 120, 29));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel5.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbltotal.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbltotal.setForeground(new java.awt.Color(255, 255, 255));
+        lbltotal.setText("TOTAL");
+        lbltotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        jPanel5.add(lbltotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, 152, 30));
+
+        txtTotal.setBackground(new java.awt.Color(110, 122, 136));
+        txtTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtTotal.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotal.setToolTipText("");
+        txtTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTotalFocusLost(evt);
+            }
+        });
+        txtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 0, 185, 29));
+
+        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPaymentType.setForeground(new java.awt.Color(255, 255, 255));
+        lblPaymentType.setText("PAYMENT TYPE");
+        lblPaymentType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        jPanel5.add(lblPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 37, 152, 30));
+
+        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Credit Card", "Debit Card" }));
+        jPanel5.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 37, 185, 30));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 370, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,8 +191,9 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,8 +201,9 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,90 +232,12 @@ public class frmSalesReturnNote extends javax.swing.JFrame {
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, 540));
+
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbltotal.setText("TOTAL");
-        lbltotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtTotal.setBackground(new java.awt.Color(255, 255, 150));
-        txtTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtTotal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtTotalFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtTotalFocusLost(evt);
-            }
-        });
-        txtTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalActionPerformed(evt);
-            }
-        });
-
-        lblPaymentType.setText("PAYMENT TYPE");
-        lblPaymentType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -", "Cash", "Credit Card", "Debit Card" }));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(comboPaymentType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 545, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

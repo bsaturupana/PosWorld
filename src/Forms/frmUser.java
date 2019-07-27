@@ -79,100 +79,124 @@ public class frmUser extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jPanel4.setBackground(new java.awt.Color(45, 62, 80));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.setToolTipText("");
         jPanel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblEmployeeID.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblEmployeeID.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblEmployeeID.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployeeID.setText("EMPLOYEE ID");
-        jPanel4.add(lblEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jPanel4.add(lblEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        txtEmployeeID.setBackground(new java.awt.Color(255, 255, 150));
+        txtEmployeeID.setBackground(new java.awt.Color(110, 122, 136));
         txtEmployeeID.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel4.add(txtEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 250, 30));
+        txtEmployeeID.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txtEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 250, 30));
 
-        lblNICNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblNICNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblNICNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblNICNumber.setText("NIC NUMBER");
-        jPanel4.add(lblNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        jPanel4.add(lblNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        txtNICNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtNICNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtNICNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel4.add(txtNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, 30));
+        txtNICNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txtNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 250, 30));
 
-        lblMobileNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblMobileNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblMobileNO.setForeground(new java.awt.Color(255, 255, 255));
         lblMobileNO.setText("MOBILE NO");
-        jPanel4.add(lblMobileNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel4.add(lblMobileNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        txtMobileNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtMobileNO.setBackground(new java.awt.Color(110, 122, 136));
         txtMobileNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel4.add(txtMobileNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 250, 30));
+        txtMobileNO.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txtMobileNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 250, 30));
 
-        lblEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("E - MAIL ");
-        jPanel4.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        jPanel4.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
 
-        txtEmail.setBackground(new java.awt.Color(255, 255, 150));
+        txtEmail.setBackground(new java.awt.Color(110, 122, 136));
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 250, 30));
 
-        lblPassportNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPassportNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPassportNO.setForeground(new java.awt.Color(255, 255, 255));
         lblPassportNO.setText("PASSPORT NO");
-        jPanel4.add(lblPassportNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+        jPanel4.add(lblPassportNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
-        txtPassportNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtPassportNO.setBackground(new java.awt.Color(110, 122, 136));
         txtPassportNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPassportNO.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtPassportNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 250, 30));
 
-        lblResidentNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblResidentNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResidentNO.setForeground(new java.awt.Color(255, 255, 255));
         lblResidentNO.setText("RESIDENTS NO ");
-        jPanel4.add(lblResidentNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+        jPanel4.add(lblResidentNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
 
-        txtResidentNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtResidentNO.setBackground(new java.awt.Color(110, 122, 136));
         txtResidentNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtResidentNO.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtResidentNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 250, 30));
 
-        lblNationality.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblNationality.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblNationality.setForeground(new java.awt.Color(255, 255, 255));
         lblNationality.setText("NATIONALITY");
-        jPanel4.add(lblNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+        jPanel4.add(lblNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
 
         comboNationality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Nationality-", "Srilanken", "Other" }));
         jPanel4.add(comboNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 250, 30));
 
-        lblRelegon.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRelegon.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRelegon.setForeground(new java.awt.Color(255, 255, 255));
         lblRelegon.setText("RELEGON");
-        jPanel4.add(lblRelegon, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
+        jPanel4.add(lblRelegon, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
         comboRelegon.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Relegon -", "Budhist", "Catholic", "Hindu", "Islam", "Other" }));
         jPanel4.add(comboRelegon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 250, 30));
 
-        lblGender1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGender1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGender1.setForeground(new java.awt.Color(255, 255, 255));
         lblGender1.setText("GENDER");
-        jPanel4.add(lblGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jPanel4.add(lblGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         comboGender1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Gender -", "Male", "Female", "Other" }));
-        jPanel4.add(comboGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 250, 30));
+        jPanel4.add(comboGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 250, 30));
 
-        lblRace.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRace.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRace.setForeground(new java.awt.Color(255, 255, 255));
         lblRace.setText("RACE");
-        jPanel4.add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel4.add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         comboRace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Race -", "Sinhala", "Tamil", "Muslim", "Burgher", "Other" }));
-        jPanel4.add(comboRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 250, 30));
+        jPanel4.add(comboRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 250, 30));
 
-        lblAddress1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAddress1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAddress1.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress1.setText("ADDRESS");
-        jPanel4.add(lblAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+        jPanel4.add(lblAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
-        lblStatus.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblStatus.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("STATUS");
-        jPanel4.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+        jPanel4.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, -1, -1));
 
         buttonGroup1.add(radioActive);
+        radioActive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        radioActive.setForeground(new java.awt.Color(255, 255, 255));
         radioActive.setText("ACTIVE");
         radioActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,43 +206,54 @@ public class frmUser extends javax.swing.JFrame {
         jPanel4.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 80, -1));
 
         buttonGroup1.add(radioInactive);
+        radioInactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        radioInactive.setForeground(new java.awt.Color(255, 255, 255));
         radioInactive.setText("INACTIVE");
         jPanel4.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
 
-        txtAddress1.setBackground(new java.awt.Color(255, 255, 150));
+        txtAddress1.setBackground(new java.awt.Color(110, 122, 136));
         txtAddress1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel4.add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 250, 90));
+        txtAddress1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 250, 90));
 
-        lblUserRole.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblUserRole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblUserRole.setForeground(new java.awt.Color(255, 255, 255));
         lblUserRole.setText("USER ROLE");
-        jPanel4.add(lblUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
+        jPanel4.add(lblUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
 
         comboUserRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select User Role -" }));
         jPanel4.add(comboUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 250, 30));
 
-        lblFullName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblFullName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblFullName.setForeground(new java.awt.Color(255, 255, 255));
         lblFullName.setText("FULL NAME");
-        jPanel4.add(lblFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel4.add(lblFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        txtFullName.setBackground(new java.awt.Color(255, 255, 150));
+        txtFullName.setBackground(new java.awt.Color(110, 122, 136));
         txtFullName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel4.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 250, 30));
+        txtFullName.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 250, 30));
 
         jTabbedPane1.addTab("GENERAL", jPanel4);
 
+        panel1.setBackground(new java.awt.Color(45, 62, 80));
         panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel1.setToolTipText("");
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtRemark.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemark.setBackground(new java.awt.Color(110, 122, 136));
         txtRemark.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtRemark.setForeground(new java.awt.Color(255, 255, 255));
         panel1.add(txtRemark, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 570, 30));
 
-        lblRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblRemarks.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblRemarks.setForeground(new java.awt.Color(255, 255, 255));
         lblRemarks.setText("REMARKS");
         panel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
 
-        txtAnswer1.setBackground(new java.awt.Color(255, 255, 150));
+        txtAnswer1.setBackground(new java.awt.Color(110, 122, 136));
         txtAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAnswer1.setForeground(new java.awt.Color(255, 255, 255));
         txtAnswer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAnswer1ActionPerformed(evt);
@@ -229,23 +264,27 @@ public class frmUser extends javax.swing.JFrame {
         comboSQ1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Sequrity Quection 1 -" }));
         panel1.add(comboSQ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 570, 30));
 
-        lblAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAnswer1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAnswer1.setForeground(new java.awt.Color(255, 255, 255));
         lblAnswer1.setText("SECURITY ANSWER  1");
-        panel1.add(lblAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        panel1.add(lblAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        lblSQ1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSQ1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSQ1.setForeground(new java.awt.Color(255, 255, 255));
         lblSQ1.setText("SECURITY QUECTION 1");
-        panel1.add(lblSQ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        panel1.add(lblSQ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        lblSQ2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSQ2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSQ2.setForeground(new java.awt.Color(255, 255, 255));
         lblSQ2.setText("SECURITY QUECTION 2");
-        panel1.add(lblSQ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        panel1.add(lblSQ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         comboSQ2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Sequrity Quection 2 -" }));
         panel1.add(comboSQ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 570, 30));
 
-        txtAnswer2.setBackground(new java.awt.Color(255, 255, 150));
+        txtAnswer2.setBackground(new java.awt.Color(110, 122, 136));
         txtAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtAnswer2.setForeground(new java.awt.Color(255, 255, 255));
         txtAnswer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAnswer2ActionPerformed(evt);
@@ -253,39 +292,50 @@ public class frmUser extends javax.swing.JFrame {
         });
         panel1.add(txtAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 570, 30));
 
-        lblAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblAnswer2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblAnswer2.setForeground(new java.awt.Color(255, 255, 255));
         lblAnswer2.setText("SECURITY ANSWER  2");
-        panel1.add(lblAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        panel1.add(lblAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
-        lblUsername.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("USERNAME");
-        panel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        panel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        txtUsername.setBackground(new java.awt.Color(255, 255, 150));
+        txtUsername.setBackground(new java.awt.Color(110, 122, 136));
         txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         panel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 250, 30));
 
-        txtConfirmPassword.setBackground(new java.awt.Color(255, 255, 150));
+        txtConfirmPassword.setBackground(new java.awt.Color(110, 122, 136));
+        txtConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         panel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 250, 30));
 
-        lblConfirmPassword.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblConfirmPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblConfirmPassword.setText("CONFIRM PASSWORD");
-        panel1.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        panel1.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
-        lblPassword.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("PASSWORD");
-        panel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 80, -1, -1));
+        panel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 150));
+        txtPassword.setBackground(new java.awt.Color(110, 122, 136));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         panel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 250, 30));
 
         jTabbedPane1.addTab("DETAILS", panel1);
 
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setToolTipText("");
 
+        jLabel1.setBackground(new java.awt.Color(110, 122, 136));
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jLabel1.setOpaque(true);
 
-        jButton1.setBackground(new java.awt.Color(155, 194, 230));
+        jButton1.setBackground(new java.awt.Color(53, 189, 252));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton1.setText("BROWS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -295,6 +345,7 @@ public class frmUser extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("USER IMAGE");
 
@@ -319,14 +370,20 @@ public class frmUser extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("OTHER", jPanel2);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 830, 520));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 830, 530));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel3.setToolTipText("");
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -334,8 +391,9 @@ public class frmUser extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
+        jPanel3.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 140, 60));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -343,8 +401,9 @@ public class frmUser extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
+        jPanel3.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 140, 60));
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -352,50 +411,9 @@ public class frmUser extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
+        jPanel3.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 140, 60));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 820, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

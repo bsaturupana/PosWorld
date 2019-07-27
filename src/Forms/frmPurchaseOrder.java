@@ -18,14 +18,6 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
-        panelButtons = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
-        btnPrint = new javax.swing.JButton();
-        panelPurchaseOrderItemDetail = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablePurchaseOrder = new javax.swing.JTable();
         panelPurchaseOrderItemHeader = new javax.swing.JPanel();
         lblPurchaseOrderNumber = new javax.swing.JLabel();
         txtPurchaseOrderNumber = new javax.swing.JTextField();
@@ -35,82 +27,68 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         dccPurchaseOrderDate = new com.toedter.calendar.JDateChooser();
         dccPurchaseOrderExpectedDeliveryDate = new com.toedter.calendar.JDateChooser();
         lblPurchaseOrderExpectedDiliveryDate = new javax.swing.JLabel();
+        panelPurchaseOrderItemDetail = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePurchaseOrder = new javax.swing.JTable();
+        panelButtons = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PURCHASE ORDER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(242, 242, 242));
+        setBackground(new java.awt.Color(45, 62, 80));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1015, -1));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
-        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnSave.setText("SAVE");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        panelPurchaseOrderItemHeader.setBackground(new java.awt.Color(45, 62, 80));
+        panelPurchaseOrderItemHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
+        lblPurchaseOrderNumber.setText("PURCHASE ORDER NUMBER");
+        panelPurchaseOrderItemHeader.add(lblPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 21, -1, -1));
+
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(110, 122, 136));
+        txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtPurchaseOrderNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                txtPurchaseOrderNumberActionPerformed(evt);
             }
         });
-
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
-        btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnReset.setText("RESET");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
+        txtPurchaseOrderNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPurchaseOrderNumberKeyTyped(evt);
             }
         });
+        panelPurchaseOrderItemHeader.add(txtPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 13, 287, 30));
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
-        btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnClose.setText("CLOSE");
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCloseActionPerformed(evt);
-            }
-        });
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSupplierName.setForeground(new java.awt.Color(255, 255, 255));
+        lblSupplierName.setText("SUPPLIER NAME");
+        panelPurchaseOrderItemHeader.add(lblSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 73, -1, -1));
 
-        btnPrint.setBackground(new java.awt.Color(155, 194, 230));
-        btnPrint.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnPrint.setText("PRINT");
-        btnPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrintActionPerformed(evt);
-            }
-        });
+        comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
+        panelPurchaseOrderItemHeader.add(comboSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 63, 287, 30));
 
-        javax.swing.GroupLayout panelButtonsLayout = new javax.swing.GroupLayout(panelButtons);
-        panelButtons.setLayout(panelButtonsLayout);
-        panelButtonsLayout.setHorizontalGroup(
-            panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelButtonsLayout.setVerticalGroup(
-            panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        lblPurchaseOrderDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblPurchaseOrderDate.setText("PURCHASE ORDER DATE");
+        panelPurchaseOrderItemHeader.add(lblPurchaseOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
+        panelPurchaseOrderItemHeader.add(dccPurchaseOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 250, 30));
+        panelPurchaseOrderItemHeader.add(dccPurchaseOrderExpectedDeliveryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 250, 30));
 
-        getContentPane().add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, 80));
+        lblPurchaseOrderExpectedDiliveryDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderExpectedDiliveryDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblPurchaseOrderExpectedDiliveryDate.setText("EXPECTED DELIVERY DATE");
+        panelPurchaseOrderItemHeader.add(lblPurchaseOrderExpectedDiliveryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
         tablePurchaseOrder.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tablePurchaseOrder.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,104 +126,88 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
             panelPurchaseOrderItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPurchaseOrderItemDetailLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 988, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPurchaseOrderItemDetailLayout.setVerticalGroup(
             panelPurchaseOrderItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPurchaseOrderItemDetailLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelPurchaseOrderItemDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1020, 380));
+        panelPurchaseOrderItemHeader.add(panelPurchaseOrderItemDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1010, 310));
 
-        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPurchaseOrderNumber.setText("PURCHASE ORDER NUMBER");
+        panelButtons.setBackground(new java.awt.Color(45, 62, 80));
+        panelButtons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
-        txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtPurchaseOrderNumber.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
+        btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPurchaseOrderNumberActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
-        txtPurchaseOrderNumber.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPurchaseOrderNumberKeyTyped(evt);
+        panelButtons.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -10, 140, 60));
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
+        btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
             }
         });
+        panelButtons.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, -10, 140, 60));
 
-        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblSupplierName.setText("SUPPLIER NAME");
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
+        btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
+        btnClose.setText("CLOSE");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -10, 148, 60));
 
-        comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
+        btnPrint.setBackground(new java.awt.Color(53, 189, 252));
+        btnPrint.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrint.setText("PRINT");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, -10, 140, 60));
 
-        lblPurchaseOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPurchaseOrderDate.setText("PURCHASE ORDER DATE");
+        panelPurchaseOrderItemHeader.add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 460, 610, 80));
 
-        lblPurchaseOrderExpectedDiliveryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPurchaseOrderExpectedDiliveryDate.setText("EXPECTED DELIVERY DATE");
-
-        javax.swing.GroupLayout panelPurchaseOrderItemHeaderLayout = new javax.swing.GroupLayout(panelPurchaseOrderItemHeader);
-        panelPurchaseOrderItemHeader.setLayout(panelPurchaseOrderItemHeaderLayout);
-        panelPurchaseOrderItemHeaderLayout.setHorizontalGroup(
-            panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPurchaseOrderNumber)
-                    .addComponent(lblSupplierName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPurchaseOrderNumber)
-                    .addComponent(comboSupplierName, 0, 287, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPurchaseOrderDate)
-                    .addComponent(lblPurchaseOrderExpectedDiliveryDate))
-                .addGap(21, 21, 21)
-                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dccPurchaseOrderExpectedDeliveryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        panelPurchaseOrderItemHeaderLayout.setVerticalGroup(
-            panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblPurchaseOrderDate))
-                            .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(lblPurchaseOrderExpectedDiliveryDate))
-                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(dccPurchaseOrderExpectedDeliveryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPurchaseOrderNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPurchaseOrderNumber))
-                        .addGap(20, 20, 20)
-                        .addGroup(panelPurchaseOrderItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPurchaseOrderItemHeaderLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblSupplierName))
-                            .addComponent(comboSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelPurchaseOrderItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 110));
+        getContentPane().add(panelPurchaseOrderItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPurchaseOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurchaseOrderNumberActionPerformed
+
+    private void txtPurchaseOrderNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberKeyTyped
+        if (txtPurchaseOrderNumber.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPurchaseOrderNumberKeyTyped
+
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        JOptionPane.showMessageDialog(this, "Print Successfully.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+    }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         this.dispose();
@@ -259,22 +221,6 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
         clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void txtPurchaseOrderNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPurchaseOrderNumberActionPerformed
-
-    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        JOptionPane.showMessageDialog(this, "Print Successfully.", "Purchase Order", JOptionPane.INFORMATION_MESSAGE);
-        clearFields();
-    }//GEN-LAST:event_btnPrintActionPerformed
-
-    private void txtPurchaseOrderNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPurchaseOrderNumberKeyTyped
-        if (txtPurchaseOrderNumber.getText().length() >= 10) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
-    }//GEN-LAST:event_txtPurchaseOrderNumberKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

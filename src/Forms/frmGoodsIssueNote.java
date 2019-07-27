@@ -39,29 +39,36 @@ public class frmGoodsIssueNote extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblGRNNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGRNNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGRNNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblGRNNumber.setText("GRN. NUMBER");
         jPanel1.add(lblGRNNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        lblGrnDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGrnDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGrnDate.setForeground(new java.awt.Color(255, 255, 255));
         lblGrnDate.setText("GRN. DATE");
         jPanel1.add(lblGrnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
-        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSupplierName.setForeground(new java.awt.Color(255, 255, 255));
         lblSupplierName.setText("SUPPLIER NAME");
         jPanel1.add(lblSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, -1, -1));
 
-        txtGRNNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtGRNNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtGRNNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtGRNNumber.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtGRNNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 140, 30));
 
-        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchaseOrderNumber.setText("PURCHASE ORDER  NUMBER");
         jPanel1.add(lblPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
 
         tableGRN.setAutoCreateRowSorter(true);
+        tableGRN.setBackground(new java.awt.Color(110, 122, 136));
         tableGRN.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableGRN.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,8 +191,11 @@ public class frmGoodsIssueNote extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1440, 380));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,8 +203,9 @@ public class frmGoodsIssueNote extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,8 +213,9 @@ public class frmGoodsIssueNote extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,12 +250,14 @@ public class frmGoodsIssueNote extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 80));
         jPanel1.add(dccGRNDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 250, 30));
 
-        txtSupplierName.setBackground(new java.awt.Color(255, 255, 150));
+        txtSupplierName.setBackground(new java.awt.Color(110, 122, 136));
         txtSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSupplierName.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 340, 30));
 
-        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

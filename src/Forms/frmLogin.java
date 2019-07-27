@@ -21,21 +21,25 @@ public class frmLogin extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
-        btnLogin = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
         lblForgotPassword = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(242, 242, 242));
+        setBackground(new java.awt.Color(45, 62, 80));
+        setIconImages(getIconImages());
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtUsername.setBackground(new java.awt.Color(255, 255, 150));
+        txtUsername.setBackground(new java.awt.Color(110, 122, 136));
         txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
@@ -46,18 +50,20 @@ public class frmLogin extends javax.swing.JFrame {
                 txtUsernameKeyTyped(evt);
             }
         });
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 250, 30));
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 250, 30));
 
-        lblUsername.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("USERNAME");
-        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 17, -1, -1));
+        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        lblPassword.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(6, 0, 0));
+        lblPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("PASSWORD");
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 150));
+        txtPassword.setBackground(new java.awt.Color(110, 122, 136));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyReleased(evt);
@@ -66,78 +72,47 @@ public class frmLogin extends javax.swing.JFrame {
                 txtPasswordKeyTyped(evt);
             }
         });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 250, 30));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 250, 30));
 
-        btnLogin.setBackground(new java.awt.Color(155, 194, 230));
-        btnLogin.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnLogin.setText("LOGIN");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel2.setForeground(new java.awt.Color(45, 62, 80));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, 90));
 
-        btnCancel.setBackground(new java.awt.Color(155, 194, 230));
-        btnCancel.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnCancel.setText("CANCEL");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel))
-                .addGap(0, 24, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(btnLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnCancel)
-                .addContainerGap())
-        );
-
+        lblForgotPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblForgotPassword.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        lblForgotPassword.setForeground(new java.awt.Color(0, 90, 201));
+        lblForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblForgotPassword.setText("Forgot Password");
         lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblForgotPasswordMouseClicked(evt);
             }
         });
+        jPanel1.add(lblForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 137, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(lblForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblForgotPassword)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        btnCancel.setBackground(new java.awt.Color(255, 56, 29));
+        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setText("CANCEL");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, 30));
+
+        btnLogin.setBackground(new java.awt.Color(53, 189, 252));
+        btnLogin.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 81, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

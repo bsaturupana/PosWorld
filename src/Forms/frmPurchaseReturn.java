@@ -18,14 +18,14 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
+        panelPurchaseReturnItemDetail = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePurchaseReturnItems = new javax.swing.JTable();
         panelButtons = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
-        panelPurchaseReturnItemDetail = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablePurchaseReturnItems = new javax.swing.JTable();
         panelPurchaseReturnItemHeader = new javax.swing.JPanel();
         lblPurchaseOrderNumber = new javax.swing.JLabel();
         txtPurchaseOrderNumber = new javax.swing.JTextField();
@@ -37,18 +37,55 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
         txtPurchasereturnNumber = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PURCHASE ORDER");
+        setTitle("PURCHASE RETURN");
         setAlwaysOnTop(true);
-        setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(242, 242, 242));
+        setBackground(new java.awt.Color(45, 62, 80));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1015, -1));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        panelPurchaseReturnItemDetail.setBackground(new java.awt.Color(45, 62, 80));
+        panelPurchaseReturnItemDetail.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablePurchaseReturnItems.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tablePurchaseReturnItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ITEM CODE", "ITEM NAME", "ITEM DISCRIPTION", "QUANTITY"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablePurchaseReturnItems.setRowHeight(30);
+        jScrollPane1.setViewportView(tablePurchaseReturnItems);
+
+        panelPurchaseReturnItemDetail.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1000, 356));
+
+        panelButtons.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,8 +93,9 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,8 +103,9 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,8 +113,9 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
             }
         });
 
-        btnPrint.setBackground(new java.awt.Color(155, 194, 230));
+        btnPrint.setBackground(new java.awt.Color(53, 189, 252));
         btnPrint.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
         btnPrint.setText("PRINT");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,61 +150,19 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, -1, 80));
+        panelPurchaseReturnItemDetail.add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, 80));
 
-        tablePurchaseReturnItems.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tablePurchaseReturnItems.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ITEM CODE", "ITEM NAME", "ITEM DISCRIPTION", "QUANTITY"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
+        getContentPane().add(panelPurchaseReturnItemDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 1020, 450));
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tablePurchaseReturnItems.setRowHeight(30);
-        jScrollPane1.setViewportView(tablePurchaseReturnItems);
+        panelPurchaseReturnItemHeader.setBackground(new java.awt.Color(45, 62, 80));
 
-        javax.swing.GroupLayout panelPurchaseReturnItemDetailLayout = new javax.swing.GroupLayout(panelPurchaseReturnItemDetail);
-        panelPurchaseReturnItemDetail.setLayout(panelPurchaseReturnItemDetailLayout);
-        panelPurchaseReturnItemDetailLayout.setHorizontalGroup(
-            panelPurchaseReturnItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseReturnItemDetailLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelPurchaseReturnItemDetailLayout.setVerticalGroup(
-            panelPurchaseReturnItemDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseReturnItemDetailLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelPurchaseReturnItemDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1020, 360));
-
-        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchaseOrderNumber.setText("PURCHASE ORDER NUMBER");
 
-        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         txtPurchaseOrderNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPurchaseOrderNumberActionPerformed(evt);
@@ -176,19 +174,23 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
             }
         });
 
-        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSupplierName.setForeground(new java.awt.Color(255, 255, 255));
         lblSupplierName.setText("SUPPLIER NAME");
 
         comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
 
-        lblPurchaseReturnDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseReturnDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseReturnDate.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchaseReturnDate.setText("PURCHASE RETURN DATE");
 
-        lblPurchasereturnNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchasereturnNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchasereturnNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchasereturnNumber.setText("PURCHASE RETURN NUMBER");
 
-        txtPurchasereturnNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchasereturnNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPurchasereturnNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurchasereturnNumber.setForeground(new java.awt.Color(255, 255, 255));
         txtPurchasereturnNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPurchasereturnNumberActionPerformed(evt);
@@ -213,7 +215,7 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
                 .addGroup(panelPurchaseReturnItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboSupplierName, 0, 320, Short.MAX_VALUE)
                     .addComponent(txtPurchaseOrderNumber))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(panelPurchaseReturnItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPurchasereturnNumber)
                     .addComponent(lblPurchaseReturnDate))
@@ -243,10 +245,10 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
                         .addGroup(panelPurchaseReturnItemHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSupplierName)
                             .addComponent(lblPurchaseReturnDate))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelPurchaseReturnItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 110));
+        getContentPane().add(panelPurchaseReturnItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1020, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

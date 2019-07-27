@@ -1,6 +1,7 @@
 package Forms;
 
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 public class frmPurchaseOrderMaster extends javax.swing.JFrame {
 
@@ -17,9 +18,6 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         panelPurchaseItems = new javax.swing.JPanel();
         scrollPanePurchaseItems = new javax.swing.JScrollPane();
         tablePurchaseItems = new javax.swing.JTable();
-        panelButtonsSearch = new javax.swing.JPanel();
-        btnReset = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
         panelPurchaseSearchSection = new javax.swing.JPanel();
         lblPurchaseOrderNO = new javax.swing.JLabel();
         lblSupplierName = new javax.swing.JLabel();
@@ -29,6 +27,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         dccPurchaseOrderDate = new com.toedter.calendar.JDateChooser();
         comboPaymentType = new javax.swing.JComboBox();
         lblPaymentType = new javax.swing.JLabel();
+        panelButtonsSearch = new javax.swing.JPanel();
+        btnReset = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         panelButtonsMain = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -43,8 +44,10 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        panelPurchaseItems.setBackground(new java.awt.Color(45, 62, 80));
         panelPurchaseItems.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tablePurchaseItems.setBackground(new java.awt.Color(110, 122, 136));
         tablePurchaseItems.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tablePurchaseItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,10 +77,56 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         tablePurchaseItems.setRowHeight(30);
         scrollPanePurchaseItems.setViewportView(tablePurchaseItems);
 
-        panelPurchaseItems.add(scrollPanePurchaseItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1230, 330));
+        panelPurchaseItems.add(scrollPanePurchaseItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1210, 330));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        panelPurchaseSearchSection.setBackground(new java.awt.Color(45, 62, 80));
+        panelPurchaseSearchSection.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblPurchaseOrderNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNO.setForeground(new java.awt.Color(255, 255, 255));
+        lblPurchaseOrderNO.setText("PURCHASE ORDER NO");
+        panelPurchaseSearchSection.add(lblPurchaseOrderNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 23, -1, -1));
+
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSupplierName.setForeground(new java.awt.Color(255, 255, 255));
+        lblSupplierName.setText("SUPPLIER NAME");
+        panelPurchaseSearchSection.add(lblSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 73, -1, -1));
+
+        txtPurchaseOrderNO.setBackground(new java.awt.Color(110, 122, 136));
+        txtPurchaseOrderNO.setForeground(new java.awt.Color(255, 255, 255));
+        txtPurchaseOrderNO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPurchaseOrderNOKeyTyped(evt);
+            }
+        });
+        panelPurchaseSearchSection.add(txtPurchaseOrderNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 13, 220, 30));
+
+        comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
+        panelPurchaseSearchSection.add(comboSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 63, 220, 30));
+
+        lblPurchaseOrderDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblPurchaseOrderDate.setText("PURCHASE ORDER DATE");
+        panelPurchaseSearchSection.add(lblPurchaseOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 23, -1, -1));
+
+        dccPurchaseOrderDate.setBackground(new java.awt.Color(255, 255, 150));
+        dccPurchaseOrderDate.setForeground(new java.awt.Color(255, 255, 255));
+        panelPurchaseSearchSection.add(dccPurchaseOrderDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 13, 253, 30));
+
+        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -" }));
+        comboPaymentType.setToolTipText("");
+        panelPurchaseSearchSection.add(comboPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 63, 253, 30));
+
+        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPaymentType.setForeground(new java.awt.Color(255, 255, 255));
+        lblPaymentType.setText("PAYMENT TYPE");
+        panelPurchaseSearchSection.add(lblPaymentType, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 73, -1, -1));
+
+        panelButtonsSearch.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,8 +134,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setBackground(new java.awt.Color(53, 189, 252));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,105 +148,32 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         panelButtonsSearch.setLayout(panelButtonsSearchLayout);
         panelButtonsSearchLayout.setHorizontalGroup(
             panelButtonsSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsSearchLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(panelButtonsSearchLayout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(18, 18, 18)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         panelButtonsSearchLayout.setVerticalGroup(
             panelButtonsSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsSearchLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelButtonsSearchLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelButtonsSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        panelPurchaseItems.add(panelButtonsSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 310, 80));
+        panelPurchaseSearchSection.add(panelButtonsSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
 
-        lblPurchaseOrderNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPurchaseOrderNO.setText("PURCHASE ORDER NO");
+        panelPurchaseItems.add(panelPurchaseSearchSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, -1));
 
-        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblSupplierName.setText("SUPPLIER NAME");
+        panelButtonsMain.setBackground(new java.awt.Color(45, 62, 80));
 
-        txtPurchaseOrderNO.setBackground(new java.awt.Color(255, 255, 150));
-        txtPurchaseOrderNO.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPurchaseOrderNOKeyTyped(evt);
-            }
-        });
-
-        comboSupplierName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier Name -" }));
-
-        lblPurchaseOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPurchaseOrderDate.setText("PURCHASE ORDER DATE");
-
-        dccPurchaseOrderDate.setBackground(new java.awt.Color(255, 255, 150));
-
-        comboPaymentType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Payment Type -" }));
-        comboPaymentType.setToolTipText("");
-
-        lblPaymentType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lblPaymentType.setText("PAYMENT TYPE");
-
-        javax.swing.GroupLayout panelPurchaseSearchSectionLayout = new javax.swing.GroupLayout(panelPurchaseSearchSection);
-        panelPurchaseSearchSection.setLayout(panelPurchaseSearchSectionLayout);
-        panelPurchaseSearchSectionLayout.setHorizontalGroup(
-            panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                        .addComponent(lblPurchaseOrderNO)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtPurchaseOrderNO, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(lblPurchaseOrderDate)
-                        .addGap(17, 17, 17)
-                        .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                        .addComponent(lblSupplierName)
-                        .addGap(45, 45, 45)
-                        .addComponent(comboSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(lblPaymentType)
-                        .addGap(67, 67, 67)
-                        .addComponent(comboPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelPurchaseSearchSectionLayout.setVerticalGroup(
-            panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPurchaseOrderNO, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dccPurchaseOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPurchaseOrderNO)
-                            .addComponent(lblPurchaseOrderDate))))
-                .addGap(20, 20, 20)
-                .addGroup(panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboPaymentType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelPurchaseSearchSectionLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(panelPurchaseSearchSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSupplierName)
-                            .addComponent(lblPaymentType))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelPurchaseItems.add(panelPurchaseSearchSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 100));
-
-        btnEdit.setBackground(new java.awt.Color(155, 194, 230));
+        btnEdit.setBackground(new java.awt.Color(53, 189, 252));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,8 +181,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete.setBackground(new java.awt.Color(53, 189, 252));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,8 +191,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,8 +201,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
             }
         });
 
-        btnAddNew.setBackground(new java.awt.Color(155, 194, 230));
+        btnAddNew.setBackground(new java.awt.Color(53, 189, 252));
         btnAddNew.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew.setText("ADD NEW");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,8 +211,9 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
             }
         });
 
-        btnRefresh.setBackground(new java.awt.Color(155, 194, 230));
+        btnRefresh.setBackground(new java.awt.Color(53, 189, 252));
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("REFRESH");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,11 +226,11 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         panelButtonsMainLayout.setHorizontalGroup(
             panelButtonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelButtonsMainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(btnAddNew)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,24 +251,22 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        panelPurchaseItems.add(panelButtonsMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelPurchaseItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panelButtonsMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(panelPurchaseItems, javax.swing.GroupLayout.PREFERRED_SIZE, 1234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelPurchaseItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelButtonsMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -298,7 +277,7 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Successfully Deleted.", "Product Master", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed

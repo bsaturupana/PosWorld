@@ -21,7 +21,6 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuFile_Log_Out = new javax.swing.JMenuItem();
         mnuFile_Separator = new javax.swing.JPopupMenu.Separator();
         mnuFile_Exit = new javax.swing.JMenuItem();
-        mnuEdit = new javax.swing.JMenu();
         mnuSetup = new javax.swing.JMenu();
         mnuSetup_Accounts = new javax.swing.JMenuItem();
         mnuSetup_Separator_1 = new javax.swing.JPopupMenu.Separator();
@@ -41,6 +40,8 @@ public class frmMainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mnuMenuBar.setBackground(new java.awt.Color(45, 62, 80));
 
         mnuFile.setText("File");
 
@@ -71,9 +72,6 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuFile.add(mnuFile_Exit);
 
         mnuMenuBar.add(mnuFile);
-
-        mnuEdit.setText("Edit");
-        mnuMenuBar.add(mnuEdit);
 
         mnuSetup.setText("Setup");
 
@@ -260,7 +258,6 @@ public class frmMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jLayeredPane1;
-    private javax.swing.JMenu mnuEdit;
     private javax.swing.JMenu mnuFile;
     private javax.swing.JMenuItem mnuFile_Exit;
     private javax.swing.JMenuItem mnuFile_Log_In;

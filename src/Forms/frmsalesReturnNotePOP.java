@@ -37,11 +37,11 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         txtSRPPrice = new javax.swing.JTextField();
         lblRTNPurpose = new javax.swing.JLabel();
         comboRTNPurpose1 = new javax.swing.JComboBox();
-        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         jTextField1.setText("jTextField1");
 
@@ -51,140 +51,129 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblCode.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblCode.setForeground(new java.awt.Color(255, 255, 255));
         lblCode.setText("CODE");
         jPanel1.add(lblCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 30));
 
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
+        txtCode.setBackground(new java.awt.Color(110, 122, 136));
         txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 250, 30));
 
+        lblBatchNO.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         lblBatchNO.setText("BATCH NO");
         jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 130, 30));
 
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtBatchNO.setBackground(new java.awt.Color(110, 122, 136));
         txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 260, 30));
 
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("NAME");
         jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 30));
 
-        txtName.setBackground(new java.awt.Color(255, 102, 204));
+        txtName.setBackground(new java.awt.Color(0, 0, 102));
         txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtName.setToolTipText("");
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 250, 30));
 
+        lblDiscription.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblDiscription.setForeground(new java.awt.Color(255, 255, 255));
         lblDiscription.setText("DISCRIPTION");
         jPanel1.add(lblDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 130, 30));
 
-        txtDiscription.setBackground(new java.awt.Color(255, 102, 204));
+        txtDiscription.setBackground(new java.awt.Color(0, 0, 102));
         txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtDiscription.setToolTipText("");
         jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 260, 30));
 
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblQuantity.setForeground(new java.awt.Color(255, 255, 255));
         lblQuantity.setText("QUANTITY");
         jPanel1.add(lblQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 130, 30));
 
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
+        txtQuantity.setBackground(new java.awt.Color(110, 122, 136));
         txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 260, 30));
 
+        lblUnitPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblUnitPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblUnitPrice.setText("UNIT PRICE");
         jPanel1.add(lblUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 30));
 
-        txtUnitPrice.setBackground(new java.awt.Color(255, 102, 204));
+        txtUnitPrice.setBackground(new java.awt.Color(0, 0, 102));
         txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtUnitPrice.setToolTipText("");
         jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 250, 30));
 
+        lblPSRPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblPSRPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblPSRPrice.setText("SALES RETURN  PRICE");
         jPanel1.add(lblPSRPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 130, 30));
 
-        txtSRPPrice.setBackground(new java.awt.Color(255, 102, 204));
+        txtSRPPrice.setBackground(new java.awt.Color(0, 0, 102));
         txtSRPPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSRPPrice.setToolTipText("");
         jPanel1.add(txtSRPPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 260, 30));
 
+        lblRTNPurpose.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblRTNPurpose.setForeground(new java.awt.Color(255, 255, 255));
         lblRTNPurpose.setText("RETURN PURPOSE");
         jPanel1.add(lblRTNPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 30));
 
         comboRTNPurpose1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Return Purpos -" }));
         jPanel1.add(comboRTNPurpose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 250, 30));
 
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, 140, 60));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 140, 60));
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
             }
         });
+        jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 0, 140, 60));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 470, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 900, 330));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(909, 381, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -50,61 +50,77 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         setTitle("GOODS ISSUE ITEM POPUP");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(242, 242, 242));
+        setBackground(new java.awt.Color(45, 62, 80));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
+        txtCode.setBackground(new java.awt.Color(110, 122, 136));
         txtCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCode.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 250, 30));
 
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtBatchNO.setBackground(new java.awt.Color(110, 122, 136));
         txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 260, 30));
 
-        txtName.setBackground(new java.awt.Color(255, 102, 255));
+        txtName.setBackground(new java.awt.Color(0, 0, 102));
         txtName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 250, 30));
 
-        txtDiscription.setBackground(new java.awt.Color(255, 102, 255));
+        txtDiscription.setBackground(new java.awt.Color(0, 0, 102));
         txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtDiscription.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 260, 30));
 
-        txtQuantity.setBackground(new java.awt.Color(255, 255, 150));
+        txtQuantity.setBackground(new java.awt.Color(110, 122, 136));
         txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtQuantity.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 250, 30));
 
-        txtUnitPrice.setBackground(new java.awt.Color(255, 102, 255));
+        txtUnitPrice.setBackground(new java.awt.Color(0, 0, 102));
         txtUnitPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtUnitPrice.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 260, 30));
 
-        txtDiscount.setBackground(new java.awt.Color(255, 102, 255));
+        txtDiscount.setBackground(new java.awt.Color(0, 0, 102));
         txtDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtDiscount.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 250, 30));
 
-        txtPurPrice.setBackground(new java.awt.Color(255, 102, 255));
+        txtPurPrice.setBackground(new java.awt.Color(0, 0, 102));
         txtPurPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPurPrice.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtPurPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 260, 30));
 
-        txtManDate.setBackground(new java.awt.Color(255, 102, 255));
+        txtManDate.setBackground(new java.awt.Color(0, 0, 102));
         txtManDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtManDate.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtManDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 250, 30));
 
-        txtPackedDate.setBackground(new java.awt.Color(255, 102, 255));
+        txtPackedDate.setBackground(new java.awt.Color(0, 0, 102));
         txtPackedDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtPackedDate.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtPackedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 260, 30));
 
-        txtExpiaryDate.setBackground(new java.awt.Color(255, 102, 255));
+        txtExpiaryDate.setBackground(new java.awt.Color(0, 0, 102));
         txtExpiaryDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtExpiaryDate.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtExpiaryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 250, 30));
 
-        txtRemarks.setBackground(new java.awt.Color(255, 255, 150));
+        txtRemarks.setBackground(new java.awt.Color(110, 122, 136));
         txtRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtRemarks.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 260, 30));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +128,9 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,8 +138,9 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,39 +174,63 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 520, 80));
 
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("NAME");
         jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 30));
 
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblQuantity.setForeground(new java.awt.Color(255, 255, 255));
         lblQuantity.setText("QUANTITY");
         jPanel1.add(lblQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 30));
 
+        lblDiscount.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblDiscount.setForeground(new java.awt.Color(255, 255, 255));
         lblDiscount.setText("DISCOUNT");
         jPanel1.add(lblDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 30));
 
+        lblManDate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblManDate.setForeground(new java.awt.Color(255, 255, 255));
         lblManDate.setText("MANUFACTUR DATE");
         jPanel1.add(lblManDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 130, 30));
 
+        lblExpiaryDate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblExpiaryDate.setForeground(new java.awt.Color(255, 255, 255));
         lblExpiaryDate.setText("EXPIARY DATE");
         jPanel1.add(lblExpiaryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 130, 30));
 
+        lblCode.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblCode.setForeground(new java.awt.Color(255, 255, 255));
         lblCode.setText("CODE");
         jPanel1.add(lblCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 30));
 
+        lblRemarks.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblRemarks.setForeground(new java.awt.Color(255, 255, 255));
         lblRemarks.setText("REMARK");
         jPanel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 130, 30));
 
+        lblBatchNO.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         lblBatchNO.setText("BATCH NO");
         jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 130, 30));
 
+        lblDiscription.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblDiscription.setForeground(new java.awt.Color(255, 255, 255));
         lblDiscription.setText("DISCRIPTION");
         jPanel1.add(lblDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 130, 30));
 
+        lblUnitPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblUnitPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblUnitPrice.setText("UNIT PRICE");
         jPanel1.add(lblUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 130, 30));
 
+        lblPurPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblPurPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblPurPrice.setText("PURCHASE PRICE");
         jPanel1.add(lblPurPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 130, 30));
 
+        lblPackedDate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblPackedDate.setForeground(new java.awt.Color(255, 255, 255));
         lblPackedDate.setText("PACKED DATE");
         jPanel1.add(lblPackedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 130, 30));
 

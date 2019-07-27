@@ -39,28 +39,35 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         setBackground(new java.awt.Color(242, 242, 242));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(45, 62, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblGENNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGENNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGENNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblGENNumber.setText("GRN NUMBER");
-        jPanel1.add(lblGENNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanel1.add(lblGENNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, -1));
 
-        lblGrnDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblGrnDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGrnDate.setForeground(new java.awt.Color(255, 255, 255));
         lblGrnDate.setText("GRN DATE");
-        jPanel1.add(lblGrnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        jPanel1.add(lblGrnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 70, -1));
 
-        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblSupplierName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSupplierName.setForeground(new java.awt.Color(255, 255, 255));
         lblSupplierName.setText("SUPPLIER NAME");
-        jPanel1.add(lblSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, -1, -1));
+        jPanel1.add(lblSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 100, -1));
 
-        txtGENNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtGENNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtGENNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtGENNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, 30));
+        txtGENNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtGENNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 130, 30));
 
-        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPurchaseOrderNumber.setText("PURCHASE ORDER  NUMBER");
-        jPanel1.add(lblPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
+        jPanel1.add(lblPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 170, -1));
 
+        tableGRN.setBackground(new java.awt.Color(110, 122, 136));
         tableGRN.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tableGRN.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,10 +97,13 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         tableGRN.setRowHeight(30);
         jScrollPane1.setViewportView(tableGRN);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1440, 380));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1440, 350));
 
-        btnSave.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel2.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +111,9 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +121,9 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("CLOSE");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +136,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(705, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,16 +155,20 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 80));
-        jPanel1.add(dccGRNDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 260, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 400, 570, 80));
 
-        txtSupplierName.setBackground(new java.awt.Color(255, 255, 150));
+        dccGRNDate.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(dccGRNDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 270, 30));
+
+        txtSupplierName.setBackground(new java.awt.Color(110, 122, 136));
         txtSupplierName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 340, 30));
+        txtSupplierName.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 350, 30));
 
-        txtPurchaseOrderNumber.setBackground(new java.awt.Color(255, 255, 150));
+        txtPurchaseOrderNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPurchaseOrderNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 130, 30));
+        txtPurchaseOrderNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtPurchaseOrderNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,14 +176,12 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1440, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
         );
 
         pack();

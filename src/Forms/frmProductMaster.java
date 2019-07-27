@@ -1,6 +1,7 @@
 package Forms;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmProductMaster extends javax.swing.JFrame {
@@ -54,24 +55,31 @@ public class frmProductMaster extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblCode.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCode.setForeground(new java.awt.Color(255, 255, 255));
         lblCode.setText("CODE");
         jPanel1.add(lblCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        lblBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblBatchNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         lblBatchNO.setText("BATCH NO ");
         jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
-        lblProductName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblProductName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblProductName.setForeground(new java.awt.Color(255, 255, 255));
         lblProductName.setText("PRODUCT NAME ");
         jPanel1.add(lblProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
 
-        lblStatus.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblStatus.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("STATUS");
         jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, -1, 20));
 
-        btnReset.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel3.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,8 +87,9 @@ public class frmProductMaster extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(155, 194, 230));
+        btnSearch.setBackground(new java.awt.Color(53, 189, 252));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +119,7 @@ public class frmProductMaster extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 330, 70));
 
+        jPanel4.setBackground(new java.awt.Color(45, 62, 80));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblCode1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -153,10 +163,13 @@ public class frmProductMaster extends javax.swing.JFrame {
         tableProductMaster1.setRowHeight(30);
         jScrollPane2.setViewportView(tableProductMaster1);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1440, 340));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1440, 340));
 
-        btnEdit1.setBackground(new java.awt.Color(155, 194, 230));
+        jPanel5.setBackground(new java.awt.Color(45, 62, 80));
+
+        btnEdit1.setBackground(new java.awt.Color(53, 189, 252));
         btnEdit1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnEdit1.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit1.setText("EDIT");
         btnEdit1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +177,9 @@ public class frmProductMaster extends javax.swing.JFrame {
             }
         });
 
-        btnDelete1.setBackground(new java.awt.Color(155, 194, 230));
+        btnDelete1.setBackground(new java.awt.Color(53, 189, 252));
         btnDelete1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnDelete1.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete1.setText("DELETE");
         btnDelete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,8 +187,9 @@ public class frmProductMaster extends javax.swing.JFrame {
             }
         });
 
-        btnClose1.setBackground(new java.awt.Color(155, 194, 230));
+        btnClose1.setBackground(new java.awt.Color(255, 56, 29));
         btnClose1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnClose1.setForeground(new java.awt.Color(255, 255, 255));
         btnClose1.setText("CLOSE");
         btnClose1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,8 +197,9 @@ public class frmProductMaster extends javax.swing.JFrame {
             }
         });
 
-        btnAddNew1.setBackground(new java.awt.Color(155, 194, 230));
+        btnAddNew1.setBackground(new java.awt.Color(53, 189, 252));
         btnAddNew1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAddNew1.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew1.setText("ADD NEW");
         btnAddNew1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,19 +280,22 @@ public class frmProductMaster extends javax.swing.JFrame {
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 330, 70));
 
-        txtBatchNO.setBackground(new java.awt.Color(255, 255, 150));
+        txtBatchNO.setBackground(new java.awt.Color(110, 122, 136));
+        txtBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 140, 30));
 
-        txtProductName.setBackground(new java.awt.Color(255, 255, 150));
+        txtProductName.setBackground(new java.awt.Color(110, 122, 136));
+        txtProductName.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 200, 30));
 
-        txtCode.setBackground(new java.awt.Color(255, 255, 150));
+        txtCode.setBackground(new java.awt.Color(110, 122, 136));
+        txtCode.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 140, 30));
 
         comboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALL", "ACTIVE", "INACTIVE" }));
-        jPanel4.add(comboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, 150, -1));
+        jPanel4.add(comboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 32, 150, 30));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,7 +303,7 @@ public class frmProductMaster extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1450, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1469, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,11 +324,11 @@ public class frmProductMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit1ActionPerformed
-        // TODO add your handling code here:
+        new frmProduct().setVisible(true);
     }//GEN-LAST:event_btnEdit1ActionPerformed
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Successfully Deleted.", "Product Master", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
     private void btnClose1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClose1ActionPerformed
@@ -317,7 +336,7 @@ public class frmProductMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClose1ActionPerformed
 
     private void btnAddNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNew1ActionPerformed
-        // TODO add your handling code here:
+        new frmProduct().setVisible(true);
     }//GEN-LAST:event_btnAddNew1ActionPerformed
 
     private void btnReset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset1ActionPerformed
