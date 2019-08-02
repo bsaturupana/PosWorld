@@ -36,7 +36,7 @@ public class frmSalesReturnMaster extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         btnAddNew = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SALES RETURN MASTER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

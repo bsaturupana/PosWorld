@@ -25,7 +25,7 @@ public class frmLogin extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("LOGIN");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -55,12 +55,12 @@ public class frmLogin extends javax.swing.JFrame {
         lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("USERNAME");
-        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         lblPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("PASSWORD");
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         txtPassword.setBackground(new java.awt.Color(110, 122, 136));
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));

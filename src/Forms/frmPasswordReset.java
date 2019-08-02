@@ -25,11 +25,9 @@ public class frmPasswordReset extends javax.swing.JFrame {
         txtNewPassword = new javax.swing.JPasswordField();
         txtConfirmPassword = new javax.swing.JPasswordField();
         lblSecurityQuestion1 = new javax.swing.JLabel();
-        txtSecurityQuestion1 = new javax.swing.JTextField();
         lblSecurityAnswer1 = new javax.swing.JLabel();
         txtSecurityAnswer1 = new javax.swing.JTextField();
         lblSecurityQuestion2 = new javax.swing.JLabel();
-        txtSecurityQuestion2 = new javax.swing.JTextField();
         lblSecurityAnswer2 = new javax.swing.JLabel();
         txtSecurityAnswer2 = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
@@ -41,9 +39,11 @@ public class frmPasswordReset extends javax.swing.JFrame {
         btnSave1 = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
+        comboSecurityQuestion1 = new javax.swing.JComboBox();
+        comboSecurityQuestion2 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("LOGIN");
+        setTitle("PASSWORD RESET");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(45, 62, 80));
@@ -69,7 +69,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
         lblConfirmPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblConfirmPassword.setText("CONFIRM PASSWORD");
-        panelBodyArea.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
+        panelBodyArea.add(lblConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
 
         txtNewPassword.setBackground(new java.awt.Color(110, 122, 136));
         txtNewPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,7 +86,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtNewPasswordKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 270, 30));
+        panelBodyArea.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 360, 30));
 
         txtConfirmPassword.setBackground(new java.awt.Color(110, 122, 136));
         txtConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,32 +98,17 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtConfirmPasswordKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 270, 30));
+        panelBodyArea.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 270, 30));
 
         lblSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSecurityQuestion1.setForeground(new java.awt.Color(255, 255, 255));
         lblSecurityQuestion1.setText("SECURITY QUESTION 1");
         panelBodyArea.add(lblSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, -1));
 
-        txtSecurityQuestion1.setBackground(new java.awt.Color(0, 0, 102));
-        txtSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtSecurityQuestion1.setForeground(new java.awt.Color(255, 255, 255));
-        txtSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSecurityQuestion1ActionPerformed(evt);
-            }
-        });
-        txtSecurityQuestion1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSecurityQuestion1KeyTyped(evt);
-            }
-        });
-        panelBodyArea.add(txtSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 270, 30));
-
         lblSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSecurityAnswer1.setForeground(new java.awt.Color(255, 255, 255));
         lblSecurityAnswer1.setText("SECURITY ANSWER 1");
-        panelBodyArea.add(lblSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
+        panelBodyArea.add(lblSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
         txtSecurityAnswer1.setBackground(new java.awt.Color(110, 122, 136));
         txtSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -138,32 +123,17 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityAnswer1KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 270, 30));
+        panelBodyArea.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 270, 30));
 
         lblSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSecurityQuestion2.setForeground(new java.awt.Color(255, 255, 255));
         lblSecurityQuestion2.setText("SECURITY QUESTION 2");
         panelBodyArea.add(lblSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, -1));
 
-        txtSecurityQuestion2.setBackground(new java.awt.Color(0, 0, 102));
-        txtSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtSecurityQuestion2.setForeground(new java.awt.Color(255, 255, 255));
-        txtSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSecurityQuestion2ActionPerformed(evt);
-            }
-        });
-        txtSecurityQuestion2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSecurityQuestion2KeyTyped(evt);
-            }
-        });
-        panelBodyArea.add(txtSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 270, 30));
-
         lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSecurityAnswer2.setForeground(new java.awt.Color(255, 255, 255));
         lblSecurityAnswer2.setText("SECURITY ANSWER 2");
-        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        panelBodyArea.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
 
         txtSecurityAnswer2.setBackground(new java.awt.Color(110, 122, 136));
         txtSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -178,7 +148,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtSecurityAnswer2KeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 270, 30));
+        panelBodyArea.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 270, 30));
 
         lblEmail.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,7 +158,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
         txtEmail.setBackground(new java.awt.Color(110, 122, 136));
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setText("lblMsgAreaPwdStrength");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -199,12 +168,12 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtEmailKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 270, 30));
+        panelBodyArea.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 360, 30));
 
         lblPhoneNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNumber.setText("PHONE NUMBER");
-        panelBodyArea.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+        panelBodyArea.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, -1, -1));
 
         txtPhoneNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -219,7 +188,7 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 txtPhoneNumberKeyTyped(evt);
             }
         });
-        panelBodyArea.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 270, 30));
+        panelBodyArea.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 160, 270, 30));
 
         lblMsgAreaPwdMaxLength.setBackground(new java.awt.Color(45, 62, 80));
         lblMsgAreaPwdMaxLength.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -283,9 +252,27 @@ public class frmPasswordReset extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelBodyArea.add(panelButtonArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 480, -1));
+        panelBodyArea.add(panelButtonArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 480, -1));
 
-        getContentPane().add(panelBodyArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 900, 288));
+        comboSecurityQuestion1.setBackground(new java.awt.Color(110, 122, 136));
+        comboSecurityQuestion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Category -", "What is your first boss name ?", "What is your favourite colour ?", "What is your favourite country ?" }));
+        comboSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSecurityQuestion1ActionPerformed(evt);
+            }
+        });
+        panelBodyArea.add(comboSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 360, 30));
+
+        comboSecurityQuestion2.setBackground(new java.awt.Color(110, 122, 136));
+        comboSecurityQuestion2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Category -", "What's your first car model ?", "What is the capital of India ?", "Who is the best friend in school ?" }));
+        comboSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSecurityQuestion2ActionPerformed(evt);
+            }
+        });
+        panelBodyArea.add(comboSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 360, 30));
+
+        getContentPane().add(panelBodyArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -320,14 +307,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtConfirmPasswordKeyTyped
 
-    private void txtSecurityQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityQuestion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSecurityQuestion1ActionPerformed
-
-    private void txtSecurityQuestion1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityQuestion1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSecurityQuestion1KeyTyped
-
     private void txtSecurityAnswer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSecurityAnswer1ActionPerformed
@@ -338,14 +317,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtSecurityAnswer1KeyTyped
-
-    private void txtSecurityQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityQuestion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSecurityQuestion2ActionPerformed
-
-    private void txtSecurityQuestion2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityQuestion2KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSecurityQuestion2KeyTyped
 
     private void txtSecurityAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2ActionPerformed
         // TODO add your handling code here:
@@ -416,6 +387,13 @@ public class frmPasswordReset extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNewPasswordActionPerformed
 
+    private void comboSecurityQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSecurityQuestion1ActionPerformed
+    }//GEN-LAST:event_comboSecurityQuestion1ActionPerformed
+
+    private void comboSecurityQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSecurityQuestion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboSecurityQuestion2ActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -450,6 +428,8 @@ public class frmPasswordReset extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave1;
+    private javax.swing.JComboBox comboSecurityQuestion1;
+    private javax.swing.JComboBox comboSecurityQuestion2;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblMsgAreaPwdMaxLength;
@@ -468,16 +448,14 @@ public class frmPasswordReset extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtSecurityAnswer1;
     private javax.swing.JTextField txtSecurityAnswer2;
-    private javax.swing.JTextField txtSecurityQuestion1;
-    private javax.swing.JTextField txtSecurityQuestion2;
     // End of variables declaration//GEN-END:variables
 
     private void ClearFields() {
         txtNewPassword.setText("");
         txtConfirmPassword.setText("");
-        txtSecurityQuestion1.setText("");
+        comboSecurityQuestion1.setSelectedIndex(0);
         txtSecurityAnswer1.setText("");
-        txtSecurityQuestion2.setText("");
+        comboSecurityQuestion2.setSelectedIndex(0);
         txtSecurityAnswer2.setText("");
         txtEmail.setText("");
         txtPhoneNumber.setText("");
@@ -516,9 +494,9 @@ public class frmPasswordReset extends javax.swing.JFrame {
     private void clearFields() {
         txtNewPassword.setText("");
         txtConfirmPassword.setText("");
-        txtSecurityQuestion1.setText("");
+        comboSecurityQuestion1.setSelectedIndex(0);
         txtSecurityAnswer1.setText("");
-        txtSecurityQuestion2.setText("");
+        comboSecurityQuestion2.setSelectedIndex(0);
         txtSecurityAnswer2.setText("");
         txtEmail.setText("");
         txtPhoneNumber.setText("");
@@ -530,9 +508,6 @@ public class frmPasswordReset extends javax.swing.JFrame {
         lblMsgAreaPwdStrength.setVisible(false);
         lblMsgAreaPwdStrength.setForeground(Color.BLACK);
         lblMsgAreaPwdStrength.setText("");
-
-        txtSecurityQuestion1.setEditable(false);
-        txtSecurityQuestion2.setEditable(false);
 
         clearFields();
 

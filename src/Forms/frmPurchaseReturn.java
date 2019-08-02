@@ -36,7 +36,7 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
         lblPurchasereturnNumber = new javax.swing.JLabel();
         txtPurchasereturnNumber = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PURCHASE RETURN");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(45, 62, 80));
@@ -248,7 +248,7 @@ public class frmPurchaseReturn extends javax.swing.JFrame {
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelPurchaseReturnItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1020, 180));
+        getContentPane().add(panelPurchaseReturnItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

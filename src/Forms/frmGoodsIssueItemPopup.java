@@ -46,7 +46,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         lblPurPrice = new javax.swing.JLabel();
         lblPackedDate = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("GOODS ISSUE ITEM POPUP");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -172,7 +172,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 520, 80));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 520, 80));
 
         lblName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +212,7 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         lblBatchNO.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         lblBatchNO.setText("BATCH NO");
-        jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 130, 30));
+        jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 130, 30));
 
         lblDiscription.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblDiscription.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,15 +239,12 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -356,7 +353,6 @@ public class frmGoodsIssueItemPopup extends javax.swing.JFrame {
         txtManDate.setEditable(false);
         txtPackedDate.setEditable(false);
         txtExpiaryDate.setEditable(false);
-        txtCode.setEditable(false);
         
          clearfields();
 

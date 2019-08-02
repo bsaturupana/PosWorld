@@ -78,7 +78,7 @@ public class frmAccount extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ACCOUNT");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -418,7 +418,7 @@ public class frmAccount extends javax.swing.JFrame {
 
         tabbedAccounts.addTab("DETAILS", panel1);
 
-        jPanel1.add(tabbedAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 790, 270));
+        jPanel1.add(tabbedAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 790, 270));
 
         jPanel3.setBackground(new java.awt.Color(45, 62, 80));
 
@@ -482,14 +482,11 @@ public class frmAccount extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -513,7 +510,7 @@ public class frmAccount extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Account", JOptionPane.INFORMATION_MESSAGE);
-        
+
         clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -757,7 +754,7 @@ public class frmAccount extends javax.swing.JFrame {
         txtRemarksCash.setText(null);
 
         rb_Parent_Visibility();
-        
+
         txtAccountCode.requestFocus();
     }
 
@@ -835,6 +832,42 @@ public class frmAccount extends javax.swing.JFrame {
             txtVATNo.setVisible(true);
             txtRemarks.setVisible(true);
             txtAddress.setVisible(true);
+        } else if ("Customer Supplier".equals(comboType.getSelectedItem())) {
+            tab_Detail_Visibility_False();
+
+            lblContact.setVisible(true);
+            lblPhoneNo1.setVisible(true);
+            lblEmail.setVisible(true);
+            lblPhoneNo2.setVisible(true);
+            lblVATNo.setVisible(true);
+            lblRemarks.setVisible(true);
+            lblAddress.setVisible(true);
+            txtContact.setVisible(true);
+            txtPhoneNo1.setVisible(true);
+            txtEmail.setVisible(true);
+            txtPhoneNo2.setVisible(true);
+            txtVATNo.setVisible(true);
+            txtRemarks.setVisible(true);
+            txtAddress.setVisible(true);
+        } else if ("Supplier".equals(comboType.getSelectedItem())) {
+            tab_Detail_Visibility_False();
+
+            lblContact.setVisible(true);
+            lblPhoneNo1.setVisible(true);
+            lblEmail.setVisible(true);
+            lblPhoneNo2.setVisible(true);
+            lblVATNo.setVisible(true);
+            lblRemarks.setVisible(true);
+            lblAddress.setVisible(true);
+            txtContact.setVisible(true);
+            txtPhoneNo1.setVisible(true);
+            txtEmail.setVisible(true);
+            txtPhoneNo2.setVisible(true);
+            txtVATNo.setVisible(true);
+            txtRemarks.setVisible(true);
+            txtAddress.setVisible(true);
+        } else {
+            tab_Detail_Visibility_False();
         }
     }
 

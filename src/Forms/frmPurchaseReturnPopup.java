@@ -33,7 +33,7 @@ public class frmPurchaseReturnPopup extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PURCHASE ORDER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

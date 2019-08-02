@@ -3,11 +3,11 @@ package Forms;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
-public class frmsalesReturnNotePOP extends javax.swing.JFrame {
+public class frmSalesReturnNotePOPUP extends javax.swing.JFrame {
 
     DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
 
-    public frmsalesReturnNotePOP() {
+    public frmSalesReturnNotePOPUP() {
         initComponents();
 
         formFormat();
@@ -45,7 +45,7 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SALES RETURN NOTE");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -73,7 +73,7 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
 
         txtBatchNO.setBackground(new java.awt.Color(110, 122, 136));
         txtBatchNO.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 260, 30));
+        jPanel1.add(txtBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 260, 30));
 
         lblName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,7 +93,7 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         txtDiscription.setBackground(new java.awt.Color(0, 0, 102));
         txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtDiscription.setToolTipText("");
-        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 260, 30));
+        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 260, 30));
 
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,7 +102,7 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
 
         txtQuantity.setBackground(new java.awt.Color(110, 122, 136));
         txtQuantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 260, 30));
+        jPanel1.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 260, 30));
 
         lblUnitPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblUnitPrice.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,12 +117,12 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         lblPSRPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblPSRPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblPSRPrice.setText("SALES RETURN  PRICE");
-        jPanel1.add(lblPSRPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 130, 30));
+        jPanel1.add(lblPSRPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 160, 30));
 
         txtSRPPrice.setBackground(new java.awt.Color(0, 0, 102));
         txtSRPPrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSRPPrice.setToolTipText("");
-        jPanel1.add(txtSRPPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 260, 30));
+        jPanel1.add(txtSRPPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 260, 30));
 
         lblRTNPurpose.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblRTNPurpose.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,9 +168,9 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
         });
         jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 0, 140, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 470, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 470, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 900, 330));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 330));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(909, 381, -1, -1));
@@ -204,19 +204,19 @@ public class frmsalesReturnNotePOP extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNotePOP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNotePOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNotePOP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNotePOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNotePOP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNotePOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmsalesReturnNotePOP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSalesReturnNotePOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmsalesReturnNotePOP().setVisible(true);
+                new frmSalesReturnNotePOPUP().setVisible(true);
             }
         });
     }

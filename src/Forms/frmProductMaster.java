@@ -46,7 +46,7 @@ public class frmProductMaster extends javax.swing.JFrame {
         txtCode = new javax.swing.JTextField();
         comboStatus = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PRODUCT MASTOR");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -234,7 +234,7 @@ public class frmProductMaster extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, 80));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, -1, 80));
 
         lblStatus1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblStatus1.setText("STATUS");

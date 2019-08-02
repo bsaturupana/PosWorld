@@ -69,7 +69,7 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         btnPrint = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SALES INVOICE");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

@@ -49,7 +49,7 @@ public class frmGoodsReturnNotePOP extends javax.swing.JFrame {
         lblRTNPurpose = new javax.swing.JLabel();
         comboReturnPurpose = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("GOODS RETURN NOTE");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

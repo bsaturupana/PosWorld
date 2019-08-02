@@ -25,7 +25,7 @@ public class frmAccountMaster extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tvAccountsTree = new javax.swing.JTree();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ACCOUNT MASTER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

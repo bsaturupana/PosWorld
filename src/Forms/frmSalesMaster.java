@@ -36,7 +36,7 @@ public class frmSalesMaster extends javax.swing.JFrame {
         txtInvoiceNO = new javax.swing.JTextField();
         txtCustomerName = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SALES MASTER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

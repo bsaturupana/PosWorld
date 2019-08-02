@@ -37,7 +37,7 @@ public class frmPurchaseOrderMaster extends javax.swing.JFrame {
         btnAddNew = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PURCHASE ORDER MASTER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

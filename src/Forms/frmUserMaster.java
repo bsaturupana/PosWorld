@@ -34,7 +34,7 @@ public class frmUserMaster extends javax.swing.JFrame {
         txtRole = new javax.swing.JTextField();
         comboGender = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("USER MASTOR");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

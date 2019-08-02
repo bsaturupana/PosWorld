@@ -43,7 +43,7 @@ public class frmProduct extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PRODUCT");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -201,7 +201,7 @@ public class frmProduct extends javax.swing.JFrame {
         });
         jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 140, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 821, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -32,7 +32,7 @@ public class frmGoodsReturnNote extends javax.swing.JFrame {
         txtSupplierName = new javax.swing.JTextField();
         txtPurchaseOrderNumber = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("GOODS RETURN NOTE");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);

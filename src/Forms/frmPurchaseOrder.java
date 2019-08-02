@@ -36,7 +36,7 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PURCHASE ORDER");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -188,7 +188,7 @@ public class frmPurchaseOrder extends javax.swing.JFrame {
 
         panelPurchaseOrderItemHeader.add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 460, 610, 80));
 
-        getContentPane().add(panelPurchaseOrderItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, 530));
+        getContentPane().add(panelPurchaseOrderItemHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
