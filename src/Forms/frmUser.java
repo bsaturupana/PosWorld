@@ -32,8 +32,8 @@ public class frmUser extends javax.swing.JFrame {
         txtResidentNO = new javax.swing.JTextField();
         lblNationality = new javax.swing.JLabel();
         comboNationality = new javax.swing.JComboBox();
-        lblRelegon = new javax.swing.JLabel();
-        comboRelegon = new javax.swing.JComboBox();
+        lblReligion = new javax.swing.JLabel();
+        comboReligion = new javax.swing.JComboBox();
         lblGender1 = new javax.swing.JLabel();
         comboGender1 = new javax.swing.JComboBox();
         lblRace = new javax.swing.JLabel();
@@ -50,14 +50,14 @@ public class frmUser extends javax.swing.JFrame {
         panel1 = new javax.swing.JPanel();
         txtRemark = new javax.swing.JTextField();
         lblRemarks = new javax.swing.JLabel();
-        txtAnswer1 = new javax.swing.JTextField();
-        comboSQ1 = new javax.swing.JComboBox();
-        lblAnswer1 = new javax.swing.JLabel();
-        lblSQ1 = new javax.swing.JLabel();
-        lblSQ2 = new javax.swing.JLabel();
-        comboSQ2 = new javax.swing.JComboBox();
-        txtAnswer2 = new javax.swing.JTextField();
-        lblAnswer2 = new javax.swing.JLabel();
+        txtSecurityAnswer1 = new javax.swing.JTextField();
+        comboSecurityQuestion1 = new javax.swing.JComboBox();
+        lblSecurityAnswer1 = new javax.swing.JLabel();
+        lblSecurityQuestion1 = new javax.swing.JLabel();
+        lblSecurityQuestion2 = new javax.swing.JLabel();
+        comboSecurityQuestion2 = new javax.swing.JComboBox();
+        txtSecurityAnswer2 = new javax.swing.JTextField();
+        lblSecurityAnswer2 = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtConfirmPassword = new javax.swing.JPasswordField();
@@ -68,6 +68,18 @@ public class frmUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lblProvince = new javax.swing.JLabel();
+        comboProvince = new javax.swing.JComboBox();
+        lblDistrict = new javax.swing.JLabel();
+        comboDistrict = new javax.swing.JComboBox();
+        lblCity = new javax.swing.JLabel();
+        comboCity = new javax.swing.JComboBox();
+        lblLocation = new javax.swing.JLabel();
+        comboLocation = new javax.swing.JComboBox();
+        comboDivision = new javax.swing.JComboBox();
+        lblDivision = new javax.swing.JLabel();
+        lblDesignation = new javax.swing.JLabel();
+        comboDesignation = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
@@ -144,7 +156,7 @@ public class frmUser extends javax.swing.JFrame {
 
         lblResidentNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblResidentNO.setForeground(new java.awt.Color(255, 255, 255));
-        lblResidentNO.setText("RESIDENTS NO ");
+        lblResidentNO.setText("RESIDENT NO ");
         jPanel4.add(lblResidentNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
 
         txtResidentNO.setBackground(new java.awt.Color(110, 122, 136));
@@ -160,13 +172,13 @@ public class frmUser extends javax.swing.JFrame {
         comboNationality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Nationality-", "Srilanken", "Other" }));
         jPanel4.add(comboNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 250, 30));
 
-        lblRelegon.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblRelegon.setForeground(new java.awt.Color(255, 255, 255));
-        lblRelegon.setText("RELEGON");
-        jPanel4.add(lblRelegon, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
+        lblReligion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblReligion.setForeground(new java.awt.Color(255, 255, 255));
+        lblReligion.setText("RELIGION");
+        jPanel4.add(lblReligion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
-        comboRelegon.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Relegon -", "Budhist", "Catholic", "Hindu", "Islam", "Other" }));
-        jPanel4.add(comboRelegon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 250, 30));
+        comboReligion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Religion -", "Budhist", "Catholic", "Hindu", "Islam", "Other" }));
+        jPanel4.add(comboReligion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 250, 30));
 
         lblGender1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblGender1.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +204,7 @@ public class frmUser extends javax.swing.JFrame {
         lblStatus.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("STATUS");
-        jPanel4.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, -1, -1));
+        jPanel4.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, -1, -1));
 
         buttonGroup1.add(radioActive);
         radioActive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -203,13 +215,13 @@ public class frmUser extends javax.swing.JFrame {
                 radioActiveActionPerformed(evt);
             }
         });
-        jPanel4.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 80, -1));
+        jPanel4.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 435, 80, 30));
 
         buttonGroup1.add(radioInactive);
         radioInactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         radioInactive.setForeground(new java.awt.Color(255, 255, 255));
         radioInactive.setText("INACTIVE");
-        jPanel4.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
+        jPanel4.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 435, -1, 30));
 
         txtAddress1.setBackground(new java.awt.Color(110, 122, 136));
         txtAddress1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -219,10 +231,10 @@ public class frmUser extends javax.swing.JFrame {
         lblUserRole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblUserRole.setForeground(new java.awt.Color(255, 255, 255));
         lblUserRole.setText("USER ROLE");
-        jPanel4.add(lblUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
+        jPanel4.add(lblUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, -1));
 
         comboUserRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select User Role -" }));
-        jPanel4.add(comboUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 250, 30));
+        jPanel4.add(comboUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 250, 30));
 
         lblFullName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblFullName.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +244,7 @@ public class frmUser extends javax.swing.JFrame {
         txtFullName.setBackground(new java.awt.Color(110, 122, 136));
         txtFullName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtFullName.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel4.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 250, 30));
+        jPanel4.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 650, 30));
 
         jTabbedPane1.addTab("GENERAL", jPanel4);
 
@@ -249,53 +261,53 @@ public class frmUser extends javax.swing.JFrame {
         lblRemarks.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblRemarks.setForeground(new java.awt.Color(255, 255, 255));
         lblRemarks.setText("REMARKS");
-        panel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        panel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
-        txtAnswer1.setBackground(new java.awt.Color(110, 122, 136));
-        txtAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtAnswer1.setForeground(new java.awt.Color(255, 255, 255));
-        txtAnswer1.addActionListener(new java.awt.event.ActionListener() {
+        txtSecurityAnswer1.setBackground(new java.awt.Color(110, 122, 136));
+        txtSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSecurityAnswer1.setForeground(new java.awt.Color(255, 255, 255));
+        txtSecurityAnswer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnswer1ActionPerformed(evt);
+                txtSecurityAnswer1ActionPerformed(evt);
             }
         });
-        panel1.add(txtAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 570, 30));
+        panel1.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 570, 30));
 
-        comboSQ1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Sequrity Quection 1 -" }));
-        panel1.add(comboSQ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 570, 30));
+        comboSecurityQuestion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Security Question 1 -" }));
+        panel1.add(comboSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 570, 30));
 
-        lblAnswer1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblAnswer1.setForeground(new java.awt.Color(255, 255, 255));
-        lblAnswer1.setText("SECURITY ANSWER  1");
-        panel1.add(lblAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        lblSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSecurityAnswer1.setForeground(new java.awt.Color(255, 255, 255));
+        lblSecurityAnswer1.setText("SECURITY ANSWER 1");
+        panel1.add(lblSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        lblSQ1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblSQ1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSQ1.setText("SECURITY QUECTION 1");
-        panel1.add(lblSQ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        lblSecurityQuestion1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSecurityQuestion1.setForeground(new java.awt.Color(255, 255, 255));
+        lblSecurityQuestion1.setText("SECURITY QUESTION 1");
+        panel1.add(lblSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        lblSQ2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblSQ2.setForeground(new java.awt.Color(255, 255, 255));
-        lblSQ2.setText("SECURITY QUECTION 2");
-        panel1.add(lblSQ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        lblSecurityQuestion2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSecurityQuestion2.setForeground(new java.awt.Color(255, 255, 255));
+        lblSecurityQuestion2.setText("SECURITY QUESTION 2");
+        panel1.add(lblSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        comboSQ2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Sequrity Quection 2 -" }));
-        panel1.add(comboSQ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 570, 30));
+        comboSecurityQuestion2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Security Question 2 -" }));
+        panel1.add(comboSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 570, 30));
 
-        txtAnswer2.setBackground(new java.awt.Color(110, 122, 136));
-        txtAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtAnswer2.setForeground(new java.awt.Color(255, 255, 255));
-        txtAnswer2.addActionListener(new java.awt.event.ActionListener() {
+        txtSecurityAnswer2.setBackground(new java.awt.Color(110, 122, 136));
+        txtSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtSecurityAnswer2.setForeground(new java.awt.Color(255, 255, 255));
+        txtSecurityAnswer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnswer2ActionPerformed(evt);
+                txtSecurityAnswer2ActionPerformed(evt);
             }
         });
-        panel1.add(txtAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 570, 30));
+        panel1.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 570, 30));
 
-        lblAnswer2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblAnswer2.setForeground(new java.awt.Color(255, 255, 255));
-        lblAnswer2.setText("SECURITY ANSWER  2");
-        panel1.add(lblAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblSecurityAnswer2.setForeground(new java.awt.Color(255, 255, 255));
+        lblSecurityAnswer2.setText("SECURITY ANSWER 2");
+        panel1.add(lblSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,6 +344,8 @@ public class frmUser extends javax.swing.JFrame {
         jPanel2.setToolTipText("");
 
         jLabel1.setBackground(new java.awt.Color(110, 122, 136));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/User.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jLabel1.setOpaque(true);
 
@@ -349,33 +363,130 @@ public class frmUser extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("USER IMAGE");
 
+        lblProvince.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblProvince.setForeground(new java.awt.Color(255, 255, 255));
+        lblProvince.setText("PROVINCE");
+
+        comboProvince.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Province -" }));
+        comboProvince.setToolTipText("");
+
+        lblDistrict.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblDistrict.setForeground(new java.awt.Color(255, 255, 255));
+        lblDistrict.setText("DISTRICT");
+
+        comboDistrict.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select District -" }));
+        comboDistrict.setToolTipText("");
+
+        lblCity.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
+        lblCity.setText("CITY");
+
+        comboCity.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select District -" }));
+        comboCity.setToolTipText("");
+
+        lblLocation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblLocation.setForeground(new java.awt.Color(255, 255, 255));
+        lblLocation.setText("LOCATION");
+
+        comboLocation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Location -" }));
+        comboLocation.setToolTipText("");
+
+        comboDivision.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Division -" }));
+        comboDivision.setToolTipText("");
+
+        lblDivision.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblDivision.setForeground(new java.awt.Color(255, 255, 255));
+        lblDivision.setText("DIVISION");
+
+        lblDesignation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblDesignation.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesignation.setText("DESIGNATION");
+
+        comboDesignation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select District -" }));
+        comboDesignation.setToolTipText("");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(282, 282, 282)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCity)
+                            .addComponent(lblProvince)
+                            .addComponent(lblDistrict))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboProvince, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(lblDesignation)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDivision)
+                                .addComponent(lblLocation))
+                            .addGap(42, 42, 42)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(comboDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addGap(88, 88, 88))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblProvince)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCity))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(comboDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDistrict))
+                                .addGap(28, 28, 28)
+                                .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLocation))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDivision))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDesignation)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("OTHER", jPanel2);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 830, 530));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 830, 530));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, -1, -1));
 
@@ -413,7 +524,7 @@ public class frmUser extends javax.swing.JFrame {
         });
         jPanel3.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 140, 60));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 820, 90));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 820, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -430,13 +541,13 @@ public class frmUser extends javax.swing.JFrame {
         clearFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswer2ActionPerformed
+    private void txtSecurityAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnswer2ActionPerformed
+    }//GEN-LAST:event_txtSecurityAnswer2ActionPerformed
 
-    private void txtAnswer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswer1ActionPerformed
+    private void txtSecurityAnswer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnswer1ActionPerformed
+    }//GEN-LAST:event_txtSecurityAnswer1ActionPerformed
 
     private void radioActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioActiveActionPerformed
         // TODO add your handling code here:
@@ -483,12 +594,18 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox comboCity;
+    private javax.swing.JComboBox comboDesignation;
+    private javax.swing.JComboBox comboDistrict;
+    private javax.swing.JComboBox comboDivision;
     private javax.swing.JComboBox comboGender1;
+    private javax.swing.JComboBox comboLocation;
     private javax.swing.JComboBox comboNationality;
+    private javax.swing.JComboBox comboProvince;
     private javax.swing.JComboBox comboRace;
-    private javax.swing.JComboBox comboRelegon;
-    private javax.swing.JComboBox comboSQ1;
-    private javax.swing.JComboBox comboSQ2;
+    private javax.swing.JComboBox comboReligion;
+    private javax.swing.JComboBox comboSecurityQuestion1;
+    private javax.swing.JComboBox comboSecurityQuestion2;
     private javax.swing.JComboBox comboUserRole;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -499,24 +616,30 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAddress1;
-    private javax.swing.JLabel lblAnswer1;
-    private javax.swing.JLabel lblAnswer2;
+    private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblConfirmPassword;
+    private javax.swing.JLabel lblDesignation;
+    private javax.swing.JLabel lblDistrict;
+    private javax.swing.JLabel lblDivision;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmployeeID;
     private javax.swing.JLabel lblFullName;
     private javax.swing.JLabel lblGender1;
+    private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblMobileNO;
     private javax.swing.JLabel lblNICNumber;
     private javax.swing.JLabel lblNationality;
     private javax.swing.JLabel lblPassportNO;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblProvince;
     private javax.swing.JLabel lblRace;
-    private javax.swing.JLabel lblRelegon;
+    private javax.swing.JLabel lblReligion;
     private javax.swing.JLabel lblRemarks;
     private javax.swing.JLabel lblResidentNO;
-    private javax.swing.JLabel lblSQ1;
-    private javax.swing.JLabel lblSQ2;
+    private javax.swing.JLabel lblSecurityAnswer1;
+    private javax.swing.JLabel lblSecurityAnswer2;
+    private javax.swing.JLabel lblSecurityQuestion1;
+    private javax.swing.JLabel lblSecurityQuestion2;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblUserRole;
     private javax.swing.JLabel lblUsername;
@@ -524,8 +647,6 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioActive;
     private javax.swing.JRadioButton radioInactive;
     private javax.swing.JTextField txtAddress1;
-    private javax.swing.JTextField txtAnswer1;
-    private javax.swing.JTextField txtAnswer2;
     private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmployeeID;
@@ -536,13 +657,15 @@ public class frmUser extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtRemark;
     private javax.swing.JTextField txtResidentNO;
+    private javax.swing.JTextField txtSecurityAnswer1;
+    private javax.swing.JTextField txtSecurityAnswer2;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     private void clearFields() {
         txtAddress1.setText(null);
-        txtAnswer1.setText(null);
-        txtAnswer2.setText(null);
+        txtSecurityAnswer1.setText(null);
+        txtSecurityAnswer2.setText(null);
         txtConfirmPassword.setText(null);
         txtEmail.setText(null);
         txtEmployeeID.setText(null);
@@ -558,9 +681,9 @@ public class frmUser extends javax.swing.JFrame {
         comboGender1.setSelectedIndex(0);
         comboNationality.setSelectedIndex(0);
         comboRace.setSelectedIndex(0);
-        comboRelegon.setSelectedIndex(0);
-        comboSQ1.setSelectedIndex(0);
-        comboSQ2.setSelectedIndex(0);
+        comboReligion.setSelectedIndex(0);
+        comboSecurityQuestion1.setSelectedIndex(0);
+        comboSecurityQuestion2.setSelectedIndex(0);
         comboUserRole.setSelectedIndex(0);
 
         radioActive.setSelected(true);

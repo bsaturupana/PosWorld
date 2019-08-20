@@ -111,8 +111,8 @@ public class frmSplashScreen extends javax.swing.JFrame {
 
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(10);
-//                Thread.sleep(40);
+//                Thread.sleep(10);
+                Thread.sleep(40);
                 sc.pbProgressBar.setValue(i);
 
                 if (i <= 35) {

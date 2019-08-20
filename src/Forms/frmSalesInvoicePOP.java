@@ -3,6 +3,7 @@ package Forms;
 import javax.swing.JOptionPane;
 
 public class frmSalesInvoicePOP extends javax.swing.JFrame {
+    private String CommonItemitemCode;
 
     public frmSalesInvoicePOP() {
         initComponents();
@@ -158,9 +159,9 @@ public class frmSalesInvoicePOP extends javax.swing.JFrame {
         });
         jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 13, 140, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 473, 80));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 473, 80));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 902, 329));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 902, 340));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 405, -1, -1));
@@ -177,8 +178,14 @@ public class frmSalesInvoicePOP extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        CommonItemitemCode = txtCode.getText();
+        
+        System.out.println("1 - " + CommonItemitemCode);
+        
         JOptionPane.showMessageDialog(this, "Successfully Saved.", "Sales Invoice", JOptionPane.INFORMATION_MESSAGE);
         clearFields();
+        
+        this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     public static void main(String args[]) {

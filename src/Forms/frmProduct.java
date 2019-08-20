@@ -18,15 +18,11 @@ public class frmProduct extends javax.swing.JFrame {
         lblProductCode = new javax.swing.JLabel();
         lblProductName = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        lblDiscription = new javax.swing.JLabel();
         lblBatchNO = new javax.swing.JLabel();
         lblExpiryDate = new javax.swing.JLabel();
         lblSupplier = new javax.swing.JLabel();
         lblPurchasePrice = new javax.swing.JLabel();
         lblSalePrice = new javax.swing.JLabel();
-        lblRemarks = new javax.swing.JLabel();
-        lblPackdDate = new javax.swing.JLabel();
-        txtRemarks = new javax.swing.JTextField();
         radioInactive = new javax.swing.JRadioButton();
         radioActive = new javax.swing.JRadioButton();
         txtProductCode = new javax.swing.JTextField();
@@ -36,9 +32,7 @@ public class frmProduct extends javax.swing.JFrame {
         comboSupplier = new javax.swing.JComboBox();
         dccExpirydate = new com.toedter.calendar.JDateChooser();
         dccManufactureDate = new com.toedter.calendar.JDateChooser();
-        dccPackedDate = new com.toedter.calendar.JDateChooser();
         txtProductName = new javax.swing.JTextField();
-        txtDiscription = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
@@ -57,7 +51,7 @@ public class frmProduct extends javax.swing.JFrame {
         txtBatchNo.setBackground(new java.awt.Color(110, 122, 136));
         txtBatchNo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtBatchNo.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtBatchNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 250, 30));
+        jPanel1.add(txtBatchNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 220, 30));
 
         lblProductCode.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblProductCode.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,22 +66,17 @@ public class frmProduct extends javax.swing.JFrame {
         lblStatus.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("STATUS");
-        jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
-
-        lblDiscription.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblDiscription.setForeground(new java.awt.Color(255, 255, 255));
-        lblDiscription.setText("DISCRIPTION");
-        jPanel1.add(lblDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
 
         lblBatchNO.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblBatchNO.setForeground(new java.awt.Color(255, 255, 255));
         lblBatchNO.setText("BATCH NO");
-        jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+        jPanel1.add(lblBatchNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
 
         lblExpiryDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblExpiryDate.setForeground(new java.awt.Color(255, 255, 255));
         lblExpiryDate.setText("EXPIRY DATE");
-        jPanel1.add(lblExpiryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
+        jPanel1.add(lblExpiryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
 
         lblSupplier.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSupplier.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,26 +91,11 @@ public class frmProduct extends javax.swing.JFrame {
         lblSalePrice.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblSalePrice.setForeground(new java.awt.Color(255, 255, 255));
         lblSalePrice.setText("SALE PRICE");
-        jPanel1.add(lblSalePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-
-        lblRemarks.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblRemarks.setForeground(new java.awt.Color(255, 255, 255));
-        lblRemarks.setText("REMARKS");
-        jPanel1.add(lblRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
-
-        lblPackdDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblPackdDate.setForeground(new java.awt.Color(255, 255, 255));
-        lblPackdDate.setText("PACKED DATE");
-        jPanel1.add(lblPackdDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
-
-        txtRemarks.setBackground(new java.awt.Color(110, 122, 136));
-        txtRemarks.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtRemarks.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 250, 30));
+        jPanel1.add(lblSalePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
 
         buttonGroup1.add(radioInactive);
         radioInactive.setText("INACTIVE");
-        jPanel1.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
+        jPanel1.add(radioInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, -1, -1));
 
         buttonGroup1.add(radioActive);
         radioActive.setText("ACTIVE");
@@ -130,43 +104,37 @@ public class frmProduct extends javax.swing.JFrame {
                 radioActiveActionPerformed(evt);
             }
         });
-        jPanel1.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 80, -1));
+        jPanel1.add(radioActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 80, -1));
 
         txtProductCode.setBackground(new java.awt.Color(110, 122, 136));
         txtProductCode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtProductCode.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtProductCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 250, 30));
+        jPanel1.add(txtProductCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 220, 30));
 
         txtPurchasePrice.setBackground(new java.awt.Color(110, 122, 136));
         txtPurchasePrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtPurchasePrice.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtPurchasePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 250, 30));
+        jPanel1.add(txtPurchasePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 220, 30));
 
         txtSalePrice.setBackground(new java.awt.Color(110, 122, 136));
         txtSalePrice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSalePrice.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtSalePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, 30));
+        jPanel1.add(txtSalePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 220, 30));
 
         lblManufactureDate.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblManufactureDate.setForeground(new java.awt.Color(255, 255, 255));
         lblManufactureDate.setText("MANUFACTURE DATE");
-        jPanel1.add(lblManufactureDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
+        jPanel1.add(lblManufactureDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         comboSupplier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Supplier -" }));
-        jPanel1.add(comboSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 250, 30));
-        jPanel1.add(dccExpirydate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 250, 30));
-        jPanel1.add(dccManufactureDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 250, 30));
-        jPanel1.add(dccPackedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 250, 30));
+        jPanel1.add(comboSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 220, 30));
+        jPanel1.add(dccExpirydate, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 220, 30));
+        jPanel1.add(dccManufactureDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 220, 30));
 
         txtProductName.setBackground(new java.awt.Color(110, 122, 136));
         txtProductName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtProductName.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 250, 30));
-
-        txtDiscription.setBackground(new java.awt.Color(110, 122, 136));
-        txtDiscription.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtDiscription.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtDiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 250, 30));
+        jPanel1.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 600, 30));
 
         btnSave.setBackground(new java.awt.Color(53, 189, 252));
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -177,7 +145,7 @@ public class frmProduct extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 140, 60));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 140, 60));
 
         btnReset.setBackground(new java.awt.Color(53, 189, 252));
         btnReset.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -188,7 +156,7 @@ public class frmProduct extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 140, 60));
+        jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 140, 60));
 
         btnClose.setBackground(new java.awt.Color(255, 56, 29));
         btnClose.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -199,7 +167,7 @@ public class frmProduct extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 140, 60));
+        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 140, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 440));
 
@@ -260,28 +228,22 @@ public class frmProduct extends javax.swing.JFrame {
     private javax.swing.JComboBox comboSupplier;
     private com.toedter.calendar.JDateChooser dccExpirydate;
     private com.toedter.calendar.JDateChooser dccManufactureDate;
-    private com.toedter.calendar.JDateChooser dccPackedDate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBatchNO;
-    private javax.swing.JLabel lblDiscription;
     private javax.swing.JLabel lblExpiryDate;
     private javax.swing.JLabel lblManufactureDate;
-    private javax.swing.JLabel lblPackdDate;
     private javax.swing.JLabel lblProductCode;
     private javax.swing.JLabel lblProductName;
     private javax.swing.JLabel lblPurchasePrice;
-    private javax.swing.JLabel lblRemarks;
     private javax.swing.JLabel lblSalePrice;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblSupplier;
     private javax.swing.JRadioButton radioActive;
     private javax.swing.JRadioButton radioInactive;
     private javax.swing.JTextField txtBatchNo;
-    private javax.swing.JTextField txtDiscription;
     private javax.swing.JTextField txtProductCode;
     private javax.swing.JTextField txtProductName;
     private javax.swing.JTextField txtPurchasePrice;
-    private javax.swing.JTextField txtRemarks;
     private javax.swing.JTextField txtSalePrice;
     // End of variables declaration//GEN-END:variables
 
@@ -289,13 +251,10 @@ public class frmProduct extends javax.swing.JFrame {
         txtProductCode.setText(null);
         txtBatchNo.setText(null);
         txtProductName.setText(null);
-        txtDiscription.setText(null);
         txtPurchasePrice.setText(null);
         txtSalePrice.setText(null);
-        txtRemarks.setText(null);
 
         dccManufactureDate.setCalendar(null);
-        dccPackedDate.setCalendar(null);
         dccExpirydate.setCalendar(null);
 
         comboSupplier.setSelectedIndex(0);

@@ -1,5 +1,6 @@
 package Forms;
 
+import frames.Login;
 import javax.swing.JFrame;
 
 public class frmMainForm extends javax.swing.JFrame {
@@ -14,7 +15,7 @@ public class frmMainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLayeredPane1 = new javax.swing.JDesktopPane();
+        paneDesktop = new javax.swing.JDesktopPane();
         mnuMenuBar = new javax.swing.JMenuBar();
         mnuFile = new javax.swing.JMenu();
         mnuFile_Log_In = new javax.swing.JMenuItem();
@@ -37,9 +38,14 @@ public class frmMainForm extends javax.swing.JFrame {
         mnuTransaction_Sales_Invoice = new javax.swing.JMenuItem();
         mnuTransaction_Sales_Return = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        paneDesktop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mnuMenuBar.setBackground(new java.awt.Color(45, 62, 80));
 
@@ -163,11 +169,11 @@ public class frmMainForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
+            .addComponent(paneDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .addComponent(paneDesktop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
 
         pack();
@@ -182,7 +188,10 @@ public class frmMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuFile_ExitActionPerformed
 
     private void mnuFile_Log_InActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFile_Log_InActionPerformed
-        new frmLogin().setVisible(true);
+//        new frmLogin().setVisible(true);
+        Login frm = new Login();
+        paneDesktop.add(frm);
+        frm.setVisible(true);
     }//GEN-LAST:event_mnuFile_Log_InActionPerformed
 
     private void mnuTransaction_Sales_ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Sales_ReturnActionPerformed
@@ -198,7 +207,7 @@ public class frmMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuSetup_ProductActionPerformed
 
     private void mnuTransaction_Purchase_OrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Purchase_OrderActionPerformed
-        new frmPurchaseOrderMaster().setVisible(true);
+        new PurchaseOrderMaster().setVisible(true);
     }//GEN-LAST:event_mnuTransaction_Purchase_OrderActionPerformed
 
     private void mnuTransaction_Purchase_ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Purchase_ReturnActionPerformed
@@ -210,7 +219,7 @@ public class frmMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuTransaction_Goods_Issue_NoteActionPerformed
 
     private void mnuTransaction_Goods_Return_NoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Goods_Return_NoteActionPerformed
-        new frmGoodsReturnMaster().setVisible(true);
+        new GoodsReturnMaster().setVisible(true);
     }//GEN-LAST:event_mnuTransaction_Goods_Return_NoteActionPerformed
 
     private void mnuTransaction_Sales_InvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTransaction_Sales_InvoiceActionPerformed
@@ -220,6 +229,10 @@ public class frmMainForm extends javax.swing.JFrame {
     private void mnuSetup_UserManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSetup_UserManagerActionPerformed
         new frmUserMaster().setVisible(true);
     }//GEN-LAST:event_mnuSetup_UserManagerActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -257,7 +270,6 @@ public class frmMainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jLayeredPane1;
     private javax.swing.JMenu mnuFile;
     private javax.swing.JMenuItem mnuFile_Exit;
     private javax.swing.JMenuItem mnuFile_Log_In;
@@ -279,6 +291,7 @@ public class frmMainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuTransaction_Sales_Return;
     private javax.swing.JPopupMenu.Separator mnuTransaction_Separator_1;
     private javax.swing.JPopupMenu.Separator mnuTransaction_Separator_2;
+    private javax.swing.JDesktopPane paneDesktop;
     // End of variables declaration//GEN-END:variables
 
     private void formFormat() {

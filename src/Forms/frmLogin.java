@@ -1,6 +1,9 @@
 package Forms;
 
 import java.awt.Toolkit;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JFrame {
@@ -161,8 +164,7 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "USERNAME and PASSWORD can not be equal.", "Login", JOptionPane.ERROR_MESSAGE);
             txtUsername.requestFocus();
         } else {
-            JOptionPane.showMessageDialog(this, "Login Successfully.", "Login", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
+            checkLogin(txtUsername.getText(), txtPassword.getText());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -210,5 +212,74 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void formFormat() {
         this.setLocationRelativeTo(null);
+    }
+
+    public void checkLogin(String sUsername, String sPassword) {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+        String user = "root";
+        String pass = "root";
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posworld", user, pass);
+
+            myStmt = myConn.createStatement();
+
+            myRs = myStmt.executeQuery("select * from usermasternew where um_username = '" + sUsername + "' and um_password = '" + sPassword + "'");
+
+            while (myRs.next()) {
+                if (myRs.getString("um_username").equals(sUsername)) {
+                    if (myRs.getString("um_password").equals(sPassword)) {
+                        JOptionPane.showMessageDialog(this, "Login Successfully.", "Login", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        if (myConn != null) {
+                            try {
+                                myConn.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        
+                        this.dispose();
+                        
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Wrong 'Password', Please try again", "Login", JOptionPane.WARNING_MESSAGE);
+                        txtPassword.requestFocus(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Wrong 'Username', Please try again", "Login", JOptionPane.WARNING_MESSAGE);
+                    txtUsername.requestFocus(true);
+                }
+            }
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                try {
+                    myRs.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (myStmt != null) {
+                try {
+                    myStmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (myConn != null) {
+                try {
+                    myConn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 }

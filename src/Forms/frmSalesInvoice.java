@@ -1,5 +1,6 @@
 package Forms;
 
+import com.sun.glass.events.KeyEvent;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -7,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmSalesInvoice extends javax.swing.JFrame {
 
     DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
+    private String CommonItemitemCode;
 
     public frmSalesInvoice() {
         initComponents();
@@ -33,19 +35,7 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         txtPrivilageCard = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        lblcardType = new javax.swing.JLabel();
-        lblBank = new javax.swing.JLabel();
-        lblCardName = new javax.swing.JLabel();
-        lblCardNumber = new javax.swing.JLabel();
-        txtCardName = new javax.swing.JTextField();
-        txtCardNumber = new javax.swing.JTextField();
-        txtBankName = new javax.swing.JTextField();
-        txtCardType = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        lblGrossTotal = new javax.swing.JLabel();
-        lblTotalItemDiscount = new javax.swing.JLabel();
-        txtTotalItemDiscount = new javax.swing.JTextField();
-        txtGrossTotal = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         lblspecialDiscount = new javax.swing.JLabel();
         txtSpecialDiscount = new javax.swing.JTextField();
@@ -67,6 +57,18 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
+        lblGrossTotal = new javax.swing.JLabel();
+        lblTotalItemDiscount = new javax.swing.JLabel();
+        txtGrossTotal = new javax.swing.JTextField();
+        txtTotalItemDiscount = new javax.swing.JTextField();
+        lblCardNumber = new javax.swing.JLabel();
+        lblcardType = new javax.swing.JLabel();
+        lblCardName = new javax.swing.JLabel();
+        lblBank = new javax.swing.JLabel();
+        txtBankName = new javax.swing.JTextField();
+        txtCardName = new javax.swing.JTextField();
+        txtCardType = new javax.swing.JTextField();
+        txtCardNumber = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -135,9 +137,17 @@ public class frmSalesInvoice extends javax.swing.JFrame {
         });
         tableSalesInvoice.setToolTipText("");
         tableSalesInvoice.setRowHeight(30);
+        tableSalesInvoice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tableSalesInvoiceKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tableSalesInvoiceKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableSalesInvoice);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1230, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 770, 270));
         jPanel1.add(dccInvoiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 160, 30));
 
         txtInvoiceNumber.setBackground(new java.awt.Color(110, 122, 136));
@@ -161,134 +171,10 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(45, 62, 80));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblcardType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblcardType.setForeground(new java.awt.Color(255, 255, 255));
-        lblcardType.setText("CARD TYPE");
-        lblcardType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel4.add(lblcardType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 152, 30));
-
-        lblBank.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblBank.setForeground(new java.awt.Color(255, 255, 255));
-        lblBank.setText("BANK NAME");
-        lblBank.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel4.add(lblBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 152, 30));
-
-        lblCardName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblCardName.setForeground(new java.awt.Color(255, 255, 255));
-        lblCardName.setText("CARD NAME");
-        lblCardName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel4.add(lblCardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 152, 30));
-
-        lblCardNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblCardNumber.setForeground(new java.awt.Color(255, 255, 255));
-        lblCardNumber.setText("CARD NUMBER");
-        lblCardNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel4.add(lblCardNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 152, 30));
-
-        txtCardName.setBackground(new java.awt.Color(110, 122, 136));
-        txtCardName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtCardName.setForeground(new java.awt.Color(110, 122, 136));
-        txtCardName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtCardName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCardNameActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtCardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 200, 30));
-
-        txtCardNumber.setBackground(new java.awt.Color(110, 122, 136));
-        txtCardNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtCardNumber.setForeground(new java.awt.Color(110, 122, 136));
-        txtCardNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtCardNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCardNumberActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtCardNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, 30));
-
-        txtBankName.setBackground(new java.awt.Color(110, 122, 136));
-        txtBankName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtBankName.setForeground(new java.awt.Color(110, 122, 136));
-        txtBankName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtBankName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBankNameActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 200, 30));
-
-        txtCardType.setBackground(new java.awt.Color(110, 122, 136));
-        txtCardType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtCardType.setForeground(new java.awt.Color(110, 122, 136));
-        txtCardType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtCardType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCardTypeActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtCardType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 200, 30));
-
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(45, 62, 80));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblGrossTotal.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblGrossTotal.setForeground(new java.awt.Color(255, 255, 255));
-        lblGrossTotal.setText("GROSS TOTAL");
-        lblGrossTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel6.add(lblGrossTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 152, 30));
-
-        lblTotalItemDiscount.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblTotalItemDiscount.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalItemDiscount.setText("TOTAL ITEM DISCOUNT");
-        lblTotalItemDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
-        jPanel6.add(lblTotalItemDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 152, 30));
-
-        txtTotalItemDiscount.setBackground(new java.awt.Color(110, 122, 136));
-        txtTotalItemDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtTotalItemDiscount.setForeground(new java.awt.Color(110, 122, 136));
-        txtTotalItemDiscount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTotalItemDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtTotalItemDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtTotalItemDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtTotalItemDiscountFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtTotalItemDiscountFocusLost(evt);
-            }
-        });
-        txtTotalItemDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalItemDiscountActionPerformed(evt);
-            }
-        });
-        jPanel6.add(txtTotalItemDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 200, 30));
-
-        txtGrossTotal.setBackground(new java.awt.Color(110, 122, 136));
-        txtGrossTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtGrossTotal.setForeground(new java.awt.Color(110, 122, 136));
-        txtGrossTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtGrossTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtGrossTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtGrossTotal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtGrossTotalFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtGrossTotalFocusLost(evt);
-            }
-        });
-        txtGrossTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrossTotalActionPerformed(evt);
-            }
-        });
-        jPanel6.add(txtGrossTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 200, 30));
-
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(45, 62, 80));
@@ -548,6 +434,128 @@ public class frmSalesInvoice extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 690, -1, 80));
 
+        lblGrossTotal.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblGrossTotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblGrossTotal.setText("GROSS TOTAL");
+        lblGrossTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblGrossTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 620, 152, 30));
+
+        lblTotalItemDiscount.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblTotalItemDiscount.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalItemDiscount.setText("TOTAL ITEM DISCOUNT");
+        lblTotalItemDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblTotalItemDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 660, 152, 30));
+
+        txtGrossTotal.setBackground(new java.awt.Color(110, 122, 136));
+        txtGrossTotal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtGrossTotal.setForeground(new java.awt.Color(110, 122, 136));
+        txtGrossTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtGrossTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtGrossTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtGrossTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtGrossTotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtGrossTotalFocusLost(evt);
+            }
+        });
+        txtGrossTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGrossTotalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtGrossTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, 200, 30));
+
+        txtTotalItemDiscount.setBackground(new java.awt.Color(110, 122, 136));
+        txtTotalItemDiscount.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtTotalItemDiscount.setForeground(new java.awt.Color(110, 122, 136));
+        txtTotalItemDiscount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotalItemDiscount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTotalItemDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTotalItemDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTotalItemDiscountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTotalItemDiscountFocusLost(evt);
+            }
+        });
+        txtTotalItemDiscount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalItemDiscountActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtTotalItemDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 660, 200, 30));
+
+        lblCardNumber.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCardNumber.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNumber.setText("CARD NUMBER");
+        lblCardNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblCardNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 152, 30));
+
+        lblcardType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblcardType.setForeground(new java.awt.Color(255, 255, 255));
+        lblcardType.setText("CARD TYPE");
+        lblcardType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblcardType, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 152, 30));
+
+        lblCardName.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblCardName.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardName.setText("CARD NAME");
+        lblCardName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblCardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 152, 30));
+
+        lblBank.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblBank.setForeground(new java.awt.Color(255, 255, 255));
+        lblBank.setText("BANK NAME");
+        lblBank.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
+        jPanel1.add(lblBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 152, 30));
+
+        txtBankName.setBackground(new java.awt.Color(110, 122, 136));
+        txtBankName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtBankName.setForeground(new java.awt.Color(110, 122, 136));
+        txtBankName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtBankName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBankNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 200, 30));
+
+        txtCardName.setBackground(new java.awt.Color(110, 122, 136));
+        txtCardName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCardName.setForeground(new java.awt.Color(110, 122, 136));
+        txtCardName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCardName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCardNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 200, 30));
+
+        txtCardType.setBackground(new java.awt.Color(110, 122, 136));
+        txtCardType.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCardType.setForeground(new java.awt.Color(110, 122, 136));
+        txtCardType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCardType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCardTypeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCardType, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 200, 30));
+
+        txtCardNumber.setBackground(new java.awt.Color(110, 122, 136));
+        txtCardNumber.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtCardNumber.setForeground(new java.awt.Color(110, 122, 136));
+        txtCardNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCardNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCardNumberActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCardNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, 200, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 1250, 780));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -740,6 +748,22 @@ public class frmSalesInvoice extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void tableSalesInvoiceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableSalesInvoiceKeyReleased
+
+    }//GEN-LAST:event_tableSalesInvoiceKeyReleased
+
+    private void tableSalesInvoiceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableSalesInvoiceKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_F8){
+            new frmSalesInvoicePOP().setVisible(true);
+            
+            System.out.println("2 - " + CommonItemitemCode);
+            
+            txtPrivilageCard.setText(CommonItemitemCode);
+            
+            System.out.println("3 - " + CommonItemitemCode);
+        }
+    }//GEN-LAST:event_tableSalesInvoiceKeyPressed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
