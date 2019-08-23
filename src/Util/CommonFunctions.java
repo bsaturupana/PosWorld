@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 //convertDecimal
 
 public class CommonFunctions {
-
+    public String sCurrentButtonAction = "";
     double sFormattedFigure;
     DecimalFormat currencyFormat = new DecimalFormat("#,###0.00");
     DecimalFormat quantityFormat = new DecimalFormat("#,###0.000");

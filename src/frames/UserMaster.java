@@ -2,23 +2,31 @@ package frames;
 
 import Connection.MySqlConnection;
 import Forms.MDIMain;
+import Util.CommonFunctions;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class UserMaster extends javax.swing.JInternalFrame {
 
     MDIMain mdiMain = new MDIMain();
+    
+    CommonFunctions comFunc = new CommonFunctions();
 
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
     public UserMaster() {
+        conn = MySqlConnection.ConnectDB();
+
         initComponents();
         formFormat();
         showRole();
@@ -195,9 +203,16 @@ public class UserMaster extends javax.swing.JInternalFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tableUserMaster.setRowHeight(30);
@@ -298,7 +313,9 @@ public class UserMaster extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-//        new frmUser().setVisible(true);
+        comFunc.sCurrentButtonAction = "EDIT" + tableUserMaster.getModel().getValueAt(tableUserMaster.getSelectedRow(), 0).toString();
+        
+        JOptionPane.showMessageDialog(null, comFunc.sCurrentButtonAction.substring(4));
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -306,12 +323,19 @@ public class UserMaster extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
         UserManager frmSub = new UserManager();
-//        frmSub.setBounds(10, 10, 100, 100);
         frmSub.setVisible(true);
         getParent().add(frmSub);
         frmSub.toFront();
@@ -371,13 +395,10 @@ public class UserMaster extends javax.swing.JInternalFrame {
 
     private void showRole() {
         try {
-            conn = MySqlConnection.ConnectDB();
-
-            String sSql = "select * from role_master";
+            String sSql = "SELECT * FROM role_master";
 
             pst = conn.prepareStatement(sSql);
             rs = pst.executeQuery();
-            pst = conn.prepareStatement(sSql);
 
             comboUserRole.removeAllItems();
 
@@ -387,6 +408,8 @@ public class UserMaster extends javax.swing.JInternalFrame {
                 comboUserRole.addItem(rs.getString("rm_role_name"));
             }
 
+            rs.close();
+            pst.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -394,7 +417,6 @@ public class UserMaster extends javax.swing.JInternalFrame {
 
     private void showUser() {
         try {
-
             DefaultTableModel model = (DefaultTableModel) tableUserMaster.getModel();
 
             int[] rows = tableUserMaster.getSelectedRows();
@@ -403,23 +425,18 @@ public class UserMaster extends javax.swing.JInternalFrame {
                 model.removeRow(rows[i] - i);
             }
 
-            conn = MySqlConnection.ConnectDB();
-
-            String sSql = "select * from user_master um "
-                    + "join role_master rm "
-                    + "on um.um_user_role_id = rm.rm_role_id "
-                    + "where "
-                    + "um.um_user_full_name like '%" + txtFullName.getText() + "%' "
-                    + "or um.um_user_epf_no = '" + txtEmployeeID.getText() + "' "
-                    + "or um.um_user_username = '" + txtUserName.getText() + "' "
-                    + "or um.um_user_gender = '" + comboGender.getSelectedItem().toString() + "'"
-                    + "or rm.rm_role_name = '" + comboUserRole.getSelectedItem().toString() + "'";
+            String sSql = "SELECT * FROM user_master um "
+                    + "JOIN role_master rm "
+                    + "ON um.um_user_role_id = rm.rm_role_id "
+                    + "WHERE (" + (!txtFullName.getText().trim().equals("") ? 1 : 0) + " = 0 OR um.um_user_full_name like '%" + txtFullName.getText() + "%') "
+                    + "AND (" + (!txtEmployeeID.getText().trim().equals("") ? 1 : 0) + " = 0 OR um.um_user_epf_no = '" + txtEmployeeID.getText() + "') "
+                    + "AND (" + (!txtUserName.getText().trim().equals("") ? 1 : 0) + " = 0 OR um.um_user_username like '%" + txtUserName.getText() + "%') "
+                    + "AND ('" + (comboGender.getSelectedItem().toString().compareToIgnoreCase("") != 0 ? comboGender.getSelectedItem().toString() : "'- Select Gender -'") + "' = '- Select Gender -' OR um.um_user_gender = '" + comboGender.getSelectedItem().toString() + "') "
+                    + "AND ('" + (comboUserRole.getSelectedItem().toString().compareToIgnoreCase("") != 0 ? comboUserRole.getSelectedItem().toString() : "'- Select User Role -'") + "' = '- Select User Role -' OR rm.rm_role_name = '" + comboUserRole.getSelectedItem().toString() + "')";
 
             pst = conn.prepareStatement(sSql);
             rs = pst.executeQuery();
-//            pst = conn.prepareStatement(sSql);
 
-//            if (rs.next()) {
             while (rs.next()) {
                 updateGrid(
                         rs.getString("um_user_epf_no"),
@@ -436,11 +453,9 @@ public class UserMaster extends javax.swing.JInternalFrame {
                         rs.getString("um_user_status")
                 );
             }
-//            } else {
-//            System.out.println("4");
-//                lblSearchResultIndicator.setVisible(true);
-//                txtFullName.requestFocus(true);
-//            }
+
+            rs.close();
+            pst.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -472,8 +487,6 @@ public class UserMaster extends javax.swing.JInternalFrame {
     }
 
     private void clearField() {
-//        showRole();
-
         txtFullName.setText(null);
         txtEmployeeID.setText(null);
         txtUserName.setText(null);
@@ -514,75 +527,4 @@ public class UserMaster extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtFullName;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
-
-//    public ArrayList<User> userList() {
-//        ArrayList<User> roleList = new ArrayList<>();
-//
-//        try {
-//            conn = MySqlConnection.ConnectDB();
-//
-//            String sSql = "select * from user_master um "
-//                    + "join role_master rm "
-//                    + "on um.um_user_role_id = rm.rm_role_id "
-//                    + "where "
-//                    + "um.um_user_full_name = '" + txtFullName.getText() + "' "
-//                    + "or um.um_user_epf_no = '" + txtEmployeeID.getText() + "' "
-//                    + "or um.um_user_username = '" + txtUserName.getText() + "' "
-//                    + "or um.um_user_gender = '" + comboGender.getSelectedItem().toString() + "'"
-//                    + "or rm.rm_role_name = '" + comboUserRole.getSelectedItem().toString() + "'";
-//
-//            pst = conn.prepareStatement(sSql);
-//            rs = pst.executeQuery(sSql);
-//            pst = conn.prepareStatement(sSql);
-//
-//            User user;
-//
-//            while (rs.next()) {
-//                user = new User(
-//                        rs.getString("um_user_epf_no"),
-//                        rs.getString("um_user_username"),
-//                        rs.getString("um_user_full_name"),
-//                        rs.getString("rm_role_name"),
-//                        rs.getString("um_user_nic_no"),
-//                        rs.getString("um_user_pp_no"),
-//                        rs.getString("um_user_email"),
-//                        rs.getString("um_user_mobile_no"),
-//                        rs.getString("um_user_resident_no"),
-//                        rs.getString("um_user_gender"),
-//                        rs.getString("um_user_address"),
-//                        rs.getString("um_user_status")
-//                );
-//
-//                roleList.add(user);
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//
-//        return roleList;
-//    }
-//    public void showUserNew() {
-//        ArrayList<User> list = userList();
-//
-//        DefaultTableModel model = (DefaultTableModel) tableUserMaster.getModel();
-//
-//        Object[] row = new Object[12];
-//
-//        for (int i = 0; i < list.size(); i++) {
-//            row[0] = list.get(i).getum_user_epf_no();
-//            row[1] = list.get(i).getum_user_username();
-//            row[2] = list.get(i).getum_user_full_name();
-//            row[3] = list.get(i).getrm_role_name();
-//            row[4] = list.get(i).getum_user_nic_no();
-//            row[5] = list.get(i).getum_user_pp_no();
-//            row[6] = list.get(i).getum_user_email();
-//            row[7] = list.get(i).getum_user_mobile_no();
-//            row[8] = list.get(i).getum_user_resident_no();
-//            row[9] = list.get(i).getum_user_gender();
-//            row[10] = list.get(i).getum_user_address();
-//            row[11] = list.get(i).getum_user_status();
-//
-//            model.addRow(row);
-//        }
-//    }
 }

@@ -1,16 +1,19 @@
 package Connection;
+
 import java.sql.*;
-import javax.swing.*;
 
 public class MySqlConnection {
-    Connection conn = null;
-    
+
+    public Connection conn = null;
+
     public static Connection ConnectDB() {
+        String user = "root";
+        String pass = "";
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/posworld","root","root");
-//            JOptionPane.showMessageDialog(null, "Connectioned to Database.");
-            
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/posworld", user, pass);
+
             return conn;
         } catch (Exception e) {
             System.out.println(e);

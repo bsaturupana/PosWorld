@@ -7,7 +7,7 @@ public class DatabaseConnection {
     public Connection myConn = null;
 
     String user = "root";
-    String pass = "root";
+    String pass = "";
 
     public Connection dbCon() throws SQLException {
         try {

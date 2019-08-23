@@ -2,22 +2,48 @@ package frames;
 
 import Connection.MySqlConnection;
 import Forms.MDIMain;
-import java.awt.Color;
+import Util.CommonFunctions;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class UserManager extends javax.swing.JInternalFrame {
 
     MDIMain mdiMain = new MDIMain();
 
+    CommonFunctions comFunc = new CommonFunctions();
+
     Connection conn = null;
+
     PreparedStatement pst = null;
+    PreparedStatement pstCityMaster = null;
+    PreparedStatement pstUserMaster = null;
+    PreparedStatement pstRoleMaster = null;
+    PreparedStatement pstQuestionMaster1 = null;
+    PreparedStatement pstQuestionMaster2 = null;
+
     ResultSet rs = null;
-    
+    ResultSet rsCityMaster = null;
+    ResultSet rsUserMaster = null;
+    ResultSet rsRoleMaster = null;
+    ResultSet rsQuestionMaster1 = null;
+    ResultSet rsQuestionMaster2 = null;
+
     int maxLengthFullName = 250;
     int maxLengthEmployeeID = 10;
     int maxLengthEmail = 50;
@@ -31,15 +57,26 @@ public class UserManager extends javax.swing.JInternalFrame {
     int maxLengthSecurityAnswer1 = 250;
     int maxLengthSecurityAnswer2 = 250;
 
+    String sImagePath = null;
+
     public UserManager() {
+        conn = MySqlConnection.ConnectDB();
+
         initComponents();
         formFormat();
+
+        if (comFunc.sCurrentButtonAction.equals("EDIT")) {
+            JOptionPane.showMessageDialog(null, "EDIT");
+        } else {
+            JOptionPane.showMessageDialog(null, "NEW");
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupStatus = new javax.swing.ButtonGroup();
         panelUserManager = new javax.swing.JPanel();
         panelUserManagerMain = new javax.swing.JPanel();
         tabbedUserManager = new javax.swing.JTabbedPane();
@@ -93,7 +130,8 @@ public class UserManager extends javax.swing.JInternalFrame {
         lblSecurityAnswer2 = new javax.swing.JLabel();
         txtSecurityAnswer2 = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
+        scrollPaneAddress = new javax.swing.JScrollPane();
+        txtAddress = new javax.swing.JTextArea();
         lblErrorUsername = new javax.swing.JLabel();
         lblErrorPassword = new javax.swing.JLabel();
         lblErrorAddress = new javax.swing.JLabel();
@@ -120,12 +158,12 @@ public class UserManager extends javax.swing.JInternalFrame {
         lblErrorDivision = new javax.swing.JLabel();
         lblErrorDesignation = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        radioStatusActive = new javax.swing.JRadioButton();
-        radioStatusInactive = new javax.swing.JRadioButton();
-        panelSearchButtons1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        rdbStatusActive = new javax.swing.JRadioButton();
+        rdbStatusInactive = new javax.swing.JRadioButton();
+        panelUserImage = new javax.swing.JPanel();
+        lblUserImageHedding = new javax.swing.JLabel();
+        lblUserImage = new javax.swing.JLabel();
+        btnBrows = new javax.swing.JButton();
         panelMainButtons = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
@@ -158,9 +196,20 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtFullName.setBackground(new java.awt.Color(110, 122, 136));
         txtFullName.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtFullName.setForeground(new java.awt.Color(255, 255, 255));
+        txtFullName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFullNameFocusGained(evt);
+            }
+        });
         txtFullName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFullNameKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtFullNameKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFullNameKeyTyped(evt);
             }
         });
         panelGeneral.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 680, 30));
@@ -173,6 +222,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtEmployeeID.setBackground(new java.awt.Color(110, 122, 136));
         txtEmployeeID.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtEmployeeID.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmployeeID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmployeeIDFocusGained(evt);
+            }
+        });
+        txtEmployeeID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmployeeIDKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmployeeIDKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 250, 30));
 
         lblEmail.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -183,6 +245,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtEmail.setBackground(new java.awt.Color(110, 122, 136));
         txtEmail.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+        });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, 250, 30));
 
         lblNICNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -193,6 +268,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtNICNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtNICNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtNICNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtNICNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNICNumberFocusGained(evt);
+            }
+        });
+        txtNICNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNICNumberKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNICNumberKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 250, 30));
 
         lblPassportNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -203,6 +291,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtPassportNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtPassportNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtPassportNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassportNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPassportNumberFocusGained(evt);
+            }
+        });
+        txtPassportNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassportNumberKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPassportNumberKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtPassportNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 250, 30));
 
         lblMobileNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -213,6 +314,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtMobileNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtMobileNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtMobileNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtMobileNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtMobileNumberFocusGained(evt);
+            }
+        });
+        txtMobileNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMobileNumberKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMobileNumberKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 250, 30));
 
         lblResidentNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -223,6 +337,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtResidentNumber.setBackground(new java.awt.Color(110, 122, 136));
         txtResidentNumber.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         txtResidentNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtResidentNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtResidentNumberFocusGained(evt);
+            }
+        });
+        txtResidentNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtResidentNumberKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtResidentNumberKeyTyped(evt);
+            }
+        });
         panelGeneral.add(txtResidentNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 250, 30));
 
         lblGender.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -232,6 +359,16 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboGender.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         comboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Gender -", "Male", "Female", "Other" }));
+        comboGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboGenderActionPerformed(evt);
+            }
+        });
+        comboGender.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                comboGenderKeyReleased(evt);
+            }
+        });
         panelGeneral.add(comboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 250, 30));
 
         lblNationality.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -241,6 +378,11 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboNationality.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         comboNationality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Nationality -", "Sri Lanken", "Other" }));
+        comboNationality.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNationalityActionPerformed(evt);
+            }
+        });
         panelGeneral.add(comboNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 250, 30));
 
         lblRace.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -250,6 +392,11 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboRace.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         comboRace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Race -", "Sinhala", "Tamil", "Muslim", "Burgher", "Other" }));
+        comboRace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboRaceActionPerformed(evt);
+            }
+        });
         panelGeneral.add(comboRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 250, 30));
 
         lblReligion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -259,72 +406,77 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboReligion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         comboReligion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Religion -", "Buddhism", "Christianity", "Hinduism", "Islam", "Other" }));
+        comboReligion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboReligionActionPerformed(evt);
+            }
+        });
         panelGeneral.add(comboReligion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 250, 30));
 
         lblErrorEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorEmail.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorEmail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorEmail.setText("* \"E-mail\" is required");
+        lblErrorEmail.setText("*");
         panelGeneral.add(lblErrorEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 250, -1));
 
         lblErrorFullName.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorFullName.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorFullName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorFullName.setText("* \"Full Name\" is required");
+        lblErrorFullName.setText("*");
         panelGeneral.add(lblErrorFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 670, -1));
 
         lblErrorEmployeeID.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorEmployeeID.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorEmployeeID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorEmployeeID.setText("* \"Employee ID\" is required");
+        lblErrorEmployeeID.setText("*");
         panelGeneral.add(lblErrorEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 250, -1));
 
         lblErrorNICNumber.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorNICNumber.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorNICNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorNICNumber.setText("* \"NIC Number\" is required");
+        lblErrorNICNumber.setText("*");
         panelGeneral.add(lblErrorNICNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 250, -1));
 
         lblErrorPassportNumber.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorPassportNumber.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorPassportNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorPassportNumber.setText("* \"Passport Number\" is required");
+        lblErrorPassportNumber.setText("*");
         panelGeneral.add(lblErrorPassportNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 250, -1));
 
         lblErrorMobileNumber.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorMobileNumber.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorMobileNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorMobileNumber.setText("* \"Mobile Number\" is required");
+        lblErrorMobileNumber.setText("*");
         panelGeneral.add(lblErrorMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 250, -1));
 
         lblErrorResidentNumber.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorResidentNumber.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorResidentNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorResidentNumber.setText("* \"Resident Number\" is required");
+        lblErrorResidentNumber.setText("*");
         panelGeneral.add(lblErrorResidentNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 250, -1));
 
         lblErrorGender.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorGender.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorGender.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorGender.setText("* \"Gender\" is required");
+        lblErrorGender.setText("*");
         panelGeneral.add(lblErrorGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 250, -1));
 
         lblErrorNationality.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorNationality.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorNationality.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorNationality.setText("* \"Nationality\" is required");
+        lblErrorNationality.setText("*");
         panelGeneral.add(lblErrorNationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 250, -1));
 
         lblErrorRace.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorRace.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorRace.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorRace.setText("* \"Race\" is required");
+        lblErrorRace.setText("*");
         panelGeneral.add(lblErrorRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 250, -1));
 
         lblErrorReligion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorReligion.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorReligion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorReligion.setText("* \"Religion\" is required");
+        lblErrorReligion.setText("*");
         panelGeneral.add(lblErrorReligion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 250, -1));
 
         tabbedUserManager.addTab("GENERAL", panelGeneral);
@@ -342,6 +494,19 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtUsername.setBackground(new java.awt.Color(110, 122, 136));
         txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsernameFocusGained(evt);
+            }
+        });
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyTyped(evt);
+            }
+        });
         panelDetails.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 220, 30));
 
         lblPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -351,10 +516,39 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         txtPassword.setBackground(new java.awt.Color(110, 122, 136));
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+        });
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyTyped(evt);
+            }
+        });
         panelDetails.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 220, 30));
 
         txtConfirmPassword.setBackground(new java.awt.Color(110, 122, 136));
         txtConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtConfirmPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtConfirmPasswordFocusLost(evt);
+            }
+        });
+        txtConfirmPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtConfirmPasswordKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtConfirmPasswordKeyTyped(evt);
+            }
+        });
         panelDetails.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 220, 30));
 
         lblConfirmPassword.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -368,6 +562,11 @@ public class UserManager extends javax.swing.JInternalFrame {
         panelDetails.add(lblSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         comboSecurityQuestion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Security Question 1 -" }));
+        comboSecurityQuestion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSecurityQuestion1ActionPerformed(evt);
+            }
+        });
         panelDetails.add(comboSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 610, 30));
 
         lblSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -378,9 +577,22 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtSecurityAnswer1.setBackground(new java.awt.Color(110, 122, 136));
         txtSecurityAnswer1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSecurityAnswer1.setForeground(new java.awt.Color(255, 255, 255));
+        txtSecurityAnswer1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSecurityAnswer1FocusGained(evt);
+            }
+        });
         txtSecurityAnswer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityAnswer1ActionPerformed(evt);
+            }
+        });
+        txtSecurityAnswer1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSecurityAnswer1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSecurityAnswer1KeyTyped(evt);
             }
         });
         panelDetails.add(txtSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 610, 30));
@@ -391,6 +603,11 @@ public class UserManager extends javax.swing.JInternalFrame {
         panelDetails.add(lblSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         comboSecurityQuestion2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Security Question 2 -" }));
+        comboSecurityQuestion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSecurityQuestion2ActionPerformed(evt);
+            }
+        });
         panelDetails.add(comboSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 610, 30));
 
         lblSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -401,9 +618,22 @@ public class UserManager extends javax.swing.JInternalFrame {
         txtSecurityAnswer2.setBackground(new java.awt.Color(110, 122, 136));
         txtSecurityAnswer2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtSecurityAnswer2.setForeground(new java.awt.Color(255, 255, 255));
+        txtSecurityAnswer2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSecurityAnswer2FocusGained(evt);
+            }
+        });
         txtSecurityAnswer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSecurityAnswer2ActionPerformed(evt);
+            }
+        });
+        txtSecurityAnswer2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSecurityAnswer2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSecurityAnswer2KeyTyped(evt);
             }
         });
         panelDetails.add(txtSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 610, 30));
@@ -414,56 +644,71 @@ public class UserManager extends javax.swing.JInternalFrame {
         panelDetails.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 25, -1, -1));
 
         txtAddress.setBackground(new java.awt.Color(110, 122, 136));
-        txtAddress.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
-        panelDetails.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 220, 150));
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAddressFocusGained(evt);
+            }
+        });
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAddressKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
+        scrollPaneAddress.setViewportView(txtAddress);
+
+        panelDetails.add(scrollPaneAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 220, 150));
 
         lblErrorUsername.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorUsername.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorUsername.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorUsername.setText("* \"Username\" is required");
+        lblErrorUsername.setText("*");
         panelDetails.add(lblErrorUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 55, 220, -1));
 
         lblErrorPassword.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorPassword.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorPassword.setText("* \"Password\" is required");
+        lblErrorPassword.setText("*");
         panelDetails.add(lblErrorPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 115, 220, -1));
 
         lblErrorAddress.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorAddress.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorAddress.setText("* \"Address\" is required");
+        lblErrorAddress.setText("*");
         panelDetails.add(lblErrorAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 175, 220, -1));
 
         lblErrorConfirmPassword.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorConfirmPassword.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorConfirmPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorConfirmPassword.setText("* \"Confirm Password\" is required");
+        lblErrorConfirmPassword.setText("*");
         panelDetails.add(lblErrorConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 175, 220, -1));
 
         lblErrorSecurityQuestion1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorSecurityQuestion1.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorSecurityQuestion1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorSecurityQuestion1.setText("* \"Security Question - 1\" is required");
+        lblErrorSecurityQuestion1.setText("*");
         panelDetails.add(lblErrorSecurityQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 235, 610, -1));
 
         lblErrorSecurityAnswer1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorSecurityAnswer1.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorSecurityAnswer1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorSecurityAnswer1.setText("* \"Security Answer - 1\" is required");
+        lblErrorSecurityAnswer1.setText("*");
         panelDetails.add(lblErrorSecurityAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 295, 610, -1));
 
         lblErrorSecurityQuestion2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorSecurityQuestion2.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorSecurityQuestion2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorSecurityQuestion2.setText("* \"Security Question - 2\" is required");
+        lblErrorSecurityQuestion2.setText("*");
         panelDetails.add(lblErrorSecurityQuestion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 355, 610, -1));
 
         lblErrorSecurityAnswer2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorSecurityAnswer2.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorSecurityAnswer2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorSecurityAnswer2.setText("* \"Security Answer - 2\" is required");
+        lblErrorSecurityAnswer2.setText("*");
         panelDetails.add(lblErrorSecurityAnswer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 415, 610, -1));
 
         tabbedUserManager.addTab("DETAILS", panelDetails);
@@ -499,18 +744,38 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboCity.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select City -" }));
         comboCity.setToolTipText("");
+        comboCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCityActionPerformed(evt);
+            }
+        });
         panelSearchButtons.add(comboCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 420, 30));
 
         comboLocation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Location -", "Colombo", "Kandy" }));
         comboLocation.setToolTipText("");
+        comboLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboLocationActionPerformed(evt);
+            }
+        });
         panelSearchButtons.add(comboLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 420, 30));
 
         comboDivision.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Division -", "Billing", "Showroom", "Stores", "Accounts", "Management" }));
         comboDivision.setToolTipText("");
+        comboDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboDivisionActionPerformed(evt);
+            }
+        });
         panelSearchButtons.add(comboDivision, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 420, 30));
 
         comboDesignation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Designation -", "Cashier", "Billing Officer", "Salesman", "Showroom Manager", "Accounts Assistant", "Accountant", "Storekeeper", "Purchase Manager", "Store Assistant" }));
         comboDesignation.setToolTipText("");
+        comboDesignation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboDesignationActionPerformed(evt);
+            }
+        });
         panelSearchButtons.add(comboDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 420, 30));
 
         lblUserRole.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -520,36 +785,41 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         comboUserRole.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         comboUserRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select User Role -" }));
+        comboUserRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboUserRoleActionPerformed(evt);
+            }
+        });
         panelSearchButtons.add(comboUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 420, 30));
 
         lblErrorUserRole.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorUserRole.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorUserRole.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorUserRole.setText("* \"User Role\" is required");
+        lblErrorUserRole.setText("*");
         panelSearchButtons.add(lblErrorUserRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 295, 420, -1));
 
         lblErrorCity.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorCity.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorCity.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorCity.setText("* \"City\" is required");
+        lblErrorCity.setText("*");
         panelSearchButtons.add(lblErrorCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, 420, -1));
 
         lblErrorLocation.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorLocation.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorLocation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorLocation.setText("* \"Location\" is required");
+        lblErrorLocation.setText("*");
         panelSearchButtons.add(lblErrorLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 115, 420, -1));
 
         lblErrorDivision.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorDivision.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorDivision.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorDivision.setText("* \"Division\" is required");
+        lblErrorDivision.setText("*");
         panelSearchButtons.add(lblErrorDivision, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 175, 420, -1));
 
         lblErrorDesignation.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblErrorDesignation.setForeground(new java.awt.Color(255, 0, 2));
         lblErrorDesignation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblErrorDesignation.setText("* \"Designation\" is required");
+        lblErrorDesignation.setText("*");
         panelSearchButtons.add(lblErrorDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 235, 420, -1));
 
         lblStatus.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -557,48 +827,50 @@ public class UserManager extends javax.swing.JInternalFrame {
         lblStatus.setText("STATUS");
         panelSearchButtons.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        radioStatusActive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        radioStatusActive.setForeground(new java.awt.Color(255, 255, 255));
-        radioStatusActive.setText("ACTIVE");
-        radioStatusActive.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroupStatus.add(rdbStatusActive);
+        rdbStatusActive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rdbStatusActive.setForeground(new java.awt.Color(255, 255, 255));
+        rdbStatusActive.setText("ACTIVE");
+        rdbStatusActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioStatusActiveActionPerformed(evt);
+                rdbStatusActiveActionPerformed(evt);
             }
         });
-        panelSearchButtons.add(radioStatusActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 80, 30));
+        panelSearchButtons.add(rdbStatusActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 80, 30));
 
-        radioStatusInactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        radioStatusInactive.setForeground(new java.awt.Color(255, 255, 255));
-        radioStatusInactive.setText("INACTIVE");
-        panelSearchButtons.add(radioStatusInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, 30));
+        buttonGroupStatus.add(rdbStatusInactive);
+        rdbStatusInactive.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rdbStatusInactive.setForeground(new java.awt.Color(255, 255, 255));
+        rdbStatusInactive.setText("INACTIVE");
+        panelSearchButtons.add(rdbStatusInactive, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, 30));
 
-        panelSearchButtons1.setBackground(new java.awt.Color(45, 62, 80));
-        panelSearchButtons1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 51), 2, true));
-        panelSearchButtons1.setForeground(new java.awt.Color(255, 255, 255));
-        panelSearchButtons1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelUserImage.setBackground(new java.awt.Color(45, 62, 80));
+        panelUserImage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 51), 2, true));
+        panelUserImage.setForeground(new java.awt.Color(255, 255, 255));
+        panelUserImage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("USER IMAGE");
-        panelSearchButtons1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 35));
+        lblUserImageHedding.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblUserImageHedding.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserImageHedding.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImageHedding.setText("USER IMAGE");
+        panelUserImage.add(lblUserImageHedding, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 35));
 
-        jLabel1.setBackground(new java.awt.Color(110, 122, 136));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/User.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jLabel1.setOpaque(true);
-        panelSearchButtons1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 220, 260));
+        lblUserImage.setBackground(new java.awt.Color(110, 122, 136));
+        lblUserImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Upload_User_Image.png"))); // NOI18N
+        lblUserImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblUserImage.setOpaque(true);
+        panelUserImage.add(lblUserImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 220, 260));
 
-        jButton1.setBackground(new java.awt.Color(53, 189, 252));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("BROWS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBrows.setBackground(new java.awt.Color(53, 189, 252));
+        btnBrows.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnBrows.setText("BROWS");
+        btnBrows.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBrowsActionPerformed(evt);
             }
         });
-        panelSearchButtons1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 120, -1));
+        panelUserImage.add(btnBrows, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 120, -1));
 
         javax.swing.GroupLayout panelOtherLayout = new javax.swing.GroupLayout(panelOther);
         panelOther.setLayout(panelOtherLayout);
@@ -608,7 +880,7 @@ public class UserManager extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(panelSearchButtons, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelSearchButtons1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelUserImage, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelOtherLayout.setVerticalGroup(
@@ -617,7 +889,7 @@ public class UserManager extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelOtherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelSearchButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelSearchButtons1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
+                    .addComponent(panelUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -682,294 +954,165 @@ public class UserManager extends javax.swing.JInternalFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if (txtFullName.getText() == null) {
             lblErrorFullName.setText("'FULL NAME' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'FULL NAME' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtFullName.requestFocus();
-        }
-
-        if (txtFullName.getText().equals("")) {
+        } else if (txtFullName.getText().equals("")) {
             lblErrorFullName.setText("'FULL NAME' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'FULL NAME' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtFullName.requestFocus();
-        }
-
-        if (txtEmployeeID.getText() == null) {
+        } else if (txtEmployeeID.getText() == null) {
             lblErrorEmployeeID.setText("'EMPLOYEE ID' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'EMPLOYEE ID' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtEmployeeID.requestFocus();
-        }
-
-        if (txtEmployeeID.getText().equals("")) {
+        } else if (txtEmployeeID.getText().equals("")) {
             lblErrorEmployeeID.setText("'EMPLOYEE ID' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'EMPLOYEE ID' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtEmployeeID.requestFocus();
-        }
-
-        if (txtEmail.getText() == null) {
+        } else if (txtEmail.getText() == null) {
             lblErrorEmail.setText("'E-MAIL' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'E-MAIL' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtEmail.requestFocus();
-        }
-
-        if (txtEmail.getText().equals("")) {
+        } else if (txtEmail.getText().equals("")) {
             lblErrorEmail.setText("'E-MAIL' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'E-MAIL' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtEmail.requestFocus();
-        }
-
-        if (txtNICNumber.getText() == null) {
+        } else if (txtNICNumber.getText() == null) {
             lblErrorNICNumber.setText("'NIC Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'NIC Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtNICNumber.requestFocus();
-        }
-
-        if (txtNICNumber.getText().equals("")) {
+        } else if (txtNICNumber.getText().equals("")) {
             lblErrorNICNumber.setText("'NIC Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'NIC Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtNICNumber.requestFocus();
-        }
-
-        if (txtPassportNumber.getText() == null) {
+        } else if (txtPassportNumber.getText() == null) {
             lblErrorPassportNumber.setText("'PASSPORT Number' can not be blank");
-//            JOptionPane.showMessageDialog(this, "'PASSPORT Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtPassportNumber.requestFocus();
-        }
-
-        if (txtPassportNumber.getText().equals("")) {
+        } else if (txtPassportNumber.getText().equals("")) {
             lblErrorPassportNumber.setText("'PASSPORT Number' can not be blank");
-//            JOptionPane.showMessageDialog(this, "'PASSPORT Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtPassportNumber.requestFocus();
-        }
-
-        if (txtMobileNumber.getText() == null) {
+        } else if (txtMobileNumber.getText() == null) {
             lblErrorMobileNumber.setText("'MOBILE Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'MOBILE Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtMobileNumber.requestFocus();
-        }
-
-        if (txtMobileNumber.getText().equals("")) {
+        } else if (txtMobileNumber.getText().equals("")) {
             lblErrorMobileNumber.setText("'MOBILE Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "''MOBILE Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtMobileNumber.requestFocus();
-        }
-
-        if (txtResidentNumber.getText() == null) {
+        } else if (txtResidentNumber.getText() == null) {
             lblErrorResidentNumber.setText("'RESIDENT Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'RESIDENT Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtResidentNumber.requestFocus();
-        }
-
-        if (txtResidentNumber.getText().equals("")) {
+        } else if (txtResidentNumber.getText().equals("")) {
             lblErrorResidentNumber.setText("'RESIDENT Number' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'RESIDENT Number' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtResidentNumber.requestFocus();
-        }
-
-        if (comboGender.getSelectedItem().equals("")) {
+        } else if (comboGender.getSelectedItem().equals("")) {
             lblErrorGender.setText("'GENDER' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'GENDER' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboGender.requestFocus();
-        }
-
-        if ("- Select Gender -".equals(comboGender.getSelectedItem())) {
+        } else if ("- Select Gender -".equals(comboGender.getSelectedItem())) {
             lblErrorGender.setText("'GENDER' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'GENDER' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboGender.requestFocus();
-        }
-
-        if (comboNationality.getSelectedItem().equals("")) {
+        } else if (comboNationality.getSelectedItem().equals("")) {
             lblErrorNationality.setText("'NATIONALITY' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'NATIONALITY' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboNationality.requestFocus();
-        }
-
-        if ("- Select Nationality -".equals(comboNationality.getSelectedItem())) {
+        } else if ("- Select Nationality -".equals(comboNationality.getSelectedItem())) {
             lblErrorNationality.setText("'NATIONALITY' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'NATIONALITY' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboNationality.requestFocus();
-        }
-
-        if (comboRace.getSelectedItem().equals("")) {
+        } else if (comboRace.getSelectedItem().equals("")) {
             lblErrorRace.setText("'RACE' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'RACE' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboRace.requestFocus();
-        }
-
-        if ("- Select Race -".equals(comboRace.getSelectedItem())) {
+        } else if ("- Select Race -".equals(comboRace.getSelectedItem())) {
             lblErrorRace.setText("'RACE' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'RACE' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboRace.requestFocus();
-        }
-
-        if (comboReligion.getSelectedItem().equals("")) {
+        } else if (comboReligion.getSelectedItem().equals("")) {
             lblErrorReligion.setText("'RELIGION' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'RELIGION' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboReligion.requestFocus();
-        }
-
-        if ("- Select Religion -".equals(comboReligion.getSelectedItem())) {
+        } else if ("- Select Religion -".equals(comboReligion.getSelectedItem())) {
             lblErrorReligion.setText("'RELIGION' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'RELIGION' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboReligion.requestFocus();
-        }
-
-        if (txtUsername.getText() == null) {
+        } else if (txtUsername.getText() == null) {
             lblErrorUsername.setText("'USERNAME' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'USERNAME' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtUsername.requestFocus();
-        }
-
-        if (txtUsername.getText().equals("")) {
+        } else if (txtUsername.getText().equals("")) {
             lblErrorUsername.setText("'USERNAME' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'USERNAME' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtUsername.requestFocus();
-        }
-
-        if (txtPassword.getText() == null) {
+        } else if (txtPassword.getText() == null) {
             lblErrorPassword.setText("'PASSWORD' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'PASSWORD' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtPassword.requestFocus();
-        }
-
-        if (txtPassword.getText().equals("")) {
+        } else if (txtPassword.getText().equals("")) {
             lblErrorPassword.setText("'PASSWORD' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'PASSWORD' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtPassword.requestFocus();
-        }
-
-        if (txtConfirmPassword.getText() == null) {
+        } else if (txtConfirmPassword.getText() == null) {
             lblErrorConfirmPassword.setText("'CONFIRM PASSWORD' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'CONFIRM PASSWORD' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtConfirmPassword.requestFocus();
-        }
-
-        if (txtConfirmPassword.getText().equals("")) {
+        } else if (txtConfirmPassword.getText().equals("")) {
             lblErrorConfirmPassword.setText("'CONFIRM PASSWORD' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'CONFIRM PASSWORD' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtConfirmPassword.requestFocus();
-        }
-
-        if (txtAddress.getText() == null) {
+        } else if (!txtConfirmPassword.getText().equals(txtPassword.getText())) {
+            lblErrorConfirmPassword.setText("'CONFIRM PASSWORD' is diferent than the 'PASSWORD'.");
+            txtConfirmPassword.requestFocus();
+        } else if (txtAddress.getText() == null) {
             lblErrorAddress.setText("'ADDRESS' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'ADDRESS' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtAddress.requestFocus();
-        }
-
-        if (txtAddress.getText().equals("")) {
+        } else if (txtAddress.getText().equals("")) {
             lblErrorAddress.setText("'ADDRESS' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'ADDRESS' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtAddress.requestFocus();
-        }
-
-        if (comboSecurityQuestion1.getSelectedItem().equals("")) {
+        } else if (comboSecurityQuestion1.getSelectedItem().equals("")) {
             lblErrorSecurityQuestion1.setText("'SECURITY QUESTION - 1' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY QUESTION - 1' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboSecurityQuestion1.requestFocus();
-        }
-
-        if ("- Select Security Question 1 -".equals(comboSecurityQuestion1.getSelectedItem())) {
+        } else if ("- Select Security Question 1 -".equals(comboSecurityQuestion1.getSelectedItem())) {
             lblErrorSecurityQuestion1.setText("'SECURITY QUESTION - 1' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY QUESTION - 1' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboSecurityQuestion1.requestFocus();
-        }
-
-        if (txtSecurityAnswer1.getText() == null) {
+        } else if (txtSecurityAnswer1.getText() == null) {
             lblErrorSecurityAnswer1.setText("'SECURITY ANSWER - 1' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY ANSWER - 1' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtSecurityAnswer1.requestFocus();
-        }
-
-        if (txtSecurityAnswer1.getText().equals("")) {
+        } else if (txtSecurityAnswer1.getText().equals("")) {
             lblErrorSecurityAnswer1.setText("'SECURITY ANSWER - 1' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY ANSWER - 1' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtSecurityAnswer1.requestFocus();
-        }
-
-        if (comboSecurityQuestion2.getSelectedItem().equals("")) {
+        } else if (comboSecurityQuestion2.getSelectedItem().equals("")) {
             lblErrorSecurityQuestion2.setText("'SECURITY QUESTION - 2' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY QUESTION - 2' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboSecurityQuestion2.requestFocus();
-        }
-
-        if ("- Select Security Question 2 -".equals(comboSecurityQuestion2.getSelectedItem())) {
+        } else if ("- Select Security Question 2 -".equals(comboSecurityQuestion2.getSelectedItem())) {
             lblErrorSecurityQuestion2.setText("'SECURITY QUESTION - 2' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY QUESTION - 2' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboSecurityQuestion2.requestFocus();
-        }
-
-        if (txtSecurityAnswer2.getText() == null) {
+        } else if (txtSecurityAnswer2.getText() == null) {
             lblErrorSecurityAnswer2.setText("'SECURITY ANSWER - 2' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY ANSWER - 2' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtSecurityAnswer2.requestFocus();
-        }
-
-        if (txtSecurityAnswer2.getText().equals("")) {
+        } else if (txtSecurityAnswer2.getText().equals("")) {
             lblErrorSecurityAnswer2.setText("'SECURITY ANSWER - 2' can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'SECURITY ANSWER - 2' can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             txtSecurityAnswer2.requestFocus();
-        }
-
-        if (comboCity.getSelectedItem().equals("")) {
+        } else if (comboCity.getSelectedItem().equals("")) {
             lblErrorCity.setText("'CITY' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'CITY' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboCity.requestFocus();
-        }
-
-        if ("- Select City -".equals(comboCity.getSelectedItem())) {
+        } else if ("- Select City -".equals(comboCity.getSelectedItem())) {
             lblErrorCity.setText("'CITY' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'CITY' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboCity.requestFocus();
-        }
-
-        if (comboLocation.getSelectedItem().equals("")) {
+        } else if (comboLocation.getSelectedItem().equals("")) {
             lblErrorLocation.setText("'LOCATION' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'LOCATION' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboLocation.requestFocus();
-        }
-
-        if ("- Select Location -".equals(comboLocation.getSelectedItem())) {
+        } else if ("- Select Location -".equals(comboLocation.getSelectedItem())) {
             lblErrorLocation.setText("'LOCATION' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'LOCATION' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboLocation.requestFocus();
-        }
-
-        if (comboDivision.getSelectedItem().equals("")) {
+        } else if (comboDivision.getSelectedItem().equals("")) {
             lblErrorDivision.setText("'DIVISION' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'DIVISION' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboDivision.requestFocus();
-        }
-
-        if ("- Select Division -".equals(comboDivision.getSelectedItem())) {
+        } else if ("- Select Division -".equals(comboDivision.getSelectedItem())) {
             lblErrorDivision.setText("'DIVISION' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'DIVISION' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboDivision.requestFocus();
-        }
-
-        if (comboDesignation.getSelectedItem().equals("")) {
+        } else if (comboDesignation.getSelectedItem().equals("")) {
             lblErrorDesignation.setText("'DESIGNATION' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'DESIGNATION' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboDesignation.requestFocus();
-        }
-
-        if ("- Select Designation -".equals(comboDesignation.getSelectedItem())) {
+        } else if ("- Select Designation -".equals(comboDesignation.getSelectedItem())) {
             lblErrorDesignation.setText("'DESIGNATION' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'DESIGNATION' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboDesignation.requestFocus();
-        }
-
-        if (comboUserRole.getSelectedItem().equals("")) {
+        } else if (comboUserRole.getSelectedItem().equals("")) {
             lblErrorUserRole.setText("'USER ROLE' should can not be blank.");
-//            JOptionPane.showMessageDialog(this, "'USER ROLE' should can not be blank.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboUserRole.requestFocus();
-        }
-
-        if ("- Select User Role -".equals(comboUserRole.getSelectedItem())) {
+        } else if ("- Select User Role -".equals(comboUserRole.getSelectedItem())) {
             lblErrorUserRole.setText("'USER ROLE' should be a valid value.");
-//            JOptionPane.showMessageDialog(this, "'USER ROLE' should be a valid value.", "USER MANAGEMENT", JOptionPane.ERROR_MESSAGE);
             comboUserRole.requestFocus();
+        } else {
+            dataUpdate();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
@@ -981,79 +1124,431 @@ public class UserManager extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSaveFocusLost
 
     private void txtSecurityAnswer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtSecurityAnswer1ActionPerformed
 
     private void txtSecurityAnswer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtSecurityAnswer2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnBrowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowsActionPerformed
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
 
-    private void radioStatusActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioStatusActiveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioStatusActiveActionPerformed
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "jpeg", "png", "gif");
+        file.addChoosableFileFilter(filter);
+
+        int result = file.showSaveDialog(null);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = file.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            lblUserImage.setIcon(ResizeImage(path));
+            sImagePath = path;
+        }
+    }//GEN-LAST:event_btnBrowsActionPerformed
+
+    private void rdbStatusActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbStatusActiveActionPerformed
+    }//GEN-LAST:event_rdbStatusActiveActionPerformed
 
     private void txtFullNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFullNameKeyReleased
         int len = txtFullName.getText().length();
 
-        ViewMessage(len);
+        if (len == 0) {
+            lblErrorFullName.setText("'FULL NAME' can not be blank.");
+        } else {
+            lblErrorFullName.setText("");
+        }
     }//GEN-LAST:event_txtFullNameKeyReleased
 
-    private String errorMessage ViewMessage(String fieldName,int len) {
+    private void txtFullNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFullNameKeyTyped
+        int len = txtFullName.getText().length();
+
+        if (len >= 200) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtFullNameKeyTyped
+
+    private void txtFullNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFullNameKeyPressed
+    }//GEN-LAST:event_txtFullNameKeyPressed
+
+    private void txtEmployeeIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmployeeIDKeyReleased
+        int len = txtEmployeeID.getText().length();
+
         if (len == 0) {
-            errorMessage = "* Required Field";
+            lblErrorEmployeeID.setText("'FMPLOYEE ID' can not be blank.");
         } else {
-            switch (fieldName) {
-                case "Full Name":
-                    
-            }
+            lblErrorEmployeeID.setText("");
         }
-        
-        return errorMessage;
-    }
+    }//GEN-LAST:event_txtEmployeeIDKeyReleased
 
-    private void showRole() {
-        try {
-            conn = MySqlConnection.ConnectDB();
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        int len = txtEmail.getText().length();
 
-            String sSql = "select * from role_master";
-
-            pst = conn.prepareStatement(sSql);
-            rs = pst.executeQuery();
-            pst = conn.prepareStatement(sSql);
-
-            comboUserRole.removeAllItems();
-
-            comboUserRole.addItem("- Select User Role -");
-
-            while (rs.next()) {
-                comboUserRole.addItem(rs.getString("rm_role_name"));
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
+        if (len == 0) {
+            lblErrorEmail.setText("'EMAIL' can not be blank.");
+        } else {
+            lblErrorEmail.setText("");
         }
-    }
+    }//GEN-LAST:event_txtEmailKeyReleased
 
-    private void formFormat() {
-        setScreenSize();
-        clearField();
-        clearErrorLable();
-        showRole();
-    }
+    private void txtNICNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNICNumberKeyReleased
+        int len = txtNICNumber.getText().length();
 
-    private void setScreenSize() {
-        Toolkit toolkit = getToolkit();
-        Dimension size = toolkit.getScreenSize();
-        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
-    }
+        if (len == 0) {
+            lblErrorNICNumber.setText("'NIC NUMBER' can not be blank.");
+        } else {
+            lblErrorNICNumber.setText("");
+        }
+    }//GEN-LAST:event_txtNICNumberKeyReleased
+
+    private void txtPassportNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassportNumberKeyReleased
+        int len = txtPassportNumber.getText().length();
+
+        if (len == 0) {
+            lblErrorPassportNumber.setText("'PASSPORT NUMBER' can not be blank.");
+        } else {
+            lblErrorPassportNumber.setText("");
+        }
+    }//GEN-LAST:event_txtPassportNumberKeyReleased
+
+    private void txtMobileNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileNumberKeyReleased
+        int len = txtMobileNumber.getText().length();
+
+        if (len == 0) {
+            lblErrorMobileNumber.setText("'MOBILE NUMBER' can not be blank.");
+        } else {
+            lblErrorMobileNumber.setText("");
+        }
+    }//GEN-LAST:event_txtMobileNumberKeyReleased
+
+    private void txtResidentNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResidentNumberKeyReleased
+        int len = txtResidentNumber.getText().length();
+
+        if (len == 0) {
+            lblErrorResidentNumber.setText("'RESIDENT NUMBER' can not be blank.");
+        } else {
+            lblErrorResidentNumber.setText("");
+        }
+    }//GEN-LAST:event_txtResidentNumberKeyReleased
+
+    private void comboGenderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboGenderKeyReleased
+    }//GEN-LAST:event_comboGenderKeyReleased
+
+    private void txtUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyReleased
+        int len = txtUsername.getText().length();
+
+        if (len == 0) {
+            lblErrorUsername.setText("'USERNAME' can not be blank.");
+        } else {
+            lblErrorUsername.setText("");
+        }
+    }//GEN-LAST:event_txtUsernameKeyReleased
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+        int len = txtPassword.getText().length();
+
+        if (len == 0) {
+            lblErrorPassword.setText("'PASSWORD' can not be blank.");
+        } else {
+            lblErrorPassword.setText("");
+        }
+    }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void txtConfirmPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyReleased
+        int len = txtConfirmPassword.getText().length();
+
+        if (len == 0) {
+            lblErrorConfirmPassword.setText("'CONFIRM PASSWORD' can not be blank.");
+        } else {
+            lblErrorConfirmPassword.setText("");
+        }
+    }//GEN-LAST:event_txtConfirmPasswordKeyReleased
+
+    private void txtSecurityAnswer1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1KeyReleased
+        int len = txtSecurityAnswer1.getText().length();
+
+        if (len == 0) {
+            lblErrorSecurityAnswer1.setText("'SECURITY ANSWER 1' can not be blank.");
+        } else {
+            lblErrorSecurityAnswer1.setText("");
+        }
+    }//GEN-LAST:event_txtSecurityAnswer1KeyReleased
+
+    private void txtSecurityAnswer2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2KeyReleased
+        int len = txtSecurityAnswer2.getText().length();
+
+        if (len == 0) {
+            lblErrorSecurityAnswer2.setText("'SECURITY ANSWER 2' can not be blank.");
+        } else {
+            lblErrorSecurityAnswer2.setText("");
+        }
+    }//GEN-LAST:event_txtSecurityAnswer2KeyReleased
+
+    private void comboGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGenderActionPerformed
+        if ("- Select Gender -".equals(comboGender.getSelectedItem())) {
+            lblErrorGender.setText("'GENDER' should be a valid value.");
+        } else {
+            lblErrorGender.setText("");
+        }
+    }//GEN-LAST:event_comboGenderActionPerformed
+
+    private void comboNationalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNationalityActionPerformed
+        if ("- Select Nationality -".equals(comboNationality.getSelectedItem())) {
+            lblErrorNationality.setText("'NATIONALITY' should be a valid value.");
+        } else {
+            lblErrorNationality.setText("");
+        }
+    }//GEN-LAST:event_comboNationalityActionPerformed
+
+    private void comboRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRaceActionPerformed
+        if ("- Select Race -".equals(comboRace.getSelectedItem())) {
+            lblErrorRace.setText("'RACE' should be a valid value.");
+        } else {
+            lblErrorRace.setText("");
+        }
+    }//GEN-LAST:event_comboRaceActionPerformed
+
+    private void comboReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboReligionActionPerformed
+        if ("- Select Religion -".equals(comboReligion.getSelectedItem())) {
+            lblErrorReligion.setText("'RELIGION' should be a valid value.");
+        } else {
+            lblErrorReligion.setText("");
+        }
+    }//GEN-LAST:event_comboReligionActionPerformed
+
+    private void comboSecurityQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSecurityQuestion1ActionPerformed
+        if ("- Select Security Question 1 -".equals(comboSecurityQuestion1.getSelectedItem())) {
+            lblErrorSecurityQuestion1.setText("'SECURITY QUESTION - 1' should be a valid value.");
+        } else {
+            lblErrorSecurityQuestion1.setText("");
+        }
+    }//GEN-LAST:event_comboSecurityQuestion1ActionPerformed
+
+    private void comboSecurityQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSecurityQuestion2ActionPerformed
+        if ("- Select Security Question 2 -".equals(comboSecurityQuestion2.getSelectedItem())) {
+            lblErrorSecurityQuestion2.setText("'SECURITY QUESTION - 2' should be a valid value.");
+        } else {
+            lblErrorSecurityQuestion2.setText("");
+        }
+    }//GEN-LAST:event_comboSecurityQuestion2ActionPerformed
+
+    private void comboCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCityActionPerformed
+        if ("- Select City -".equals(comboCity.getSelectedItem())) {
+            lblErrorCity.setText("'CITY' should be a valid value.");
+        } else {
+            lblErrorCity.setText("");
+        }
+    }//GEN-LAST:event_comboCityActionPerformed
+
+    private void comboLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboLocationActionPerformed
+        if ("- Select Location -".equals(comboLocation.getSelectedItem())) {
+            lblErrorLocation.setText("'LOCATION' should be a valid value.");
+        } else {
+            lblErrorLocation.setText("");
+        }
+    }//GEN-LAST:event_comboLocationActionPerformed
+
+    private void comboDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDivisionActionPerformed
+        if ("- Select Division -".equals(comboDivision.getSelectedItem())) {
+            lblErrorDivision.setText("'DIVISION' should be a valid value.");
+        } else {
+            lblErrorDivision.setText("");
+        }
+    }//GEN-LAST:event_comboDivisionActionPerformed
+
+    private void comboDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDesignationActionPerformed
+        if ("- Select Designation -".equals(comboDesignation.getSelectedItem())) {
+            lblErrorDesignation.setText("'DESIGNATION' should be a valid value.");
+        } else {
+            lblErrorDesignation.setText("");
+        }
+    }//GEN-LAST:event_comboDesignationActionPerformed
+
+    private void comboUserRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUserRoleActionPerformed
+        if ("- Select User Role -".equals(comboUserRole.getSelectedItem())) {
+            lblErrorUserRole.setText("'USER ROLE' should be a valid value.");
+        } else {
+            lblErrorUserRole.setText("");
+        }
+    }//GEN-LAST:event_comboUserRoleActionPerformed
+
+    private void txtFullNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFullNameFocusGained
+        txtFullName.selectAll();
+    }//GEN-LAST:event_txtFullNameFocusGained
+
+    private void txtEmployeeIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmployeeIDFocusGained
+        txtEmployeeID.selectAll();
+    }//GEN-LAST:event_txtEmployeeIDFocusGained
+
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        txtEmail.selectAll();
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    private void txtNICNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNICNumberFocusGained
+        txtNICNumber.selectAll();
+    }//GEN-LAST:event_txtNICNumberFocusGained
+
+    private void txtPassportNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassportNumberFocusGained
+        txtPassportNumber.selectAll();
+    }//GEN-LAST:event_txtPassportNumberFocusGained
+
+    private void txtMobileNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMobileNumberFocusGained
+        txtMobileNumber.selectAll();
+    }//GEN-LAST:event_txtMobileNumberFocusGained
+
+    private void txtResidentNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtResidentNumberFocusGained
+        txtResidentNumber.selectAll();
+    }//GEN-LAST:event_txtResidentNumberFocusGained
+
+    private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
+        txtUsername.selectAll();
+    }//GEN-LAST:event_txtUsernameFocusGained
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        txtPassword.selectAll();
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusGained
+        txtConfirmPassword.selectAll();
+    }//GEN-LAST:event_txtConfirmPasswordFocusGained
+
+    private void txtSecurityAnswer1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1FocusGained
+        txtSecurityAnswer1.selectAll();
+    }//GEN-LAST:event_txtSecurityAnswer1FocusGained
+
+    private void txtSecurityAnswer2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2FocusGained
+        txtSecurityAnswer2.selectAll();
+    }//GEN-LAST:event_txtSecurityAnswer2FocusGained
+
+    private void txtEmployeeIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmployeeIDKeyTyped
+        int len = txtEmployeeID.getText().length();
+
+        if (len >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtEmployeeIDKeyTyped
+
+    private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
+        int len = txtEmail.getText().length();
+
+        if (len >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtEmailKeyTyped
+
+    private void txtNICNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNICNumberKeyTyped
+        int len = txtNICNumber.getText().length();
+
+        if (len >= 15) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtNICNumberKeyTyped
+
+    private void txtPassportNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassportNumberKeyTyped
+        int len = txtPassportNumber.getText().length();
+
+        if (len >= 15) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPassportNumberKeyTyped
+
+    private void txtMobileNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileNumberKeyTyped
+        int len = txtMobileNumber.getText().length();
+
+        if (len >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtMobileNumberKeyTyped
+
+    private void txtResidentNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResidentNumberKeyTyped
+        int len = txtResidentNumber.getText().length();
+
+        if (len >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtResidentNumberKeyTyped
+
+    private void txtUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyTyped
+        int len = txtUsername.getText().length();
+
+        if (len >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtUsernameKeyTyped
+
+    private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
+        int len = txtPassword.getText().length();
+
+        if (len >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPasswordKeyTyped
+
+    private void txtConfirmPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmPasswordKeyTyped
+        int len = txtConfirmPassword.getText().length();
+
+        if (len >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtConfirmPasswordKeyTyped
+
+    private void txtSecurityAnswer1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer1KeyTyped
+        int len = txtSecurityAnswer1.getText().length();
+
+        if (len >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtSecurityAnswer1KeyTyped
+
+    private void txtSecurityAnswer2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityAnswer2KeyTyped
+        int len = txtSecurityAnswer2.getText().length();
+
+        if (len >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtSecurityAnswer2KeyTyped
+
+    private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
+        if (!txtConfirmPassword.getText().equals(txtPassword.getText())) {
+            lblErrorConfirmPassword.setText("'CONFIRM PASSWORD' is diferent than the 'PASSWORD'.");
+        }
+    }//GEN-LAST:event_txtConfirmPasswordFocusLost
+
+    private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
+        int len = txtAddress.getText().length();
+
+        if (len >= 250) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAddressKeyTyped
+
+    private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
+        int len = txtAddress.getText().length();
+
+        if (len == 0) {
+            lblErrorAddress.setText("'ADDRESS' can not be blank.");
+        } else {
+            lblErrorAddress.setText("");
+        }
+    }//GEN-LAST:event_txtAddressKeyReleased
+
+    private void txtAddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusGained
+        txtAddress.selectAll();
+    }//GEN-LAST:event_txtAddressFocusGained
 
     private void clearField() {
-//        showRole();
-
         txtFullName.setText(null);
         txtEmployeeID.setText(null);
         txtEmail.setText(null);
@@ -1083,7 +1578,7 @@ public class UserManager extends javax.swing.JInternalFrame {
 
         txtFullName.requestFocus();
     }
-    
+
     private void clearErrorLable() {
         lblErrorFullName.setText("");
         lblErrorEmployeeID.setText("");
@@ -1111,10 +1606,437 @@ public class UserManager extends javax.swing.JInternalFrame {
         lblErrorUserRole.setText("");
     }
 
+    private void formFormat() {
+        setScreenSize();
+        clearField();
+        showCity();
+        showRole();
+        showSecurityQuestion1();
+        showSecurityQuestion2();
+        clearErrorLable();
+
+        rdbStatusActive.setSelected(true);
+    }
+
+    private void setScreenSize() {
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+    }
+
+    public ImageIcon ResizeImage(String ImagePath) {
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(lblUserImage.getWidth(), lblUserImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
+
+    private void showRole() {
+        try {
+            String sSql = "SELECT * FROM role_master";
+
+            pstRoleMaster = conn.prepareStatement(sSql);
+            rsRoleMaster = pstRoleMaster.executeQuery();
+
+            comboUserRole.removeAllItems();
+
+            comboUserRole.addItem("- Select User Role -");
+
+            while (rsRoleMaster.next()) {
+                comboUserRole.addItem(rsRoleMaster.getString("rm_role_name"));
+            }
+
+            rsRoleMaster.close();
+            pstRoleMaster.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void showCity() {
+        try {
+            String sSql = "SELECT * FROM city_master";
+
+            pstCityMaster = conn.prepareStatement(sSql);
+            rsCityMaster = pstCityMaster.executeQuery();
+
+            comboCity.removeAllItems();
+
+            comboCity.addItem("- Select City -");
+
+            while (rsCityMaster.next()) {
+                comboCity.addItem(rsCityMaster.getString("cm_city_name"));
+            }
+
+            rsCityMaster.close();
+            pstCityMaster.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void showSecurityQuestion1() {
+        try {
+            String sSql = "SELECT * FROM question_master WHERE qm_question_type = 'USER_QS1'";
+
+            pstQuestionMaster1 = conn.prepareStatement(sSql);
+            rsQuestionMaster1 = pstQuestionMaster1.executeQuery();
+
+            comboSecurityQuestion1.removeAllItems();
+
+            comboSecurityQuestion1.addItem("- Select Security Question 1 -");
+
+            while (rsQuestionMaster1.next()) {
+                comboSecurityQuestion1.addItem(rsQuestionMaster1.getString("qm_question_name"));
+            }
+
+            rsQuestionMaster1.close();
+            pstQuestionMaster1.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void showSecurityQuestion2() {
+        try {
+            String sSql = "SELECT * FROM question_master WHERE qm_question_type = 'USER_QS2'";
+
+            pstQuestionMaster2 = conn.prepareStatement(sSql);
+            rsQuestionMaster2 = pstQuestionMaster2.executeQuery();
+
+            comboSecurityQuestion2.removeAllItems();
+
+            comboSecurityQuestion2.addItem("- Select Security Question 2 -");
+
+            while (rsQuestionMaster2.next()) {
+                comboSecurityQuestion2.addItem(rsQuestionMaster2.getString("qm_question_name"));
+            }
+
+            rsQuestionMaster2.close();
+            pstQuestionMaster2.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void dataRetrieval() {
+        String sUserStatus = "";
+        int maxUserID = 0;
+        int userCityID = 0;
+        int userRoleID = 0;
+        int userSecurityQuestionID_1 = 0;
+        int userSecurityQuestionID_2 = 0;
+
+        try {
+            conn = MySqlConnection.ConnectDB();
+
+            String sSql_UserMaster = "SELECT MAX(um_user_id) AS 'MaxID' FROM user_master";
+
+            pstUserMaster = conn.prepareStatement(sSql_UserMaster);
+            rsUserMaster = pstUserMaster.executeQuery();
+            if (rsUserMaster.next()) {
+                maxUserID = rsUserMaster.getInt("MaxID") + 1;
+            }
+            rsUserMaster.close();
+            pstUserMaster.close();
+
+            String sSql_RoleMaster = "SELECT rm_role_id FROM role_master WHERE rm_role_name = '" + comboUserRole.getSelectedItem().toString() + "'";
+
+            pstRoleMaster = conn.prepareStatement(sSql_RoleMaster);
+            rsRoleMaster = pstRoleMaster.executeQuery();
+            if (rsRoleMaster.next()) {
+                userRoleID = rsRoleMaster.getInt("rm_role_id");
+            }
+            rsRoleMaster.close();
+            pstRoleMaster.close();;
+
+            String sSql_QuestionMaster_1 = "SELECT qm_question_id FROM question_master WHERE qm_question_name = '" + comboSecurityQuestion1.getSelectedItem().toString() + "'";
+
+            pstQuestionMaster1 = conn.prepareStatement(sSql_QuestionMaster_1);
+            rsQuestionMaster1 = pstQuestionMaster1.executeQuery();
+            if (rsQuestionMaster1.next()) {
+                userSecurityQuestionID_1 = rsQuestionMaster1.getInt("qm_question_id");
+            }
+            rsQuestionMaster1.close();
+            pstQuestionMaster1.close();;
+
+            String sSql_QuestionMaster_2 = "SELECT qm_question_id FROM question_master WHERE qm_question_name = '" + comboSecurityQuestion2.getSelectedItem().toString() + "'";
+
+            pstQuestionMaster2 = conn.prepareStatement(sSql_QuestionMaster_2);
+            rsQuestionMaster2 = pstQuestionMaster2.executeQuery();
+            if (rsQuestionMaster2.next()) {
+                userSecurityQuestionID_2 = rsQuestionMaster2.getInt("qm_question_id");
+            }
+            rsQuestionMaster2.close();
+            pstQuestionMaster2.close();;
+
+            String sSql_CityMaster = "SELECT cm_city_id FROM city_master WHERE cm_city_name = '" + comboCity.getSelectedItem().toString() + "'";
+
+            pstCityMaster = conn.prepareStatement(sSql_CityMaster);
+            rsCityMaster = pstCityMaster.executeQuery();
+            if (rsCityMaster.next()) {
+                userCityID = rsCityMaster.getInt("cm_city_id");
+            }
+            rsCityMaster.close();
+            pstCityMaster.close();;
+
+            String sFullName = txtFullName.getText().trim();
+            String sEmployeeID = txtEmployeeID.getText().trim();
+            String sEmail = txtEmail.getText().trim();
+            String stxtNICNumber = txtNICNumber.getText().trim();
+            String sPassportNumber = txtPassportNumber.getText().trim();
+            String sMobileNumber = txtMobileNumber.getText().trim();
+            String sResidentNumber = txtResidentNumber.getText().trim();
+            String SGender = comboGender.getSelectedItem().toString();
+            String sReligion = comboReligion.getSelectedItem().toString();
+            String sUsername = txtUsername.getText().trim();
+            String sPassword = txtPassword.getText().trim();
+            String sAddress = txtAddress.getText().trim();
+            String sSecurityAnswer1 = txtSecurityAnswer1.getText().trim();
+            String sSecurityAnswer2 = txtSecurityAnswer2.getText().trim();
+            String sRace = comboRace.getSelectedItem().toString();
+            String sNationality = comboNationality.getSelectedItem().toString();
+            String sLocation = comboLocation.getSelectedItem().toString();
+            String sDivision = comboDivision.getSelectedItem().toString();
+            String sDesignation = comboDesignation.getSelectedItem().toString();
+
+            if (rdbStatusActive.isSelected()) {
+                sUserStatus = "Active";
+            } else if (rdbStatusInactive.isSelected()) {
+                sUserStatus = "Inactive";
+            }
+
+            InputStream isUserImage = new FileInputStream(new File(sImagePath));
+
+            String sSql = "SELECT * FROM user_master WHERE um_user_username '" 
+                    + comFunc.sCurrentButtonAction.substring(4) + "'";
+
+            pst = conn.prepareStatement(sSql);
+            pst.execute();
+
+            while (rs.next()) {
+                txtFullName.setText(rs.getString("um_user_full_name"));
+                txtEmployeeID.setText(rs.getString("um_user_epf_no"));
+                txtEmail.setText(rs.getString("um_user_email"));
+                txtNICNumber.setText(rs.getString("um_user_nic_no"));
+                txtPassportNumber.setText(rs.getString("um_user_pp_no"));
+                txtMobileNumber.setText(rs.getString("um_user_mobile_no"));
+                txtResidentNumber.setText(rs.getString("um_user_resident_no"));
+//                comboGender.setSelectedItem().toString() = rs.getString("um_user_gender");
+//                comboReligion.setSelectedItem().toString() = rs.getString("um_user_religion");
+                txtUsername.setText(rs.getString("um_user_username"));
+                txtPassword.setText(rs.getString("um_user_password"));
+                txtConfirmPassword.setText(rs.getString("um_user_password"));
+                txtAddress.setText(rs.getString("um_user_address"));
+                txtSecurityAnswer1.setText(rs.getString("um_user_security_answer_1"));
+                txtSecurityAnswer2.setText(rs.getString("um_user_security_answer_2"));
+//                comboRace.setSelectedItem().toString() = rs.getString("um_user_race");
+//                comboNationality.setSelectedItem().toString() = rs.getString("um_user_nationality");
+//                comboLocation.setSelectedItem().toString() = rs.getString("um_user_location");
+//                comboDivision.setSelectedItem().toString() = rs.getString("um_user_division");
+//                comboDesignation.setSelectedItem().toString() = rs.getString("um_user_designation");
+            }
+
+            rs.close();
+            pst.close();
+
+            JOptionPane.showMessageDialog(null, "RECORD SAVED.");
+
+            clearField();
+            showCity();
+            showRole();
+            showSecurityQuestion1();
+            showSecurityQuestion2();
+            clearErrorLable();
+
+            rdbStatusActive.setSelected(true);
+            tabbedUserManager.setSelectedIndex(0);
+            txtFullName.requestFocus();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
+        }
+    }
+
+    private void dataUpdate() {
+        String sUserStatus = "";
+        int maxUserID = 0;
+        int userCityID = 0;
+        int userRoleID = 0;
+        int userSecurityQuestionID_1 = 0;
+        int userSecurityQuestionID_2 = 0;
+
+        try {
+            conn = MySqlConnection.ConnectDB();
+
+            String sSql_UserMaster = "SELECT MAX(um_user_id) AS 'MaxID' FROM user_master";
+
+            pstUserMaster = conn.prepareStatement(sSql_UserMaster);
+            rsUserMaster = pstUserMaster.executeQuery();
+            if (rsUserMaster.next()) {
+                maxUserID = rsUserMaster.getInt("MaxID") + 1;
+            }
+            rsUserMaster.close();
+            pstUserMaster.close();
+
+            String sSql_RoleMaster = "SELECT rm_role_id FROM role_master WHERE rm_role_name = '" + comboUserRole.getSelectedItem().toString() + "'";
+
+            pstRoleMaster = conn.prepareStatement(sSql_RoleMaster);
+            rsRoleMaster = pstRoleMaster.executeQuery();
+            if (rsRoleMaster.next()) {
+                userRoleID = rsRoleMaster.getInt("rm_role_id");
+            }
+            rsRoleMaster.close();
+            pstRoleMaster.close();;
+
+            String sSql_QuestionMaster_1 = "SELECT qm_question_id FROM question_master WHERE qm_question_name = '" + comboSecurityQuestion1.getSelectedItem().toString() + "'";
+
+            pstQuestionMaster1 = conn.prepareStatement(sSql_QuestionMaster_1);
+            rsQuestionMaster1 = pstQuestionMaster1.executeQuery();
+            if (rsQuestionMaster1.next()) {
+                userSecurityQuestionID_1 = rsQuestionMaster1.getInt("qm_question_id");
+            }
+            rsQuestionMaster1.close();
+            pstQuestionMaster1.close();;
+
+            String sSql_QuestionMaster_2 = "SELECT qm_question_id FROM question_master WHERE qm_question_name = '" + comboSecurityQuestion2.getSelectedItem().toString() + "'";
+
+            pstQuestionMaster2 = conn.prepareStatement(sSql_QuestionMaster_2);
+            rsQuestionMaster2 = pstQuestionMaster2.executeQuery();
+            if (rsQuestionMaster2.next()) {
+                userSecurityQuestionID_2 = rsQuestionMaster2.getInt("qm_question_id");
+            }
+            rsQuestionMaster2.close();
+            pstQuestionMaster2.close();;
+
+            String sSql_CityMaster = "SELECT cm_city_id FROM city_master WHERE cm_city_name = '" + comboCity.getSelectedItem().toString() + "'";
+
+            pstCityMaster = conn.prepareStatement(sSql_CityMaster);
+            rsCityMaster = pstCityMaster.executeQuery();
+            if (rsCityMaster.next()) {
+                userCityID = rsCityMaster.getInt("cm_city_id");
+            }
+            rsCityMaster.close();
+            pstCityMaster.close();;
+
+            String sFullName = txtFullName.getText().trim();
+            String sEmployeeID = txtEmployeeID.getText().trim();
+            String sEmail = txtEmail.getText().trim();
+            String stxtNICNumber = txtNICNumber.getText().trim();
+            String sPassportNumber = txtPassportNumber.getText().trim();
+            String sMobileNumber = txtMobileNumber.getText().trim();
+            String sResidentNumber = txtResidentNumber.getText().trim();
+            String SGender = comboGender.getSelectedItem().toString();
+            String sReligion = comboReligion.getSelectedItem().toString();
+            String sUsername = txtUsername.getText().trim();
+            String sPassword = txtPassword.getText().trim();
+            String sAddress = txtAddress.getText().trim();
+            String sSecurityAnswer1 = txtSecurityAnswer1.getText().trim();
+            String sSecurityAnswer2 = txtSecurityAnswer2.getText().trim();
+            String sRace = comboRace.getSelectedItem().toString();
+            String sNationality = comboNationality.getSelectedItem().toString();
+            String sLocation = comboLocation.getSelectedItem().toString();
+            String sDivision = comboDivision.getSelectedItem().toString();
+            String sDesignation = comboDesignation.getSelectedItem().toString();
+
+            if (rdbStatusActive.isSelected()) {
+                sUserStatus = "Active";
+            } else if (rdbStatusInactive.isSelected()) {
+                sUserStatus = "Inactive";
+            }
+
+            InputStream isUserImage = new FileInputStream(new File(sImagePath));
+
+            String sSql = "INSERT INTO user_master ("
+                    + "um_user_id, "
+                    + "um_user_full_name, "
+                    + "um_user_epf_no, "
+                    + "um_user_email, "
+                    + "um_user_nic_no, "
+                    + "um_user_pp_no, "
+                    + "um_user_mobile_no, "
+                    + "um_user_resident_no, "
+                    + "um_user_gender, "
+                    + "um_user_religion, "
+                    + "um_user_username, "
+                    + "um_user_password, "
+                    + "um_user_address, "
+                    + "um_user_security_answer_1, "
+                    + "um_user_security_answer_2, "
+                    + "um_user_race, "
+                    + "um_user_nationality, "
+                    + "um_user_location, "
+                    + "um_user_division, "
+                    + "um_user_designation, "
+                    + "um_user_status, "
+                    + "um_user_update_date_time, "
+                    + "um_user_image, "
+                    + "um_user_role_id, "
+                    + "um_user_security_question_1_id, "
+                    + "um_user_security_question_2_id, "
+                    + "um_user_city_id"
+                    + ")"
+                    + " VALUES ("
+                    + maxUserID + ", '"
+                    + sFullName + "', '"
+                    + sEmployeeID + "', '"
+                    + sEmail + "', '"
+                    + stxtNICNumber + "', '"
+                    + sPassportNumber + "', '"
+                    + sMobileNumber + "', '"
+                    + sResidentNumber + "', '"
+                    + SGender + "', '"
+                    + sReligion + "', '"
+                    + sUsername + "', '"
+                    + sPassword + "', '"
+                    + sAddress + "', '"
+                    + sSecurityAnswer1 + "', '"
+                    + sSecurityAnswer2 + "', '"
+                    + sRace + "', '"
+                    + sNationality + "', '"
+                    + sLocation + "', '"
+                    + sDivision + "', '"
+                    + sDesignation + "', '"
+                    + sUserStatus + "', '"
+                    + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "', '"
+                    + isUserImage + "', '"
+                    + userRoleID + "', '"
+                    + userSecurityQuestionID_1 + "', '"
+                    + userSecurityQuestionID_2 + "', "
+                    + userCityID
+                    + ")";
+
+            pst = conn.prepareStatement(sSql);
+
+            pst.execute();
+
+            pst.close();
+
+            JOptionPane.showMessageDialog(null, "RECORD SAVED.");
+
+            clearField();
+            showCity();
+            showRole();
+            showSecurityQuestion1();
+            showSecurityQuestion2();
+            clearErrorLable();
+
+            rdbStatusActive.setSelected(true);
+            tabbedUserManager.setSelectedIndex(0);
+            txtFullName.requestFocus();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBrows;
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
+    private javax.swing.ButtonGroup buttonGroupStatus;
     private javax.swing.JComboBox comboCity;
     private javax.swing.JComboBox comboDesignation;
     private javax.swing.JComboBox comboDivision;
@@ -1126,9 +2048,6 @@ public class UserManager extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox comboSecurityQuestion1;
     private javax.swing.JComboBox comboSecurityQuestion2;
     private javax.swing.JComboBox comboUserRole;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblConfirmPassword;
@@ -1176,6 +2095,8 @@ public class UserManager extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblSecurityQuestion1;
     private javax.swing.JLabel lblSecurityQuestion2;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblUserImage;
+    private javax.swing.JLabel lblUserImageHedding;
     private javax.swing.JLabel lblUserRole;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel panelDetails;
@@ -1183,13 +2104,14 @@ public class UserManager extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelMainButtons;
     private javax.swing.JPanel panelOther;
     private javax.swing.JPanel panelSearchButtons;
-    private javax.swing.JPanel panelSearchButtons1;
+    private javax.swing.JPanel panelUserImage;
     private javax.swing.JPanel panelUserManager;
     private javax.swing.JPanel panelUserManagerMain;
-    private javax.swing.JRadioButton radioStatusActive;
-    private javax.swing.JRadioButton radioStatusInactive;
+    private javax.swing.JRadioButton rdbStatusActive;
+    private javax.swing.JRadioButton rdbStatusInactive;
+    private javax.swing.JScrollPane scrollPaneAddress;
     private javax.swing.JTabbedPane tabbedUserManager;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextArea txtAddress;
     private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmployeeID;

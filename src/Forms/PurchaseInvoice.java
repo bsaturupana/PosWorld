@@ -2,16 +2,11 @@ package Forms;
 
 import Util.CommonFunctions;
 import com.sun.glass.events.KeyEvent;
-import com.sun.javafx.embed.AbstractEvents;
-import static java.lang.Double.parseDouble;
 import java.text.SimpleDateFormat;
-import static java.time.LocalDate.now;
 import java.util.Date;
 import java.util.Locale;
-import javafx.scene.input.KeyCode;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static org.hibernate.ejb.criteria.ValueHandlerFactory.isNumeric;
 
 public class PurchaseInvoice extends javax.swing.JFrame {
 
